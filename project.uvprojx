@@ -392,13 +392,6 @@
           <GroupName>AT</GroupName>
           <Files>
             <File>
-              <FileName>at_client.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>rt-thread\components\net\at\src\at_client.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
               <FileName>at_socket.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\net\at\at_socket\at_socket.c</FilePath>
@@ -413,6 +406,13 @@
           </Files>
           <Files>
             <File>
+              <FileName>at_client.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\net\at\src\at_client.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
               <FileName>at_utils.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\net\at\src\at_utils.c</FilePath>
@@ -421,20 +421,6 @@
         </Group>
         <Group>
           <GroupName>at_device</GroupName>
-          <Files>
-            <File>
-              <FileName>at_sample_esp8266.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\at_device-latest\samples\at_sample_esp8266.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>at_device_esp8266.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\at_device-latest\class\esp8266\at_device_esp8266.c</FilePath>
-            </File>
-          </Files>
           <Files>
             <File>
               <FileName>at_device.c</FileName>
@@ -447,6 +433,20 @@
               <FileName>at_socket_esp8266.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\at_device-latest\class\esp8266\at_socket_esp8266.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>at_device_esp8266.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\at_device-latest\class\esp8266\at_device_esp8266.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>at_sample_esp8266.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\at_device-latest\samples\at_sample_esp8266.c</FilePath>
             </File>
           </Files>
         </Group>

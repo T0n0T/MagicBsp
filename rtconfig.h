@@ -115,12 +115,12 @@
 #define RT_USING_PIN
 #define RT_USING_RTC
 #define RT_USING_ALARM
+#define RT_USING_SOFT_RTC
 #define RT_USING_SPI
 #define RT_USING_SFUD
 #define RT_SFUD_USING_SFDP
 #define RT_SFUD_USING_FLASH_INFO_TABLE
 #define RT_SFUD_SPI_MAX_HZ 50000000
-#define RT_DEBUG_SFUD
 
 /* Using USB */
 
