@@ -15,6 +15,7 @@
 #include <rthw.h>
 #ifdef RT_USING_DEVICE
 #include <rtdevice.h>
+#include "drv_gpio.h"
 #endif
 
 #ifdef __cplusplus
