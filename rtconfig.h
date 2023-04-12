@@ -3,7 +3,10 @@
 
 /* Automatically generated file; DO NOT EDIT. */
 /* RT-Thread Configuration */
-
+#define RT_WEAK rt_weak
+#define RT_VERSION RT_VERSION_MAJOR
+#define RT_SUBVERSION RT_VERSION_MINOR
+#define RT_REVISION RT_VERSION_PATCH
 /* RT-Thread Kernel */
 
 #define RT_NAME_MAX 8
@@ -112,7 +115,6 @@
 #define RT_USING_PIN
 #define RT_USING_RTC
 #define RT_USING_ALARM
-#define RT_USING_SOFT_RTC
 #define RT_USING_SPI
 #define RT_USING_SFUD
 #define RT_SFUD_USING_SFDP
