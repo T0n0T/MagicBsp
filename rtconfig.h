@@ -3,10 +3,7 @@
 
 /* Automatically generated file; DO NOT EDIT. */
 /* RT-Thread Configuration */
-#define RT_WEAK rt_weak
-#define RT_VERSION RT_VERSION_MAJOR
-#define RT_SUBVERSION RT_VERSION_MINOR
-#define RT_REVISION RT_VERSION_PATCH
+
 /* RT-Thread Kernel */
 
 #define RT_NAME_MAX 8
@@ -61,6 +58,7 @@
 #define RT_USING_USER_MAIN
 #define RT_MAIN_THREAD_STACK_SIZE 2048
 #define RT_MAIN_THREAD_PRIORITY 10
+#define RT_USING_LEGACY
 #define RT_USING_MSH
 #define RT_USING_FINSH
 #define FINSH_USING_MSH

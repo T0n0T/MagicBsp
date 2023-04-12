@@ -331,7 +331,7 @@
               <MiscControls />
               <Define>__STDC_LIMIT_MACROS, RT_USING_ARMLIBC, STM32F103xE, USE_HAL_DRIVER, RT_USING_LIBC, __CLK_TCK=RT_TICK_PER_SECOND, __RTTHREAD__</Define>
               <Undefine />
-              <IncludePath>rt-thread\components\net\netdev\include;rt-thread\components\drivers\include;rt-thread\components\libc\posix\ipc;applications;rt-thread\components\net\sal\include\socket\sys_socket;rt-thread\components\net\sal\impl;board\CubeMX_Config\Inc;rt-thread\components\net\at\include;rt-thread\components\drivers\include;rt-thread\components\dfs\dfs_v1\filesystems\devfs;packages\netutils-latest\ntp;rt-thread\components\net\at\at_socket;rt-thread\components\drivers\include;rt-thread\components\drivers\spi\sfud\inc;libraries\HAL_Drivers\CMSIS\Include;rt-thread\components\libc\compilers\common\extension;rt-thread\libcpu\arm\common;rt-thread\components\finsh;.;board;rt-thread\components\drivers\include;libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Include;rt-thread\components\net\sal\include;libraries\HAL_Drivers;rt-thread\components\dfs\dfs_v1\include;rt-thread\components\libc\compilers\common\include;packages\netutils-latest\tftp;rt-thread\components\libc\compilers\common\extension\fcntl\octal;rt-thread\components\dfs\dfs_v1\filesystems\elmfat;rt-thread\components\net\sal\include\socket;rt-thread\components\net\sal\include\dfs_net;packages\at_device-latest\class\esp8266;rt-thread\components\libc\posix\io\stdio;rt-thread\libcpu\arm\cortex-m3;libraries\HAL_Drivers\config;rt-thread\components\libc\posix\io\poll;rt-thread\components\drivers\spi;rt-thread\include;libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Inc;rt-thread\components\drivers\include;packages\at_device-latest\inc</IncludePath>
+              <IncludePath>rt-thread\components\net\netdev\include;rt-thread\components\drivers\include;rt-thread\components\libc\posix\ipc;applications;rt-thread\components\net\sal\include\socket\sys_socket;rt-thread\components\net\sal\impl;board\CubeMX_Config\Inc;rt-thread\components\net\at\include;rt-thread\components\drivers\include;rt-thread\components\dfs\dfs_v1\filesystems\devfs;packages\netutils-latest\ntp;rt-thread\components\net\at\at_socket;rt-thread\components\drivers\include;rt-thread\components\drivers\spi\sfud\inc;libraries\HAL_Drivers\CMSIS\Include;rt-thread\components\libc\compilers\common\extension;rt-thread\libcpu\arm\common;rt-thread\components\libc\posix\io\poll;rt-thread\components\finsh;.;rt-thread\components\legacy\dfs;board;rt-thread\components\drivers\include;libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Include;rt-thread\components\net\sal\include;libraries\HAL_Drivers;rt-thread\components\dfs\dfs_v1\include;rt-thread\components\libc\compilers\common\include;packages\netutils-latest\tftp;rt-thread\components\libc\compilers\common\extension\fcntl\octal;rt-thread\components\dfs\dfs_v1\filesystems\elmfat;rt-thread\components\net\sal\include\socket;rt-thread\components\net\sal\include\dfs_net;packages\at_device-latest\class\esp8266;rt-thread\components\libc\posix\io\stdio;rt-thread\libcpu\arm\cortex-m3;libraries\HAL_Drivers\config;rt-thread\components\legacy;rt-thread\components\drivers\spi;rt-thread\include;libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Inc;rt-thread\components\drivers\include;packages\at_device-latest\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -375,16 +375,16 @@
           <GroupName>Applications</GroupName>
           <Files>
             <File>
-              <FileName>fs.c</FileName>
+              <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>applications\fs.c</FilePath>
+              <FilePath>applications\main.c</FilePath>
             </File>
           </Files>
           <Files>
             <File>
-              <FileName>main.c</FileName>
+              <FileName>fs.c</FileName>
               <FileType>1</FileType>
-              <FilePath>applications\main.c</FilePath>
+              <FilePath>applications\fs.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -392,16 +392,9 @@
           <GroupName>AT</GroupName>
           <Files>
             <File>
-              <FileName>at_socket.c</FileName>
+              <FileName>at_utils.c</FileName>
               <FileType>1</FileType>
-              <FilePath>rt-thread\components\net\at\at_socket\at_socket.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>at_cli.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>rt-thread\components\net\at\src\at_cli.c</FilePath>
+              <FilePath>rt-thread\components\net\at\src\at_utils.c</FilePath>
             </File>
           </Files>
           <Files>
@@ -413,9 +406,16 @@
           </Files>
           <Files>
             <File>
-              <FileName>at_utils.c</FileName>
+              <FileName>at_cli.c</FileName>
               <FileType>1</FileType>
-              <FilePath>rt-thread\components\net\at\src\at_utils.c</FilePath>
+              <FilePath>rt-thread\components\net\at\src\at_cli.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>at_socket.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\net\at\at_socket\at_socket.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -430,9 +430,9 @@
           </Files>
           <Files>
             <File>
-              <FileName>at_socket_esp8266.c</FileName>
+              <FileName>at_sample_esp8266.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\at_device-latest\class\esp8266\at_socket_esp8266.c</FilePath>
+              <FilePath>packages\at_device-latest\samples\at_sample_esp8266.c</FilePath>
             </File>
           </Files>
           <Files>
@@ -444,9 +444,9 @@
           </Files>
           <Files>
             <File>
-              <FileName>at_sample_esp8266.c</FileName>
+              <FileName>at_socket_esp8266.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\at_device-latest\samples\at_sample_esp8266.c</FilePath>
+              <FilePath>packages\at_device-latest\class\esp8266\at_socket_esp8266.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1113,6 +1113,16 @@
               <FileName>timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\src\timer.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Legacy</GroupName>
+          <Files>
+            <File>
+              <FileName>workqueue_legacy.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\legacy\ipc\workqueue_legacy.c</FilePath>
             </File>
           </Files>
         </Group>
