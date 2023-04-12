@@ -331,7 +331,7 @@
               <MiscControls />
               <Define>__STDC_LIMIT_MACROS, RT_USING_ARMLIBC, STM32F103xE, USE_HAL_DRIVER, RT_USING_LIBC, __CLK_TCK=RT_TICK_PER_SECOND, __RTTHREAD__</Define>
               <Undefine />
-              <IncludePath>rt-thread\components\net\netdev\include;rt-thread\components\drivers\include;rt-thread\components\libc\posix\ipc;applications;rt-thread\components\net\sal\include\socket\sys_socket;rt-thread\components\net\sal\impl;board\CubeMX_Config\Inc;rt-thread\components\net\at\include;rt-thread\components\drivers\include;rt-thread\components\dfs\dfs_v1\filesystems\devfs;rt-thread\components\net\at\at_socket;rt-thread\components\drivers\include;rt-thread\components\drivers\spi\sfud\inc;libraries\HAL_Drivers\CMSIS\Include;rt-thread\components\libc\compilers\common\extension;rt-thread\libcpu\arm\common;rt-thread\components\finsh;.;board;rt-thread\components\drivers\include;libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Include;rt-thread\components\net\sal\include;libraries\HAL_Drivers;rt-thread\components\dfs\dfs_v1\include;rt-thread\components\libc\compilers\common\include;rt-thread\components\libc\compilers\common\extension\fcntl\octal;rt-thread\components\dfs\dfs_v1\filesystems\elmfat;rt-thread\components\net\sal\include\socket;rt-thread\components\net\sal\include\dfs_net;rt-thread\libcpu\arm\cortex-m3;libraries\HAL_Drivers\config;rt-thread\components\libc\posix\io\poll;rt-thread\components\drivers\spi;rt-thread\include;libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Inc;rt-thread\components\drivers\include;rt-thread\components\libc\posix\io\stdio</IncludePath>
+              <IncludePath>rt-thread\components\net\netdev\include;rt-thread\components\drivers\include;rt-thread\components\libc\posix\ipc;applications;rt-thread\components\net\sal\include\socket\sys_socket;rt-thread\components\net\sal\impl;board\CubeMX_Config\Inc;rt-thread\components\net\at\include;rt-thread\components\drivers\include;rt-thread\components\dfs\dfs_v1\filesystems\devfs;packages\netutils-latest\ntp;rt-thread\components\net\at\at_socket;rt-thread\components\drivers\include;rt-thread\components\drivers\spi\sfud\inc;libraries\HAL_Drivers\CMSIS\Include;rt-thread\components\libc\compilers\common\extension;rt-thread\libcpu\arm\common;rt-thread\components\finsh;.;board;rt-thread\components\drivers\include;libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Include;rt-thread\components\net\sal\include;libraries\HAL_Drivers;rt-thread\components\dfs\dfs_v1\include;rt-thread\components\libc\compilers\common\include;packages\netutils-latest\tftp;rt-thread\components\libc\compilers\common\extension\fcntl\octal;rt-thread\components\dfs\dfs_v1\filesystems\elmfat;rt-thread\components\net\sal\include\socket;rt-thread\components\net\sal\include\dfs_net;packages\at_device-latest\class\esp8266;rt-thread\components\libc\posix\io\stdio;rt-thread\libcpu\arm\cortex-m3;libraries\HAL_Drivers\config;rt-thread\components\libc\posix\io\poll;rt-thread\components\drivers\spi;rt-thread\include;libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Inc;rt-thread\components\drivers\include;packages\at_device-latest\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -375,6 +375,13 @@
           <GroupName>Applications</GroupName>
           <Files>
             <File>
+              <FileName>fs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>applications\fs.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>applications\main.c</FilePath>
@@ -385,16 +392,16 @@
           <GroupName>AT</GroupName>
           <Files>
             <File>
-              <FileName>at_socket.c</FileName>
+              <FileName>at_client.c</FileName>
               <FileType>1</FileType>
-              <FilePath>rt-thread\components\net\at\at_socket\at_socket.c</FilePath>
+              <FilePath>rt-thread\components\net\at\src\at_client.c</FilePath>
             </File>
           </Files>
           <Files>
             <File>
-              <FileName>at_utils.c</FileName>
+              <FileName>at_socket.c</FileName>
               <FileType>1</FileType>
-              <FilePath>rt-thread\components\net\at\src\at_utils.c</FilePath>
+              <FilePath>rt-thread\components\net\at\at_socket\at_socket.c</FilePath>
             </File>
           </Files>
           <Files>
@@ -406,9 +413,40 @@
           </Files>
           <Files>
             <File>
-              <FileName>at_client.c</FileName>
+              <FileName>at_utils.c</FileName>
               <FileType>1</FileType>
-              <FilePath>rt-thread\components\net\at\src\at_client.c</FilePath>
+              <FilePath>rt-thread\components\net\at\src\at_utils.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>at_device</GroupName>
+          <Files>
+            <File>
+              <FileName>at_sample_esp8266.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\at_device-latest\samples\at_sample_esp8266.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>at_device_esp8266.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\at_device-latest\class\esp8266\at_device_esp8266.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>at_device.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\at_device-latest\src\at_device.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>at_socket_esp8266.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\at_device-latest\class\esp8266\at_socket_esp8266.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -687,6 +725,25 @@
               <FileName>rtc.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\rtc\rtc.c</FilePath>
+              <FileOption>
+                <FileArmAds>
+                  <Cads>
+                    <VariousControls>
+                      <MiscControls>  --c99</MiscControls>
+                      <Define> </Define>
+                      <Undefine> </Undefine>
+                      <IncludePath> </IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>soft_rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\drivers\rtc\soft_rtc.c</FilePath>
               <FileOption>
                 <FileArmAds>
                   <Cads>
@@ -1178,6 +1235,61 @@
               <FileName>stm32f1xx_hal_gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_gpio.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>NetUtils</GroupName>
+          <Files>
+            <File>
+              <FileName>ntp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\netutils-latest\ntp\ntp.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>tftp_client.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\netutils-latest\tftp\tftp_client.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>tftp_port.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\netutils-latest\tftp\tftp_port.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>tftp_server.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\netutils-latest\tftp\tftp_server.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>tftp_xfer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\netutils-latest\tftp\tftp_xfer.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>POSIX</GroupName>
+          <Files>
+            <File>
+              <FileName>poll.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\libc\posix\io\poll\poll.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>select.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\libc\posix\io\poll\select.c</FilePath>
             </File>
           </Files>
         </Group>
