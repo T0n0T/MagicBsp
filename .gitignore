@@ -40,5 +40,5 @@ RTE/
 settings/
 *.uvguix*
 cconfig.h
-MDK-ARM
+/board/CubeMX_Config/MDK-ARM
 /board/CubeMX_Config/Drivers
