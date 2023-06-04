@@ -57,10 +57,11 @@ if GetDepend('BSP_USING_SDRAM'):
 if GetDepend(['BSP_USING_NAND1']):
     src += ['drv_nand.c']
 
-if GetDepend('BSP_USING_LCD'):
+if GetDepend('RT_USING_LCD'):
     src += ['drv_lcd.c']
+    src += ['ports/ili9341.c']
 
-if GetDepend('BSP_USING_LCD_MIPI'):
+if GetDepend('RT_USING_LCD_MIPI'):
     src += ['drv_lcd_mipi.c']
 
 if GetDepend('BSP_USING_ONCHIP_RTC'):
@@ -114,10 +115,14 @@ if GetDepend(['BSP_USING_PULSE_ENCODER']):
 if GetDepend(['BSP_USING_USBH']):
     src += ['drv_usbh.c']
 
+if GetDepend(['RT_USING_TOUCH']):
+    src += Glob('ports/touch/*.c')
+    
 src += ['drv_common.c']
 
 path =  [cwd]
 path += [cwd + '/config']
+path += [cwd + '/ports']
 
 if not GetDepend('PKG_CMSIS_CORE'):
     path += [cwd + '/CMSIS/Include']

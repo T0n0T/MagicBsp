@@ -10,7 +10,7 @@
 
 #include <board.h>
 
-#ifdef BSP_USING_LCD
+#ifdef RT_USING_LCD
 #include <lcd_port.h>
 #include <rtdevice.h>
 #include <string.h>
