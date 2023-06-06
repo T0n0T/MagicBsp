@@ -28,7 +28,6 @@ void touch_func(void* p)
         return;
     }
 
-//    rt_device_control(touch, RT_TOUCH_CTRL_ENABLE_INT, 0);
     struct rt_touch_data read_data;
     while (1){
         //Prepare variable to read out the touch data

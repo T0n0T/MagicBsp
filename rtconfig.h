@@ -47,7 +47,7 @@
 #define RT_USING_DEVICE
 #define RT_USING_CONSOLE
 #define RT_CONSOLEBUF_SIZE 128
-#define RT_CONSOLE_DEVICE_NAME "uart1"
+#define RT_CONSOLE_DEVICE_NAME "uart"
 #define RT_VER_NUM 0x50001
 #define RT_USING_HW_ATOMIC
 #define RT_USING_CPU_FFS
@@ -151,6 +151,14 @@
 
 /* LVGL: powerful and easy-to-use embedded GUI library */
 
+#define PKG_USING_LVGL
+#define PKG_LVGL_THREAD_PRIO 20
+#define PKG_LVGL_THREAD_STACK_SIZE 4096
+#define PKG_LVGL_DISP_REFR_PERIOD 5
+#define PKG_LVGL_USING_EXAMPLES
+#define PKG_LVGL_USING_DEMOS
+#define PKG_LVGL_USING_V08035
+#define PKG_LVGL_VER_NUM 0x08035
 
 /* u8g2: a monochrome graphic library */
 
@@ -189,10 +197,10 @@
 #define PKG_XPT2046_IRQ_PIN 1
 #define PKG_XPT2046_RANGE_X 240
 #define PKG_XPT2046_RANGE_Y 320
-#define PKG_XPT2046_MIN_RAW_X 0
-#define PKG_XPT2046_MIN_RAW_Y 0
-#define PKG_XPT2046_MAX_RAW_X 1500
-#define PKG_XPT2046_MAX_RAW_Y 2000
+#define PKG_XPT2046_MIN_RAW_X 181
+#define PKG_XPT2046_MIN_RAW_Y 189
+#define PKG_XPT2046_MAX_RAW_X 1871
+#define PKG_XPT2046_MAX_RAW_Y 2048
 
 /* Kendryte SDK */
 
