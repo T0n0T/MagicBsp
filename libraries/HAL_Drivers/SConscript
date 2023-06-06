@@ -122,7 +122,7 @@ src += ['drv_common.c']
 
 path =  [cwd]
 path += [cwd + '/config']
-path += [cwd + '/ports']
+path += [cwd + '/include']
 
 if not GetDepend('PKG_CMSIS_CORE'):
     path += [cwd + '/CMSIS/Include']
