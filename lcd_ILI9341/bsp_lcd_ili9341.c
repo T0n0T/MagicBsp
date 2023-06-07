@@ -15,7 +15,7 @@
 #include "font.h"
 #include <spi_flash_sfud.h>
 #include <drv_spi.h>
-//#define DRV_DEBUG
+#define DRV_DEBUG
 #define LOG_TAG              "lcd.ili9341"
 #include <drv_log.h>
 /*****************************************************************************

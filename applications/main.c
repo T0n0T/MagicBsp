@@ -11,6 +11,8 @@
 #include <rtthread.h>
 #include <rtdevice.h>
 #include <bsp_lcd_ili9341.h>
+#include <lv_example_png.h>
+#include <lvgl.h>
 #include <board.h>
 
 /* defined the LED0 pin: PB2 */
@@ -47,16 +49,21 @@ void touch_func(void* p)
     }
 }
 
+void ui_init(void)
+{
+	lv_example_png_1();
+}
+
 int main(void)
 {
     /* set LED0 pin mode to output */
     rt_pin_mode(LED0_PIN, PIN_MODE_OUTPUT);
-    LCD_Init();
+//    LCD_Init();
 //    LCD_String(20, 8, "hello", 24, WHITE, BLACK);
 //    LCD_GUI();
 
     rt_thread_t touch_reflect = rt_thread_create("touch_ref", touch_func, RT_NULL, 512, 20, 15);
-    rt_thread_startup(touch_reflect);
+//    rt_thread_startup(touch_reflect);
 
     while (1)
     {
