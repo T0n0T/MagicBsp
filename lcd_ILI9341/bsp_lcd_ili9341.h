@@ -93,7 +93,43 @@ extern _LCD xLCD;
 #define      LBBLUE              0X2B12       // 浅棕蓝色(选择条目的反色)
 
 
+#if 0
+// BL
+#define    LCD_BL_ON       rt_pin_write(BL, PIN_HIGH);  // 置高电平
+#define    LCD_BL_OFF      rt_pin_write(BL, PIN_LOW);   // 置低电平
+// WR
+#define    LCD_WR_HIGH     rt_pin_write(WR, PIN_HIGH);   // 置高电平
+#define    LCD_WR_LOW      rt_pin_write(WR, PIN_LOW);    // 置低电平
+// RS
+#define    LCD_RS_HIGH     rt_pin_write(RS, PIN_HIGH);   // 置高电平
+#define    LCD_RS_LOW      rt_pin_write(RS, PIN_LOW);    // 置低电平
+// RD
+#define    LCD_RD_HIGH     rt_pin_write(RD, PIN_HIGH);   // 置高电平
+#define    LCD_RD_LOW      rt_pin_write(RD, PIN_LOW);    // 置低电平
+// CS
+#define    LCD_CS_HIGH     rt_pin_write(CS, PIN_HIGH);   // 置高电平
+#define    LCD_CS_LOW      rt_pin_write(CS, PIN_LOW);    // 置低电平
+#else
+#define    LCD_BL_ON        LCD_BL_GPIO->BSRR = LCD_BL_PIN       // 置高电平
+#define    LCD_BL_OFF       LCD_BL_GPIO->BSRR = LCD_BL_PIN<<16  // 置高电平
+//#define    LCD_BL_OFF      LCD_BL_GPIO->BRR  = LCD_BL_PIN       // 置低电平
 
+#define    LCD_RD_HIGH      LCD_RD_GPIO ->BSRR =LCD_RD_PIN       // 置高电平
+#define    LCD_RD_LOW       LCD_RD_GPIO ->BSRR =LCD_RD_PIN<<16    // 置高电平
+//#define    LCD_RD_LOW      LCD_RD_GPIO ->BRR = LCD_RD_PIN       // 置低电平
+
+#define    LCD_WR_HIGH      LCD_WR_GPIO ->BSRR =LCD_WR_PIN       // 置高电平
+#define    LCD_WR_LOW       LCD_WR_GPIO ->BSRR =LCD_WR_PIN<<16    // 置高电平
+//#define    LCD_WR_LOW      LCD_WR_GPIO ->BRR = LCD_WR_PIN       // 置低电平
+
+#define    LCD_RS_HIGH      LCD_RS_GPIO ->BSRR =LCD_RS_PIN       // 置高电平
+#define    LCD_RS_LOW       LCD_RS_GPIO ->BSRR =LCD_RS_PIN<<16    // 置高电平
+//#define    LCD_RS_LOW      LCD_RS_GPIO ->BRR = LCD_RS_PIN       // 置低电平
+
+#define    LCD_CS_HIGH      LCD_CS_GPIO ->BSRR =LCD_CS_PIN       // 置高电平
+#define    LCD_CS_LOW       LCD_CS_GPIO ->BSRR =LCD_CS_PIN<<16    // 置高电平
+//#define    LCD_CS_LOW      LCD_CS_GPIO ->BRR = LCD_CS_PIN       // 置低电平
+#endif
 /*****************************************************************************
  ** 声明全局函数
 

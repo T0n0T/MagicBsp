@@ -140,7 +140,7 @@ void lv_port_disp_init(void)
 static void disp_init(void)
 {
     /*You code here*/
-//    LCD_Init();
+    LCD_Init();
 }
 
 volatile bool disp_flush_enabled = true;
@@ -159,12 +159,29 @@ void disp_disable_update(void)
     disp_flush_enabled = false;
 }
 
+
+void lvgl_LCD_Color_Fill(rt_uint16_t sx, rt_uint16_t sy, rt_uint16_t ex, rt_uint16_t ey,  lv_color_t *color)
+{
+    uint32_t y=0;
+    uint16_t height, width;
+    width = ex - sx + 1;            //得到填充的宽度
+    height = ey - sy + 1;           //高度
+
+    setCursor(sx,sy,ex,ey);
+
+    for(y = 0; y <width*height; y++)
+    {
+        sendDataShort(color->full);
+        color++;
+    }
+}
 /*Flush the content of the internal buffer the specific area on the display
  *You can use DMA or any hardware acceleration to do this operation in the background but
  *'lv_disp_flush_ready()' has to be called when finished.*/
 static void disp_flush(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_color_t * color_p)
 {
-    LCD_Fill(area->x1, area->y1, area->x2, area->y2, *(rt_uint16_t*)color_p);
+    lvgl_LCD_Color_Fill(area->x1, area->y1, area->x2, area->y2, color_p);
+
     /*IMPORTANT!!!
      *Inform the graphics library that you are ready with the flushing*/
     lv_disp_flush_ready(disp_drv);
