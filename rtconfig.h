@@ -7,7 +7,7 @@
 /* RT-Thread Kernel */
 
 #define RT_NAME_MAX 8
-#define RT_ALIGN_SIZE 4
+#define RT_ALIGN_SIZE 8
 #define RT_THREAD_PRIORITY_32
 #define RT_THREAD_PRIORITY_MAX 32
 #define RT_TICK_PER_SECOND 1000
@@ -25,6 +25,7 @@
 
 #define RT_KSERVICE_USING_STDLIB
 #define RT_DEBUG
+#define RT_DEBUG_COLOR
 
 /* Inter-Thread communication */
 
@@ -37,9 +38,10 @@
 /* Memory Management */
 
 #define RT_PAGE_MAX_ORDER 11
-#define RT_USING_MEMPOOL
-#define RT_USING_SMALL_MEM
-#define RT_USING_SMALL_MEM_AS_HEAP
+#define RT_USING_MEMHEAP
+#define RT_MEMHEAP_FAST_MODE
+#define RT_USING_MEMHEAP_AS_HEAP
+#define RT_USING_MEMHEAP_AUTO_BINDING
 #define RT_USING_HEAP
 
 /* Kernel Device Object */
@@ -163,8 +165,17 @@
 /* u8g2: a monochrome graphic library */
 
 
+/* PainterEngine: A cross-platform graphics application framework written in C language */
+
+
 /* tools packages */
 
+#define PKG_USING_CMBACKTRACE
+#define PKG_CMBACKTRACE_PLATFORM_M3
+#define PKG_CMBACKTRACE_DUMP_STACK
+#define PKG_CMBACKTRACE_PRINT_ENGLISH
+#define PKG_USING_CMBACKTRACE_V10401
+#define PKG_CMBACKTRACE_VER_NUM 0x10401
 
 /* system packages */
 
@@ -182,33 +193,11 @@
 
 /* peripheral libraries and drivers */
 
-/* sensors drivers */
-
-
-/* touch drivers */
-
-#define PKG_USING_XPT2046_TOUCH
-#define PKG_USING_XPT2046_TOUCH_LATEST_VERSION
-#define PKG_XPT2046_USING_KCONFIG
-#define PKG_XPT2046_SPI_BUS "sspi1"
-#define PKG_XPT2046_CS_GPIO C
-#define PKG_XPT2046_CS_PIN 4
-#define PKG_XPT2046_IRQ_GPIO C
-#define PKG_XPT2046_IRQ_PIN 1
-#define PKG_XPT2046_RANGE_X 240
-#define PKG_XPT2046_RANGE_Y 320
-#define PKG_XPT2046_MIN_RAW_X 181
-#define PKG_XPT2046_MIN_RAW_Y 189
-#define PKG_XPT2046_MAX_RAW_X 1871
-#define PKG_XPT2046_MAX_RAW_Y 2048
 
 /* Kendryte SDK */
 
 
 /* AI packages */
-
-
-/* Signal Processing and Control Algorithm Packages */
 
 
 /* miscellaneous packages */
@@ -243,12 +232,10 @@
 
 /* Communication */
 
-
 /* Device Control */
 
 
 /* Other */
-
 
 /* Signal IO */
 
@@ -275,10 +262,6 @@
 #define BSP_USING_SPI1
 #define BSP_USING_TIM
 #define BSP_USING_TIM3
-#define BSP_USING_SOFT_SPI1
-#define BSP_S_SPI1_SCK_PIN 32
-#define BSP_S_SPI1_MISO_PIN 34
-#define BSP_S_SPI1_MOSI_PIN 35
 
 /* Board extended module Drivers */
 
