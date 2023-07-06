@@ -43,3 +43,4 @@ cconfig.h
 /board/CubeMX_Config/MDK-ARM
 /board/CubeMX_Config/Drivers
 /.settings
+EventRecorderStub.scvd

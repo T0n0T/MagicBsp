@@ -7,7 +7,7 @@
 /* RT-Thread Kernel */
 
 #define RT_NAME_MAX 8
-#define RT_ALIGN_SIZE 8
+#define RT_ALIGN_SIZE 4
 #define RT_THREAD_PRIORITY_32
 #define RT_THREAD_PRIORITY_MAX 32
 #define RT_TICK_PER_SECOND 1000
@@ -121,7 +121,6 @@
 
 /* Using USB */
 
-
 /* C/C++ and POSIX layer */
 
 #define RT_LIBC_DEFAULT_TIMEZONE 8
@@ -135,9 +134,7 @@
 
 /* Interprocess Communication (IPC) */
 
-
 /* Socket is in the 'Network' category */
-
 
 /* Network */
 
@@ -165,16 +162,13 @@
 
 /* Utilities */
 
-
 /* RT-Thread online packages */
 
 /* IoT - internet of things */
 
-
 /* Wi-Fi */
 
 /* Marvell WiFi */
-
 
 /* Wiced WiFi */
 
@@ -203,59 +197,46 @@
 
 /* IoT Cloud */
 
-
 /* security packages */
-
 
 /* language packages */
 
 /* JSON: JavaScript Object Notation, a lightweight data-interchange format */
 
-
 /* XML: Extensible Markup Language */
-
 
 /* multimedia packages */
 
 /* LVGL: powerful and easy-to-use embedded GUI library */
 
-
 /* u8g2: a monochrome graphic library */
 
+/* PainterEngine: A cross-platform graphics application framework written in C language */
 
 /* tools packages */
 
+#define PKG_USING_CMBACKTRACE
+#define PKG_CMBACKTRACE_PLATFORM_M3
+#define PKG_CMBACKTRACE_DUMP_STACK
+#define PKG_CMBACKTRACE_PRINT_ENGLISH
+#define PKG_USING_CMBACKTRACE_V10401
+#define PKG_CMBACKTRACE_VER_NUM 0x10401
 
 /* system packages */
 
 /* enhanced kernel services */
 
-
 /* acceleration: Assembly language or algorithmic acceleration packages */
-
 
 /* CMSIS: ARM Cortex-M Microcontroller Software Interface Standard */
 
-
 /* Micrium: Micrium software products porting for RT-Thread */
-
 
 /* peripheral libraries and drivers */
 
-/* sensors drivers */
-
-
-/* touch drivers */
-
-
 /* Kendryte SDK */
 
-
 /* AI packages */
-
-
-/* Signal Processing and Control Algorithm Packages */
-
 
 /* miscellaneous packages */
 
@@ -263,41 +244,29 @@
 
 /* samples: kernel and components samples */
 
-
 /* entertainment: terminal games and other interesting software packages */
-
 
 /* Arduino libraries */
 
-
 /* Projects */
-
 
 /* Sensors */
 
-
 /* Display */
-
 
 /* Timing */
 
-
 /* Data Processing */
-
 
 /* Data Storage */
 
 /* Communication */
 
-
 /* Device Control */
-
 
 /* Other */
 
-
 /* Signal IO */
-
 
 /* Uncategorized */
 
@@ -323,6 +292,5 @@
 #define BSP_USING_SPI1
 
 /* Board extended module Drivers */
-
 
 #endif
