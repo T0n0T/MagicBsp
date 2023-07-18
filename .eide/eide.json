@@ -1,0 +1,486 @@
+{
+  "name": "magic",
+  "type": "ARM",
+  "dependenceList": [],
+  "srcDirs": [
+    ".eide/deps"
+  ],
+  "virtualFolder": {
+    "name": "<virtual_root>",
+    "files": [],
+    "folders": [
+      {
+        "name": "Applications",
+        "files": [
+          {
+            "path": "applications/main.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "cm_backtrace",
+        "files": [
+          {
+            "path": "packages/CmBacktrace-v1.4.1/cm_backtrace.c"
+          },
+          {
+            "path": "packages/CmBacktrace-v1.4.1/cmb_flash_log.c"
+          },
+          {
+            "path": "packages/CmBacktrace-v1.4.1/cmb_port.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Compiler",
+        "files": [
+          {
+            "path": "rt-thread/components/libc/compilers/armlibc/syscall_mem.c"
+          },
+          {
+            "path": "rt-thread/components/libc/compilers/armlibc/syscalls.c"
+          },
+          {
+            "path": "rt-thread/components/libc/compilers/common/cctype.c"
+          },
+          {
+            "path": "rt-thread/components/libc/compilers/common/cstdio.c"
+          },
+          {
+            "path": "rt-thread/components/libc/compilers/common/cstdlib.c"
+          },
+          {
+            "path": "rt-thread/components/libc/compilers/common/cstring.c"
+          },
+          {
+            "path": "rt-thread/components/libc/compilers/common/ctime.c"
+          },
+          {
+            "path": "rt-thread/components/libc/compilers/common/cwchar.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "CPU",
+        "files": [
+          {
+            "path": "rt-thread/libcpu/arm/common/atomic_arm.c"
+          },
+          {
+            "path": "rt-thread/libcpu/arm/common/div0.c"
+          },
+          {
+            "path": "rt-thread/libcpu/arm/common/showmem.c"
+          },
+          {
+            "path": "rt-thread/libcpu/arm/cortex-m3/context_rvds.S"
+          },
+          {
+            "path": "rt-thread/libcpu/arm/cortex-m3/cpuport.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "DeviceDrivers",
+        "files": [
+          {
+            "path": "rt-thread/components/drivers/hwtimer/hwtimer.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/ipc/completion.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/ipc/dataqueue.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/ipc/pipe.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/ipc/ringblk_buf.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/ipc/ringbuffer.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/ipc/waitqueue.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/ipc/workqueue.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/misc/pin.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/serial/serial.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/spi/spi_core.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/spi/spi_dev.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Drivers",
+        "files": [
+          {
+            "path": "board/board.c"
+          },
+          {
+            "path": "board/CubeMX_Config/Src/stm32f1xx_hal_msp.c"
+          },
+          {
+            "path": "libraries/HAL_Drivers/drv_common.c"
+          },
+          {
+            "path": "libraries/HAL_Drivers/drv_gpio.c"
+          },
+          {
+            "path": "libraries/HAL_Drivers/drv_spi.c"
+          },
+          {
+            "path": "libraries/HAL_Drivers/drv_tim.c"
+          },
+          {
+            "path": "libraries/HAL_Drivers/drv_usart.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f103xe.s"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Finsh",
+        "files": [
+          {
+            "path": "rt-thread/components/finsh/shell.c"
+          },
+          {
+            "path": "rt-thread/components/finsh/msh.c"
+          },
+          {
+            "path": "rt-thread/components/finsh/msh_parse.c"
+          },
+          {
+            "path": "rt-thread/components/finsh/cmd.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Kernel",
+        "files": [
+          {
+            "path": "rt-thread/src/clock.c"
+          },
+          {
+            "path": "rt-thread/src/components.c"
+          },
+          {
+            "path": "rt-thread/src/device.c"
+          },
+          {
+            "path": "rt-thread/src/idle.c"
+          },
+          {
+            "path": "rt-thread/src/ipc.c"
+          },
+          {
+            "path": "rt-thread/src/irq.c"
+          },
+          {
+            "path": "rt-thread/src/kservice.c"
+          },
+          {
+            "path": "rt-thread/src/mem.c"
+          },
+          {
+            "path": "rt-thread/src/mempool.c"
+          },
+          {
+            "path": "rt-thread/src/object.c"
+          },
+          {
+            "path": "rt-thread/src/scheduler_up.c"
+          },
+          {
+            "path": "rt-thread/src/thread.c"
+          },
+          {
+            "path": "rt-thread/src/timer.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Legacy",
+        "files": [
+          {
+            "path": "rt-thread/components/legacy/ipc/workqueue_legacy.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Libraries",
+        "files": [
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_spi.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_crc.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Source/Templates/system_stm32f1xx.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cec.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_usart.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c"
+          }
+        ],
+        "folders": []
+      }
+    ]
+  },
+  "outDir": "build",
+  "deviceName": null,
+  "packDir": null,
+  "miscInfo": {
+    "uid": "9fee352ca1987f4df7ccc1f2a46122c4"
+  },
+  "targets": {
+    "rt-thread": {
+      "excludeList": [],
+      "toolchain": "AC5",
+      "compileConfig": {
+        "cpuType": "Cortex-M3",
+        "floatingPointHardware": "none",
+        "scatterFilePath": "board/linker_scripts/link.sct",
+        "useCustomScatterFile": true,
+        "storageLayout": {
+          "RAM": [
+            {
+              "tag": "RAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "RAM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "RAM",
+              "id": 3,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "IRAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x20000000",
+                "size": "0x5000"
+              },
+              "isChecked": true,
+              "noInit": false
+            },
+            {
+              "tag": "IRAM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            }
+          ],
+          "ROM": [
+            {
+              "tag": "ROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "ROM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "ROM",
+              "id": 3,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "IROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x8000000",
+                "size": "0x10000"
+              },
+              "isChecked": true,
+              "isStartup": true
+            },
+            {
+              "tag": "IROM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            }
+          ]
+        },
+        "options": "null"
+      },
+      "uploader": "JLink",
+      "uploadConfig": {
+        "bin": "${ExecutableName}.bin",
+        "baseAddr": "0x08000000",
+        "cpuInfo": {
+          "vendor": "ST",
+          "cpuName": "STM32F103RC"
+        },
+        "proType": 1,
+        "speed": 8000,
+        "otherCmds": "ip 192.168.1.2"
+      },
+      "uploadConfigMap": {
+        "JLink": {
+          "bin": "",
+          "baseAddr": "",
+          "cpuInfo": {
+            "vendor": "null",
+            "cpuName": "null"
+          },
+          "proType": 1,
+          "speed": 8000,
+          "otherCmds": ""
+        },
+        "OpenOCD": {
+          "bin": "${ExcutableName}.bin",
+          "target": "stm32f1x",
+          "interface": "cmsis-dap",
+          "baseAddr": "0x08000000"
+        }
+      },
+      "custom_dep": {
+        "name": "default",
+        "incList": [
+          "libraries/HAL_Drivers",
+          "packages/CmBacktrace-v1.4.1",
+          "rt-thread/components/drivers/include",
+          "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Inc",
+          "rt-thread/components/libc/posix/ipc",
+          "rt-thread/components/libc/compilers/common/extension/fcntl/octal",
+          "rt-thread/libcpu/arm/common",
+          ".",
+          "rt-thread/libcpu/arm/cortex-m3",
+          "rt-thread/components/libc/compilers/common/extension",
+          "rt-thread/components/libc/posix/io/poll",
+          "rt-thread/components/libc/compilers/common/include",
+          "rt-thread/components/drivers/spi",
+          "rt-thread/components/finsh",
+          "libraries/HAL_Drivers/CMSIS/Include",
+          "applications",
+          "rt-thread/include",
+          "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Include",
+          "libraries/HAL_Drivers/config",
+          "rt-thread/components/legacy",
+          "board/CubeMX_Config/Inc",
+          "board",
+          "rt-thread/components/libc/posix/io/stdio"
+        ],
+        "libList": [],
+        "sourceDirList": [],
+        "defineList": [
+          "__STDC_LIMIT_MACROS",
+          "RT_USING_ARMLIBC",
+          "STM32F103xE",
+          "USE_HAL_DRIVER",
+          "RT_USING_LIBC",
+          "__CLK_TCK=RT_TICK_PER_SECOND",
+          "__RTTHREAD__"
+        ]
+      }
+    }
+  },
+  "version": "3.3"
+}

@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>__STDC_LIMIT_MACROS, RT_USING_ARMLIBC, STM32F103xE, USE_HAL_DRIVER, RT_USING_LIBC, __CLK_TCK=RT_TICK_PER_SECOND, __RTTHREAD__</Define>
               <Undefine></Undefine>
-              <IncludePath>libraries\HAL_Drivers;rt-thread\components\drivers\include;rt-thread\components\drivers\include;libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Inc;rt-thread\components\libc\posix\ipc;rt-thread\components\libc\compilers\common\extension\fcntl\octal;rt-thread\components\drivers\include;rt-thread\libcpu\arm\common;.;rt-thread\libcpu\arm\cortex-m3;rt-thread\components\libc\compilers\common\extension;rt-thread\components\libc\posix\io\poll;rt-thread\components\libc\compilers\common\include;rt-thread\components\drivers\spi;rt-thread\components\finsh;libraries\HAL_Drivers\CMSIS\Include;applications;rt-thread\components\drivers\include;rt-thread\include;libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Include;rt-thread\components\drivers\include;libraries\HAL_Drivers\config;board\CubeMX_Config\Inc;board;rt-thread\components\libc\posix\io\stdio</IncludePath>
+              <IncludePath>libraries\HAL_Drivers;packages\CmBacktrace-v1.4.1;rt-thread\components\drivers\include;rt-thread\components\drivers\include;libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Inc;rt-thread\components\libc\posix\ipc;rt-thread\components\libc\compilers\common\extension\fcntl\octal;rt-thread\components\drivers\include;rt-thread\libcpu\arm\common;.;rt-thread\libcpu\arm\cortex-m3;rt-thread\components\libc\compilers\common\extension;rt-thread\components\libc\posix\io\poll;rt-thread\components\libc\compilers\common\include;rt-thread\components\drivers\spi;rt-thread\components\finsh;libraries\HAL_Drivers\CMSIS\Include;applications;rt-thread\components\drivers\include;rt-thread\include;libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Include;rt-thread\components\drivers\include;libraries\HAL_Drivers\config;rt-thread\components\legacy;board\CubeMX_Config\Inc;board;rt-thread\components\libc\posix\io\stdio</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -388,6 +388,26 @@
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>applications\main.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>cm_backtrace</GroupName>
+          <Files>
+            <File>
+              <FileName>cmb_port.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\CmBacktrace-v1.4.1\cmb_port.c</FilePath>
+            </File>
+            <File>
+              <FileName>cm_backtrace.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\CmBacktrace-v1.4.1\cm_backtrace.c</FilePath>
+            </File>
+            <File>
+              <FileName>cmb_flash_log.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\CmBacktrace-v1.4.1\cmb_flash_log.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -668,6 +688,16 @@
               <FileName>timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\src\timer.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Legacy</GroupName>
+          <Files>
+            <File>
+              <FileName>workqueue_legacy.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\legacy\ipc\workqueue_legacy.c</FilePath>
             </File>
           </Files>
         </Group>

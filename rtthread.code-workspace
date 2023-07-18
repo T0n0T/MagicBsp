@@ -1,0 +1,16 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "files.associations": {
+            "drv_spi.h": "c",
+            "drv_config.h": "c",
+            "dma_config.h": "c",
+            "spi_config.h": "c"
+        }
+    },
+    "extensions": {}
+}
