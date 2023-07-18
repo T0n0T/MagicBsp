@@ -47,7 +47,7 @@
 #define RT_USING_DEVICE
 #define RT_USING_CONSOLE
 #define RT_CONSOLEBUF_SIZE 128
-#define RT_CONSOLE_DEVICE_NAME "uart1"
+#define RT_CONSOLE_DEVICE_NAME "uart"
 #define RT_VER_NUM 0x50001
 #define RT_USING_HW_ATOMIC
 #define RT_USING_CPU_FFS
@@ -194,7 +194,7 @@
 /* Arduino libraries */
 
 
-/* Projects */
+/* Projects and Demos */
 
 
 /* Sensors */
@@ -243,6 +243,7 @@
 #define BSP_USING_UART1
 #define BSP_USING_SPI
 #define BSP_USING_SPI1
+#define BSP_USING_SPI2
 #define BSP_USING_TIM
 #define BSP_USING_TIM3
 
