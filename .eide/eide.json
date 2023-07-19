@@ -22,13 +22,13 @@
         "name": "cm_backtrace",
         "files": [
           {
+            "path": "packages/CmBacktrace-v1.4.1/cmb_port.c"
+          },
+          {
             "path": "packages/CmBacktrace-v1.4.1/cm_backtrace.c"
           },
           {
             "path": "packages/CmBacktrace-v1.4.1/cmb_flash_log.c"
-          },
-          {
-            "path": "packages/CmBacktrace-v1.4.1/cmb_port.c"
           }
         ],
         "folders": []
@@ -291,7 +291,7 @@
   "deviceName": null,
   "packDir": null,
   "miscInfo": {
-    "uid": "9fee352ca1987f4df7ccc1f2a46122c4"
+    "uid": "ed12690416078dac65be825dc5d93325"
   },
   "targets": {
     "rt-thread": {
@@ -410,17 +410,12 @@
         },
         "options": "null"
       },
-      "uploader": "JLink",
+      "uploader": "OpenOCD",
       "uploadConfig": {
         "bin": "${ExecutableName}.bin",
-        "baseAddr": "0x08000000",
-        "cpuInfo": {
-          "vendor": "ST",
-          "cpuName": "STM32F103RC"
-        },
-        "proType": 1,
-        "speed": 8000,
-        "otherCmds": "ip 192.168.1.2"
+        "target": "stm32f1x",
+        "interface": "cmsis-dap",
+        "baseAddr": "0x08000000"
       },
       "uploadConfigMap": {
         "JLink": {
@@ -433,12 +428,6 @@
           "proType": 1,
           "speed": 8000,
           "otherCmds": ""
-        },
-        "OpenOCD": {
-          "bin": "${ExcutableName}.bin",
-          "target": "stm32f1x",
-          "interface": "cmsis-dap",
-          "baseAddr": "0x08000000"
         }
       },
       "custom_dep": {
@@ -466,7 +455,10 @@
           "rt-thread/components/legacy",
           "board/CubeMX_Config/Inc",
           "board",
-          "rt-thread/components/libc/posix/io/stdio"
+          "rt-thread/components/libc/posix/io/stdio",
+          ".cmsis/include",
+          "RTE/_rt-thread",
+          ".eide/deps"
         ],
         "libList": [],
         "sourceDirList": [],
