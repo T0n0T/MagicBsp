@@ -251,6 +251,7 @@
 #define BSP_USING_SPI
 #define BSP_USING_SPI1
 #define BSP_USING_SPI2
+#define BSP_USING_SPI3
 #define BSP_USING_TIM
 #define BSP_USING_TIM3
 
