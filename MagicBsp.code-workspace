@@ -4,6 +4,10 @@
             "path": "."
         }
     ],
-    "settings": {},
+    "settings": {
+        "files.associations": {
+            "string.h": "c"
+        }
+    },
     "extensions": {}
 }
