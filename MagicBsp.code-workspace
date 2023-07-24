@@ -6,7 +6,14 @@
     ],
     "settings": {
         "files.associations": {
-            "string.h": "c"
+            "*.cpp": "cpp",
+            "*.html": "html",
+            "*.env": "dotenv",
+            "*.go": "go",
+            "string.h": "c",
+            "rtthread.h": "c",
+            "rtdevice.h": "c",
+            "ccm3310.h": "c"
         }
     },
     "extensions": {}

@@ -18,8 +18,9 @@
 #define GINT0  GET_PIN(C, 8)
 #define GINT1  GET_PIN(C, 9)
 
-void ccm3310_init(void);
-void ccm3310_thread_start(void);
+extern void ccm3310_init(void);
+extern void ccm3310_thread_start(void);
+
 int decode(uint8_t *raw, uint8_t **data, int *len);
 uint8_t *encode(uint8_t cla, uint8_t ins, uint8_t p1, uint8_t p2, uint8_t *data);
 uint32_t crc32(const uint8_t *buf, uint32_t size);

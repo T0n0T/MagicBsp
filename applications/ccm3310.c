@@ -18,6 +18,8 @@ static struct rt_thread thread;
 static char thread_stack[1024];
 struct rt_spi_device ccm;
 
+uint8_t recv_buf[1024];
+uint8_t sm4_id;
 uint8_t Get_Version[] = {
     0x53, 0x02, 0x10, 0x33,
     0x50, 0x00, 0x00, 0x00,
@@ -131,10 +133,13 @@ void ccm3310_init(void)
     rt_pin_write(POR, PIN_HIGH);
 }
 
-static void ccm3310_transfer(uint8_t *send_buf, uint8_t *recv_buf, int length)
+static int ccm3310_transfer(uint8_t *send_buf, uint8_t *decode_data, int length)
 {
     struct rt_spi_message msg;
+    int len          = 0;
     rt_int8_t status = PIN_HIGH;
+
+    rt_memset(recv_buf, 0xff, sizeof(recv_buf));
     rt_pin_write(GINT0, PIN_LOW);
     while (status == PIN_HIGH) {
         status = rt_pin_read(GINT1);
@@ -158,55 +163,87 @@ static void ccm3310_transfer(uint8_t *send_buf, uint8_t *recv_buf, int length)
     msg.cs_release = 1;
     msg.next       = RT_NULL;
     rt_spi_transfer_message(&ccm, &msg);
+    for (size_t i = 0; i < sizeof(recv_buf); i++) {
+        printf("0x%02x ", recv_buf[i]);
+        if (i % 4 == 3) {
+            printf("\n");
+        }
+        if (recv_buf[i] == 0xff) break;
+    }
+    int err = decode(recv_buf, &decode_data, &len);
+    if (err == 0) {
+        return len;
+    }
+    return -1;
 }
 
 static void ccm3310_version(void)
 {
-    uint8_t r[100]   = {0xff};
     int len          = 0;
     uint8_t *version = 0;
 
-    ccm3310_transfer(Get_Version, r, sizeof(r));
-    printf("==========print version ==========\n");
-    for (size_t i = 0; i < sizeof(r); i++) {
-        printf("0x%02x ", r[i]);
-        if (i % 4 == 3) {
-            printf("\n");
-        }
-    }
-    int err = decode(r, &version, &len);
-    if (err == 0) {
+    printf("\n========== print version ==========\n");
+    len = ccm3310_transfer(Get_Version, version, 100);
+    if (len >= 0) {
         printf("%s\n", version);
     }
 
-    printf("\n=======================\n");
+    printf("\n===================================\n");
 }
-MSH_CMD_EXPORT(ccm3310_version, get version);
 
-static void ccm3310_sm2_exportkey(void)
+static void ccm3310_sm2_getkey(void)
 {
-    uint8_t r[100] = {0xff};
-    int len        = 0;
+    int len = 0, err = 0;
     uint8_t *id, *sm2_key;
 
-    ccm3310_transfer(SM2_Gen_Key, r, 21);
-    printf("==========print key id ==========\n");
-    for (size_t i = 0; i < sizeof(r); i++) {
-        printf("0x%02x ", r[i]);
-        if (i % 4 == 3) {
-            printf("\n");
-        }
-        if (r[i] == 0xff) break;
-    }
-    int err = decode(r, &id, &len);
+    printf("\n========= print key id ============\n");
+    len = ccm3310_transfer(SM2_Gen_Key, id, 21);
     if (err == 0) {
-        printf("%d\n", *id);
+        printf("0x%X\n", *id);
     }
-    printf("\n=======================\n");
+    printf("\n===================================\n");
+
+    printf("\n========= print public key ========\n");
+    len = ccm3310_transfer(SM2_Export_Key, sm2_key, 100);
+    if (err == 0) {
+        for (size_t i = 0; i < len; i++) {
+            printf("%c", *(sm2_key + i));
+        }
+    }
+    printf("\n===================================\n");
 }
 
-void ccm3310_thread_start(void)
+static void ccm3310_sm4_setkey(void)
 {
-    // rt_thread_init(&thread, "ccm3310", ccm3310_entry, RT_NULL, thread_stack, sizeof(thread_stack), 20, 15);
-    // rt_thread_startup(&thread);
+    int len = 0, err = 0;
+    uint8_t *sm4_pack;
+
+    printf("\n========= print key id ============\n");
+    len = ccm3310_transfer(Import_Sym_Key, sm4_pack, 21);
+    if (err == 0) {
+        printf("0x%X\n", *sm4_pack);
+    }
+    sm4_id = *sm4_pack & 0x7F;
+    printf("\n===================================\n");
 }
+
+static void ccm3310_sm4_encode(void)
+{
+    int len = 0, err = 0;
+    uint8_t *marshel_data;
+
+    Import_Sym_Key[17] = sm4_id;
+    printf("\n========= print key id ============\n");
+    len = ccm3310_transfer(Sym_Encrypt, marshel_data, 80);
+    if (err == 0) {
+        for (size_t i = 0; i < len; i++) {
+            printf("%c", *(marshel_data + i));
+        }
+    }
+    printf("\n===================================\n");
+}
+
+MSH_CMD_EXPORT(ccm3310_version, get version);
+MSH_CMD_EXPORT(ccm3310_sm2_getkey, get sm2key);
+MSH_CMD_EXPORT(ccm3310_sm4_setkey, set sm4key);
+MSH_CMD_EXPORT(ccm3310_sm4_encode, encode sm4);

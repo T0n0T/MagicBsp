@@ -23,7 +23,7 @@ static uint32_t decode_4bytes(uint8_t *msb)
 static void decode_test()
 {
     uint8_t *data = 0;
-    int sizeof;
+    int len;
     uint8_t r[100] = {
         0x52, 0x02, 0x10, 0x33,
         // 数据长度
@@ -55,22 +55,22 @@ static void decode_test()
         // 包尾
         0x56, 0x02, 0x33, 0x01};
 
-    decode(r, &data, &sizeof);
+    decode(r, &data, &len);
 
-    printf("%d\n", sizeof);
+    printf("%d\n", len);
     printf("%p\n", data);
     printf("%s\n", data);
 }
 MSH_CMD_EXPORT(decode_test, decode test);
 
-int decode(uint8_t *raw, uint8_t **data, int * sizeof)
+int decode(uint8_t *raw, uint8_t **data, int * len)
 {
     if (decode_4bytes(&raw[0]) != 0x33100252) {
         printf("decode wrong with upheader 0x%X, 0x%X\n", decode_4bytes(&raw[0]), 0x33100252);
         return -1;
     }
 
-    *sizeof = (int)decode_4bytes(&raw[4]);
+    *len = (int)decode_4bytes(&raw[4]);
     if (decode_2bytes(&raw[8]) != 0x9000) {
         printf("decode wrong with status 0x%X\n", decode_4bytes(&raw[0]));
         return -2;

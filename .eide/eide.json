@@ -16,6 +16,9 @@
             "path": "applications/ccm3310.c"
           },
           {
+            "path": "applications/crc32.c"
+          },
+          {
             "path": "applications/decode.c"
           },
           {
