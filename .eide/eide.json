@@ -13,6 +13,9 @@
         "name": "Applications",
         "files": [
           {
+            "path": "applications/ccm3310_test.c"
+          },
+          {
             "path": "applications/ccm3310.c"
           },
           {

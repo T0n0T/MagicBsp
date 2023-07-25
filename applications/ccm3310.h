@@ -18,9 +18,17 @@
 #define GINT0  GET_PIN(C, 8)
 #define GINT1  GET_PIN(C, 9)
 
+struct ccm3310_key_data {
+    uint8_t version;
+    uint8_t key_id; /*新增写0x00*/
+    uint8_t algo;   /*算法标识，0x81(DES)、0x82(AES)、 0x83(SM1)、0x84(SM4)*/
+    uint8_t len;    /*密钥长度*/
+    uint8_t key_data[16];
+};
+
 extern void ccm3310_init(void);
 extern void ccm3310_thread_start(void);
 
 int decode(uint8_t *raw, uint8_t **data, int *len);
-uint8_t *encode(uint8_t cla, uint8_t ins, uint8_t p1, uint8_t p2, uint8_t *data);
+size_t encode(uint8_t cla, uint8_t ins, uint8_t p1, uint8_t p2, uint8_t *send_pack, uint8_t *data, uint32_t data_len);
 uint32_t crc32(const uint8_t *buf, uint32_t size);

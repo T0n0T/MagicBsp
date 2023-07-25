@@ -63,7 +63,15 @@ static void decode_test()
 }
 MSH_CMD_EXPORT(decode_test, decode test);
 
-int decode(uint8_t *raw, uint8_t **data, int * len)
+/**
+ * @brief 上行包解包
+ *
+ * @param raw 原始包
+ * @param data 指向数据指针的指针
+ * @param len 数据长度
+ * @return int 状态量，0为解包成功
+ */
+int decode(uint8_t *raw, uint8_t **data, int *len)
 {
     if (decode_4bytes(&raw[0]) != 0x33100252) {
         printf("decode wrong with upheader 0x%X, 0x%X\n", decode_4bytes(&raw[0]), 0x33100252);
@@ -76,39 +84,36 @@ int decode(uint8_t *raw, uint8_t **data, int * len)
         return -2;
     }
     *data = &raw[16];
+
     return 0;
 }
 
-/*
-    // 1.包头
-    0x53, 0x02, 0x10, 0x33,
-    // 2.数据区长度
-    0x04, 0x00, 0x00, 0x00,
-    // 3.0x5a生成sm2密钥，新增，保留在sram，掉电复位
-    0x80, 0x5A, 0x00, 0x00,
-    // 4.保留
-    0x55, 0x55, 0x55, 0x55,
-    // 5.数据区
-    // 0x00结构体版本，0x00新增密钥不适用，0x00私钥可导出，保留
-    0x00, 0x00, 0x84, 0x00,
-    // 6.包尾
-    0x55, 0x02, 0x33, 0x01};
-    */
-uint8_t *encode(uint8_t cla, uint8_t ins, uint8_t p1, uint8_t p2, uint8_t *data)
+/**
+ * @brief 下行包组建
+ *
+ * @param cla cmd组成参数
+ * @param ins cmd组成参数
+ * @param p1 cmd组成参数
+ * @param p2 cmd组成参数
+ * @param send_pack 发送包在组件前需要先分配好空间
+ * @param data 数据段
+ * @param data_len 数据段长度
+ * @return size_t 包最终长度
+ */
+size_t encode(uint8_t cla, uint8_t ins, uint8_t p1, uint8_t p2, uint8_t *send_pack, uint8_t *data, uint32_t data_len)
 {
-    uint8_t *send_pack = (uint8_t *)rt_malloc(sizeof(data) + 30);
-    uint8_t *ptr       = 0;
-    ptr                = send_pack;
+    uint8_t *ptr = 0;
+    ptr          = send_pack;
     // 1.包头
     *ptr     = 0x53;
     *(ptr++) = 0x02;
     *(ptr++) = 0x10;
     *(ptr++) = 0x33;
     // 2.数据区长度
-    *(ptr++) = sizeof(data) & 0x000000FF;
-    *(ptr++) = sizeof(data) & 0x0000FF00;
-    *(ptr++) = sizeof(data) & 0x00FF0000;
-    *(ptr++) = sizeof(data) & 0xFF000000;
+    *(ptr++) = data_len & 0x000000FF;
+    *(ptr++) = data_len & 0x0000FF00;
+    *(ptr++) = data_len & 0x00FF0000;
+    *(ptr++) = data_len & 0xFF000000;
     // 3.命令段
     *(ptr++) = cla;
     *(ptr++) = ins;
@@ -120,9 +125,12 @@ uint8_t *encode(uint8_t cla, uint8_t ins, uint8_t p1, uint8_t p2, uint8_t *data)
     *(ptr++) = 0x55;
     *(ptr++) = 0x55;
     // 5.数据区
-    for (size_t i = 0; i < sizeof(*data); i++) {
-        *(ptr++) = *(data + i);
+    if (data != 0) {
+        for (size_t i = 0; i < data_len; i++) {
+            *(ptr++) = *(data + i);
+        }
     }
+
     // 6.包尾
     if (cla == 0x81) {
         uint32_t crc32_val = crc32(send_pack, ptr - send_pack + 1);
@@ -131,5 +139,5 @@ uint8_t *encode(uint8_t cla, uint8_t ins, uint8_t p1, uint8_t p2, uint8_t *data)
         *(ptr++)           = crc32_val & 0x00FF0000;
         *(ptr++)           = crc32_val & 0xFF000000;
     }
-    return send_pack;
+    return (size_t)(ptr - send_pack + 1);
 }
