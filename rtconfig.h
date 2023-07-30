@@ -80,7 +80,6 @@
 
 /* DFS: device virtual file system */
 
-
 /* Device Drivers */
 
 #define RT_USING_DEVICE_IPC
@@ -103,52 +102,39 @@
 
 /* Using USB */
 
-
 /* C/C++ and POSIX layer */
 
 #define RT_LIBC_DEFAULT_TIMEZONE 8
 
 /* POSIX (Portable Operating System Interface) layer */
 
-
 /* Interprocess Communication (IPC) */
-
 
 /* Socket is in the 'Network' category */
 
-
 /* Network */
 
-
 /* Utilities */
-
 
 /* RT-Thread online packages */
 
 /* IoT - internet of things */
 
-
 /* Wi-Fi */
 
 /* Marvell WiFi */
 
-
 /* Wiced WiFi */
-
 
 /* IoT Cloud */
 
-
 /* security packages */
-
 
 /* language packages */
 
 /* JSON: JavaScript Object Notation, a lightweight data-interchange format */
 
-
 /* XML: Extensible Markup Language */
-
 
 /* multimedia packages */
 
@@ -164,10 +150,6 @@
 
 /* u8g2: a monochrome graphic library */
 
-
-/* PainterEngine: A cross-platform graphics application framework written in C language */
-
-
 /* tools packages */
 
 #define PKG_USING_CMBACKTRACE
@@ -181,24 +163,38 @@
 
 /* enhanced kernel services */
 
-
 /* acceleration: Assembly language or algorithmic acceleration packages */
-
 
 /* CMSIS: ARM Cortex-M Microcontroller Software Interface Standard */
 
-
 /* Micrium: Micrium software products porting for RT-Thread */
-
 
 /* peripheral libraries and drivers */
 
+/* sensors drivers */
+
+/* touch drivers */
+
+#define PKG_USING_XPT2046_TOUCH
+#define PKG_USING_XPT2046_TOUCH_LATEST_VERSION
+#define PKG_XPT2046_USING_KCONFIG
+#define PKG_XPT2046_SPI_BUS "sspi1"
+#define PKG_XPT2046_CS_GPIO C
+#define PKG_XPT2046_CS_PIN 4
+#define PKG_XPT2046_IRQ_GPIO C
+#define PKG_XPT2046_IRQ_PIN 1
+#define PKG_XPT2046_RANGE_X 240
+#define PKG_XPT2046_RANGE_Y 320
+#define PKG_XPT2046_MIN_RAW_X 181
+#define PKG_XPT2046_MIN_RAW_Y 189
+#define PKG_XPT2046_MAX_RAW_X 1871
+#define PKG_XPT2046_MAX_RAW_Y 2048
 
 /* Kendryte SDK */
 
-
 /* AI packages */
 
+/* Signal Processing and Control Algorithm Packages */
 
 /* miscellaneous packages */
 
@@ -206,27 +202,19 @@
 
 /* samples: kernel and components samples */
 
-
 /* entertainment: terminal games and other interesting software packages */
-
 
 /* Arduino libraries */
 
-
-/* Projects */
-
+/* Projects and Demos */
 
 /* Sensors */
 
-
 /* Display */
-
 
 /* Timing */
 
-
 /* Data Processing */
-
 
 /* Data Storage */
 
@@ -234,11 +222,9 @@
 
 /* Device Control */
 
-
 /* Other */
 
 /* Signal IO */
-
 
 /* Uncategorized */
 
@@ -262,8 +248,11 @@
 #define BSP_USING_SPI1
 #define BSP_USING_TIM
 #define BSP_USING_TIM3
+#define BSP_USING_SOFT_SPI1
+#define BSP_S_SPI1_SCK_PIN 32
+#define BSP_S_SPI1_MISO_PIN 34
+#define BSP_S_SPI1_MOSI_PIN 35
 
 /* Board extended module Drivers */
-
 
 #endif
