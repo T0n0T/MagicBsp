@@ -4,6 +4,14 @@
             "path": "."
         }
     ],
-    "settings": {},
+    "settings": {
+        "files.associations": {
+            "*.cpp": "cpp",
+            "*.html": "html",
+            "*.env": "dotenv",
+            "*.go": "go",
+            "lvgl.h": "c"
+        }
+    },
     "extensions": {}
 }
