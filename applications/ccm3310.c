@@ -40,7 +40,7 @@ void ccm3310_init(void)
     rt_pin_write(POR, PIN_HIGH);
 }
 
-static int ccm3310_transfer(uint8_t *send_buf, int send_len, uint8_t **decode_data, int recv_len)
+int ccm3310_transfer(uint8_t *send_buf, int send_len, uint8_t **decode_data, int recv_len)
 {
     struct rt_spi_message msg;
     int len          = 0;
@@ -97,17 +97,18 @@ static int ccm3310_transfer(uint8_t *send_buf, int send_len, uint8_t **decode_da
 
 void ccm3310_sm4_init(uint8_t *key)
 {
-    uint8_t *pack = (uint8_t *)rt_malloc(100);
-    struct ccm3310_key_data data;
-    data.version = 0x00;
-    data.key_id  = 0x00;
-    data.algo    = 0x84;
-    data.len     = 0x10;
+    uint8_t *pack                 = (uint8_t *)rt_malloc(100);
+    struct ccm3310_key_data *data = rt_malloc(sizeof(struct ccm3310_key_data));
+    data->version                 = 0x00;
+    data->key_id                  = 0x00;
+    data->algo                    = 0x84;
+    data->len                     = 0x10;
     for (size_t i = 0; i < 16; i++) {
-        data.key_data[i] = *(key + i);
+        data->key_data[i] = *(key + i);
     }
 
     uint8_t *id  = 0;
-    int send_len = encode(0x80, 0x42, 0x00, 0x00, pack, (uint8_t *)data, sizeof(data));
+    int send_len = 0;
+    send_len     = encode(0x80, 0x42, 0x00, 0x00, pack, (uint8_t *)data, sizeof(data));
     ccm3310_transfer(pack, send_len, &id, 21);
 }

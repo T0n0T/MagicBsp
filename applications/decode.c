@@ -100,7 +100,7 @@ int decode(uint8_t *raw, uint8_t **data, int *len)
  * @param data_len 数据段长度
  * @return size_t 包最终长度
  */
-size_t encode(uint8_t cla, uint8_t ins, uint8_t p1, uint8_t p2, uint8_t *send_pack, uint8_t *data, uint32_t data_len)
+int encode(uint8_t cla, uint8_t ins, uint8_t p1, uint8_t p2, uint8_t *send_pack, uint8_t *data, uint32_t data_len)
 {
     uint8_t *ptr = 0;
     ptr          = send_pack;
@@ -139,5 +139,5 @@ size_t encode(uint8_t cla, uint8_t ins, uint8_t p1, uint8_t p2, uint8_t *send_pa
         *(ptr++)           = crc32_val & 0x00FF0000;
         *(ptr++)           = crc32_val & 0xFF000000;
     }
-    return (size_t)(ptr - send_pack + 1);
+    return (int)(ptr - send_pack + 1);
 }
