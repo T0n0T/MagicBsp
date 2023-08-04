@@ -34,13 +34,13 @@
         "name": "cm_backtrace",
         "files": [
           {
-            "path": "packages/CmBacktrace-v1.4.1/cmb_port.c"
-          },
-          {
             "path": "packages/CmBacktrace-v1.4.1/cm_backtrace.c"
           },
           {
             "path": "packages/CmBacktrace-v1.4.1/cmb_flash_log.c"
+          },
+          {
+            "path": "packages/CmBacktrace-v1.4.1/cmb_port.c"
           }
         ],
         "folders": []
@@ -103,6 +103,15 @@
             "path": "rt-thread/components/drivers/hwtimer/hwtimer.c"
           },
           {
+            "path": "rt-thread/components/drivers/i2c/i2c_core.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/i2c/i2c_dev.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/i2c/i2c-bit-ops.c"
+          },
+          {
             "path": "rt-thread/components/drivers/ipc/completion.c"
           },
           {
@@ -127,6 +136,12 @@
             "path": "rt-thread/components/drivers/misc/pin.c"
           },
           {
+            "path": "rt-thread/components/drivers/sensor/v1/sensor_cmd.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/sensor/v1/sensor.c"
+          },
+          {
             "path": "rt-thread/components/drivers/serial/serial.c"
           },
           {
@@ -142,6 +157,9 @@
         "name": "Drivers",
         "files": [
           {
+            "path": "applications/drv_i2c.c"
+          },
+          {
             "path": "board/board.c"
           },
           {
@@ -152,6 +170,9 @@
           },
           {
             "path": "libraries/HAL_Drivers/drv_gpio.c"
+          },
+          {
+            "path": "libraries/HAL_Drivers/drv_soft_i2c.c"
           },
           {
             "path": "libraries/HAL_Drivers/drv_spi.c"
@@ -286,6 +307,9 @@
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c"
           },
           {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c"
+          },
+          {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cec.c"
           },
           {
@@ -293,6 +317,24 @@
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "max30102",
+        "files": [
+          {
+            "path": "packages/max30102-latest/examples/example.c"
+          },
+          {
+            "path": "packages/max30102-latest/port/port.c"
+          },
+          {
+            "path": "packages/max30102-latest/src/CircularBuffer.c"
+          },
+          {
+            "path": "packages/max30102-latest/src/max30102.c"
           }
         ],
         "folders": []
@@ -351,7 +393,7 @@
               "id": 1,
               "mem": {
                 "startAddr": "0x20000000",
-                "size": "0xc000"
+                "size": "0x5000"
               },
               "isChecked": true,
               "noInit": false
@@ -403,7 +445,7 @@
               "id": 1,
               "mem": {
                 "startAddr": "0x8000000",
-                "size": "0x40000"
+                "size": "0x10000"
               },
               "isChecked": true,
               "isStartup": true
@@ -465,6 +507,7 @@
           "rt-thread/libcpu/arm/common",
           ".",
           "rt-thread/libcpu/arm/cortex-m3",
+          "rt-thread/components/drivers/sensor",
           "rt-thread/components/libc/compilers/common/extension",
           "rt-thread/components/libc/posix/io/poll",
           "rt-thread/components/libc/compilers/common/include",
@@ -474,12 +517,12 @@
           "applications",
           "rt-thread/include",
           "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Include",
-          "libraries/HAL_Drivers/config",
           "rt-thread/components/legacy",
+          "libraries/HAL_Drivers/config",
           "board/CubeMX_Config/Inc",
           "board",
           "rt-thread/components/libc/posix/io/stdio",
-          "RTE/_rt-thread"
+          "rt-thread/components/drivers/include/drivers"
         ],
         "libList": [],
         "sourceDirList": [],

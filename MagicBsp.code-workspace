@@ -13,7 +13,10 @@
             "string.h": "c",
             "rtthread.h": "c",
             "rtdevice.h": "c",
-            "ccm3310.h": "c"
+            "ccm3310.h": "c",
+            "drv_config.h": "c",
+            "drv_soft_i2c.h": "c",
+            "drv_common.h": "c"
         }
     },
     "extensions": {}

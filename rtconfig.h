@@ -88,8 +88,12 @@
 #define RT_SERIAL_USING_DMA
 #define RT_SERIAL_RB_BUFSZ 64
 #define RT_USING_HWTIMER
+#define RT_USING_I2C
+#define RT_USING_I2C_BITOPS
 #define RT_USING_PIN
 #define RT_USING_SPI
+#define RT_USING_SENSOR
+#define RT_USING_SENSOR_CMD
 
 /* Using USB */
 
@@ -161,6 +165,8 @@
 
 /* enhanced kernel services */
 
+#define PKG_USING_RT_VSNPRINTF_FULL
+#define PKG_USING_RT_VSNPRINTF_FULL_LATEST_VERSION
 
 /* acceleration: Assembly language or algorithmic acceleration packages */
 
@@ -175,6 +181,12 @@
 
 /* sensors drivers */
 
+#define PKG_USING_MAX30102
+#define PKG_USING_MAX30102_LATEST_VERSION
+#define MAX30102_STACK_SIZE 1024
+#define MAX30102_PRIORITY 10
+#define MAX30102_TICKS 10
+#define MAX30102_USING_EXAMPLE
 
 /* touch drivers */
 
@@ -251,7 +263,10 @@
 #define BSP_USING_SPI
 #define BSP_USING_SPI1
 #define BSP_USING_SPI2
-#define BSP_USING_SPI3
+#define BSP_USING_I2C
+#define BSP_USING_I2C1
+#define BSP_I2C1_SCL_PIN 22
+#define BSP_I2C1_SDA_PIN 23
 #define BSP_USING_TIM
 #define BSP_USING_TIM3
 
