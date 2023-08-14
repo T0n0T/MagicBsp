@@ -10,7 +10,8 @@
             "*.html": "html",
             "*.env": "dotenv",
             "*.go": "go",
-            "lvgl.h": "c"
+            "lvgl.h": "c",
+            "lv_log.h": "c"
         }
     },
     "extensions": {}
