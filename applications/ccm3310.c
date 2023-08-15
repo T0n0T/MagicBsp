@@ -50,6 +50,7 @@ int ccm3310_transfer(uint8_t *send_buf, int send_len, uint8_t **decode_data, int
     rt_pin_write(GINT0, PIN_LOW);
     while (status == PIN_HIGH) {
         status = rt_pin_read(GINT1);
+        printf("status: %d", status);
     }
 
     msg.send_buf   = send_buf;
