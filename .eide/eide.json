@@ -349,13 +349,15 @@
   },
   "targets": {
     "rt-thread": {
-      "excludeList": [],
+      "excludeList": [
+        "<virtual_root>/max30102"
+      ],
       "toolchain": "AC5",
       "compileConfig": {
         "cpuType": "Cortex-M3",
         "floatingPointHardware": "none",
         "scatterFilePath": "board/linker_scripts/link.sct",
-        "useCustomScatterFile": true,
+        "useCustomScatterFile": false,
         "storageLayout": {
           "RAM": [
             {
@@ -393,7 +395,7 @@
               "id": 1,
               "mem": {
                 "startAddr": "0x20000000",
-                "size": "0x5000"
+                "size": "0xc000"
               },
               "isChecked": true,
               "noInit": false
@@ -445,7 +447,7 @@
               "id": 1,
               "mem": {
                 "startAddr": "0x8000000",
-                "size": "0x10000"
+                "size": "0x40000"
               },
               "isChecked": true,
               "isStartup": true
@@ -474,7 +476,7 @@
         },
         "proType": 1,
         "speed": 8000,
-        "otherCmds": "ip 192.168.1.2"
+        "otherCmds": ""
       },
       "uploadConfigMap": {
         "JLink": {
