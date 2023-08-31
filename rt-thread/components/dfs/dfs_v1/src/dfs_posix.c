@@ -20,9 +20,8 @@
 
 /**
  * @addtogroup FsPosixApi
+ * @{
  */
-
-/*@{*/
 
 /**
  * this function is a POSIX compliant version, which will open a file and
@@ -63,6 +62,53 @@ int open(const char *file, int flags, ...)
 }
 RTM_EXPORT(open);
 
+#ifndef AT_FDCWD
+#define AT_FDCWD (-100)
+#endif
+int openat(int dirfd, const char *path, int flag, ...)
+{
+    struct dfs_file *d;
+    char *fullpath;
+    int fd;
+
+    if (!path)
+    {
+        rt_set_errno(-EBADF);
+        return -1;
+    }
+
+    fullpath = (char*)path;
+
+    if (path[0] != '/')
+    {
+        if (dirfd != AT_FDCWD)
+        {
+            d = fd_get(dirfd);
+            if (!d || !d->vnode)
+            {
+                rt_set_errno(-EBADF);
+                return -1;
+            }
+
+            fullpath = dfs_normalize_path(d->vnode->fullpath, path);
+            if (!fullpath)
+            {
+                rt_set_errno(-ENOMEM);
+                return -1;
+            }
+        }
+    }
+
+    fd = open(fullpath, flag, 0);
+
+    if (fullpath != path)
+    {
+        rt_free(fullpath);
+    }
+
+    return fd;
+}
+
 /**
  * this function is a POSIX compliant version,
  * which will create a new file or rewrite an existing one
@@ -100,6 +146,7 @@ int close(int fd)
     }
 
     result = dfs_file_close(d);
+    fd_release(fd);
 
     if (result < 0)
     {
@@ -107,8 +154,6 @@ int close(int fd)
 
         return -1;
     }
-
-    fd_release(fd);
 
     return 0;
 }
@@ -260,8 +305,8 @@ RTM_EXPORT(lseek);
  * this function is a POSIX compliant version, which will rename old file name
  * to new file name.
  *
- * @param old the old file name.
- * @param new the new file name.
+ * @param old_file the old file name.
+ * @param new_file the new file name.
  *
  * @return 0 on successful, -1 on failed.
  *
@@ -392,7 +437,7 @@ RTM_EXPORT(fsync);
  *
  * @param fildes the file description
  * @param cmd the specified command
- * @param data represents the additional information that is needed by this
+ * @param ... represents the additional information that is needed by this
  * specific device to perform the requested function.
  *
  * @return 0 on successful completion. Otherwise, -1 shall be returned and errno
@@ -434,7 +479,7 @@ RTM_EXPORT(fcntl);
  *
  * @param fildes the file description
  * @param cmd the specified command
- * @param data represents the additional information that is needed by this
+ * @param ... represents the additional information that is needed by this
  * specific device to perform the requested function.
  *
  * @return 0 on successful completion. Otherwise, -1 shall be returned and errno
@@ -921,8 +966,6 @@ int access(const char *path, int amode)
  * working directory.
  *
  * @param buf the current directory.
- *
- * @return null.
  */
 void setcwd(char *buf)
 {
@@ -979,4 +1022,4 @@ char *getcwd(char *buf, size_t size)
 }
 RTM_EXPORT(getcwd);
 
-/* @} */
+/**@}*/
