@@ -13,19 +13,64 @@
         "name": "Applications",
         "files": [
           {
-            "path": "applications/ccm3310_test.c"
+            "path": "applications/crc32.c"
           },
           {
             "path": "applications/ccm3310.c"
           },
           {
-            "path": "applications/crc32.c"
+            "path": "applications/cJSON.c"
+          },
+          {
+            "path": "applications/app.c"
+          },
+          {
+            "path": "applications/ccm3310_test.c"
+          },
+          {
+            "path": "applications/main.c"
           },
           {
             "path": "applications/decode.c"
           },
           {
-            "path": "applications/main.c"
+            "path": "applications/rt_kprintf.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "AT",
+        "files": [
+          {
+            "path": "rt-thread/components/net/at/at_socket/at_socket.c"
+          },
+          {
+            "path": "rt-thread/components/net/at/src/at_cli.c"
+          },
+          {
+            "path": "rt-thread/components/net/at/src/at_client.c"
+          },
+          {
+            "path": "rt-thread/components/net/at/src/at_utils.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "at_device",
+        "files": [
+          {
+            "path": "packages/at_device-latest/class/esp8266/at_device_esp8266.c"
+          },
+          {
+            "path": "packages/at_device-latest/class/esp8266/at_socket_esp8266.c"
+          },
+          {
+            "path": "packages/at_device-latest/samples/at_sample_esp8266.c"
+          },
+          {
+            "path": "packages/at_device-latest/src/at_device.c"
           }
         ],
         "folders": []
@@ -34,13 +79,13 @@
         "name": "cm_backtrace",
         "files": [
           {
+            "path": "packages/CmBacktrace-v1.4.1/cmb_port.c"
+          },
+          {
             "path": "packages/CmBacktrace-v1.4.1/cm_backtrace.c"
           },
           {
             "path": "packages/CmBacktrace-v1.4.1/cmb_flash_log.c"
-          },
-          {
-            "path": "packages/CmBacktrace-v1.4.1/cmb_port.c"
           }
         ],
         "folders": []
@@ -58,9 +103,6 @@
             "path": "rt-thread/components/libc/compilers/common/cctype.c"
           },
           {
-            "path": "rt-thread/components/libc/compilers/common/cstdio.c"
-          },
-          {
             "path": "rt-thread/components/libc/compilers/common/cstdlib.c"
           },
           {
@@ -68,6 +110,9 @@
           },
           {
             "path": "rt-thread/components/libc/compilers/common/ctime.c"
+          },
+          {
+            "path": "rt-thread/components/libc/compilers/common/cunistd.c"
           },
           {
             "path": "rt-thread/components/libc/compilers/common/cwchar.c"
@@ -100,16 +145,19 @@
         "name": "DeviceDrivers",
         "files": [
           {
+            "path": "rt-thread/components/drivers/core/device.c"
+          },
+          {
             "path": "rt-thread/components/drivers/hwtimer/hwtimer.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/i2c/i2c-bit-ops.c"
           },
           {
             "path": "rt-thread/components/drivers/i2c/i2c_core.c"
           },
           {
             "path": "rt-thread/components/drivers/i2c/i2c_dev.c"
-          },
-          {
-            "path": "rt-thread/components/drivers/i2c/i2c-bit-ops.c"
           },
           {
             "path": "rt-thread/components/drivers/ipc/completion.c"
@@ -136,10 +184,10 @@
             "path": "rt-thread/components/drivers/misc/pin.c"
           },
           {
-            "path": "rt-thread/components/drivers/sensor/v1/sensor_cmd.c"
+            "path": "rt-thread/components/drivers/sensor/v1/sensor.c"
           },
           {
-            "path": "rt-thread/components/drivers/sensor/v1/sensor.c"
+            "path": "rt-thread/components/drivers/sensor/v1/sensor_cmd.c"
           },
           {
             "path": "rt-thread/components/drivers/serial/serial.c"
@@ -149,6 +197,9 @@
           },
           {
             "path": "rt-thread/components/drivers/spi/spi_dev.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/rtc/rtc.c"
           }
         ],
         "folders": []
@@ -156,9 +207,6 @@
       {
         "name": "Drivers",
         "files": [
-          {
-            "path": "applications/drv_i2c.c"
-          },
           {
             "path": "board/board.c"
           },
@@ -170,6 +218,9 @@
           },
           {
             "path": "libraries/HAL_Drivers/drv_gpio.c"
+          },
+          {
+            "path": "libraries/HAL_Drivers/drv_rtc.c"
           },
           {
             "path": "libraries/HAL_Drivers/drv_soft_i2c.c"
@@ -190,19 +241,43 @@
         "folders": []
       },
       {
+        "name": "Filesystem",
+        "files": [
+          {
+            "path": "rt-thread/components/dfs/dfs_v1/filesystems/devfs/devfs.c"
+          },
+          {
+            "path": "rt-thread/components/dfs/dfs_v1/src/dfs.c"
+          },
+          {
+            "path": "rt-thread/components/dfs/dfs_v1/src/dfs_file.c"
+          },
+          {
+            "path": "rt-thread/components/dfs/dfs_v1/src/dfs_fs.c"
+          },
+          {
+            "path": "rt-thread/components/dfs/dfs_v1/src/dfs_posix.c"
+          }
+        ],
+        "folders": []
+      },
+      {
         "name": "Finsh",
         "files": [
           {
-            "path": "rt-thread/components/finsh/shell.c"
+            "path": "rt-thread/components/finsh/cmd.c"
           },
           {
-            "path": "rt-thread/components/finsh/msh.c"
+            "path": "rt-thread/components/finsh/msh_file.c"
           },
           {
             "path": "rt-thread/components/finsh/msh_parse.c"
           },
           {
-            "path": "rt-thread/components/finsh/cmd.c"
+            "path": "rt-thread/components/finsh/msh.c"
+          },
+          {
+            "path": "rt-thread/components/finsh/shell.c"
           }
         ],
         "folders": []
@@ -217,9 +292,6 @@
             "path": "rt-thread/src/components.c"
           },
           {
-            "path": "rt-thread/src/device.c"
-          },
-          {
             "path": "rt-thread/src/idle.c"
           },
           {
@@ -232,7 +304,7 @@
             "path": "rt-thread/src/kservice.c"
           },
           {
-            "path": "rt-thread/src/mem.c"
+            "path": "rt-thread/src/memheap.c"
           },
           {
             "path": "rt-thread/src/mempool.c"
@@ -317,6 +389,9 @@
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c"
           }
         ],
         "folders": []
@@ -325,6 +400,9 @@
         "name": "max30102",
         "files": [
           {
+            "path": "packages/max30102-latest/src/max30102.c"
+          },
+          {
             "path": "packages/max30102-latest/examples/example.c"
           },
           {
@@ -332,9 +410,105 @@
           },
           {
             "path": "packages/max30102-latest/src/CircularBuffer.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "paho-mqtt",
+        "files": [
+          {
+            "path": "packages/pahomqtt-latest/MQTTClient-RT/paho_mqtt_pipe.c"
           },
           {
-            "path": "packages/max30102-latest/src/max30102.c"
+            "path": "packages/pahomqtt-latest/MQTTPacket/src/MQTTConnectClient.c"
+          },
+          {
+            "path": "packages/pahomqtt-latest/MQTTPacket/src/MQTTConnectServer.c"
+          },
+          {
+            "path": "packages/pahomqtt-latest/MQTTPacket/src/MQTTDeserializePublish.c"
+          },
+          {
+            "path": "packages/pahomqtt-latest/MQTTPacket/src/MQTTFormat.c"
+          },
+          {
+            "path": "packages/pahomqtt-latest/MQTTPacket/src/MQTTPacket.c"
+          },
+          {
+            "path": "packages/pahomqtt-latest/MQTTPacket/src/MQTTSerializePublish.c"
+          },
+          {
+            "path": "packages/pahomqtt-latest/MQTTPacket/src/MQTTSubscribeClient.c"
+          },
+          {
+            "path": "packages/pahomqtt-latest/MQTTPacket/src/MQTTSubscribeServer.c"
+          },
+          {
+            "path": "packages/pahomqtt-latest/MQTTPacket/src/MQTTUnsubscribeClient.c"
+          },
+          {
+            "path": "packages/pahomqtt-latest/MQTTPacket/src/MQTTUnsubscribeServer.c"
+          },
+          {
+            "path": "packages/pahomqtt-latest/tests/mqtt_test.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "POSIX",
+        "files": [
+          {
+            "path": "rt-thread/components/libc/posix/io/poll/poll.c"
+          },
+          {
+            "path": "rt-thread/components/libc/posix/io/poll/select.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "rt_kprintf",
+        "files": [
+          {
+            "path": "packages/rt_vsnprintf_full-latest/rt_vsnprintf.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "SAL",
+        "files": [
+          {
+            "path": "rt-thread/components/net/netdev/src/netdev.c"
+          },
+          {
+            "path": "rt-thread/components/net/netdev/src/netdev_ipaddr.c"
+          },
+          {
+            "path": "rt-thread/components/net/sal/dfs_net/dfs_net.c"
+          },
+          {
+            "path": "rt-thread/components/net/sal/impl/af_inet_at.c"
+          },
+          {
+            "path": "rt-thread/components/net/sal/socket/net_netdb.c"
+          },
+          {
+            "path": "rt-thread/components/net/sal/socket/net_sockets.c"
+          },
+          {
+            "path": "rt-thread/components/net/sal/src/sal_socket.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "utilities",
+        "files": [
+          {
+            "path": "rt-thread/components/utilities/resource/resource_id.c"
           }
         ],
         "folders": []
@@ -350,7 +524,8 @@
   "targets": {
     "rt-thread": {
       "excludeList": [
-        "<virtual_root>/max30102"
+        "<virtual_root>/max30102",
+        "<virtual_root>/rt_kprintf"
       ],
       "toolchain": "AC5",
       "compileConfig": {
@@ -468,7 +643,7 @@
       },
       "uploader": "JLink",
       "uploadConfig": {
-        "bin": "${ExecutableName}.bin",
+        "bin": "${ExecutableName}.hex",
         "baseAddr": "0x08000000",
         "cpuInfo": {
           "vendor": "ST",
@@ -476,7 +651,7 @@
         },
         "proType": 1,
         "speed": 8000,
-        "otherCmds": ""
+        "otherCmds": "ip 192.168.1.2"
       },
       "uploadConfigMap": {
         "JLink": {
@@ -488,7 +663,7 @@
           },
           "proType": 1,
           "speed": 8000,
-          "otherCmds": ""
+          "otherCmds": "ip 192.168.1.2"
         },
         "OpenOCD": {
           "bin": "${ExecutableName}.bin",
@@ -500,35 +675,53 @@
       "custom_dep": {
         "name": "default",
         "incList": [
-          "libraries/HAL_Drivers",
-          "packages/CmBacktrace-v1.4.1",
           "rt-thread/components/drivers/include",
-          "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Inc",
-          "rt-thread/components/libc/posix/ipc",
-          "rt-thread/components/libc/compilers/common/extension/fcntl/octal",
+          "rt-thread/components/legacy/dfs",
+          "packages/CmBacktrace-v1.4.1",
           "rt-thread/libcpu/arm/common",
-          ".",
-          "rt-thread/libcpu/arm/cortex-m3",
-          "rt-thread/components/drivers/sensor",
-          "rt-thread/components/libc/compilers/common/extension",
-          "rt-thread/components/libc/posix/io/poll",
-          "rt-thread/components/libc/compilers/common/include",
-          "rt-thread/components/drivers/spi",
-          "rt-thread/components/finsh",
-          "libraries/HAL_Drivers/CMSIS/Include",
+          "rt-thread/components/dfs/dfs_v1/include",
+          "rt-thread/components/net/sal/include",
+          "rt-thread/components/net/sal/impl",
           "applications",
-          "rt-thread/include",
-          "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Include",
-          "rt-thread/components/legacy",
-          "libraries/HAL_Drivers/config",
-          "board/CubeMX_Config/Inc",
           "board",
-          "rt-thread/components/libc/posix/io/stdio",
-          "rt-thread/components/drivers/include/drivers"
+          "rt-thread/components/drivers/spi",
+          "rt-thread/components/net/netdev/include",
+          ".",
+          "board/CubeMX_Config/Inc",
+          "libraries/HAL_Drivers/config",
+          "rt-thread/components/net/sal/include/socket/sys_socket",
+          "rt-thread/libcpu/arm/cortex-m3",
+          "rt-thread/components/libc/posix/io/poll",
+          "rt-thread/components/libc/compilers/common/extension/fcntl/octal",
+          "rt-thread/components/finsh",
+          "rt-thread/components/libc/compilers/common/extension",
+          "rt-thread/components/net/sal/include/dfs_net",
+          "rt-thread/components/libc/posix/io/eventfd",
+          "rt-thread/components/net/at/include",
+          "packages/at_device-latest/inc",
+          "rt-thread/components/legacy",
+          "rt-thread/components/net/at/at_socket",
+          "packages/xpt2046-latest",
+          "packages/at_device-latest/class/esp8266",
+          "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Include",
+          "packages/pahomqtt-latest/MQTTClient-RT",
+          "rt-thread/include",
+          "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Inc",
+          "rt-thread/components/libc/compilers/common/include",
+          "rt-thread/components/libc/posix/io/epoll",
+          "libraries/HAL_Drivers/CMSIS/Include",
+          "rt-thread/components/libc/posix/ipc",
+          "packages/pahomqtt-latest/MQTTPacket/src",
+          "rt-thread/components/net/sal/include/socket",
+          "rt-thread/components/dfs/dfs_v1/filesystems/devfs",
+          "libraries/HAL_Drivers",
+          "rt-thread/components/utilities/resource",
+          "RTE/_rt-thread"
         ],
         "libList": [],
         "sourceDirList": [],
         "defineList": [
+          "RT_USING_DEBUG",
           "__STDC_LIMIT_MACROS",
           "RT_USING_ARMLIBC",
           "STM32F103xE",

@@ -6,19 +6,19 @@
 
 /* RT-Thread Kernel */
 
-#define RT_NAME_MAX 8
+#define RT_NAME_MAX   8
 #define RT_ALIGN_SIZE 8
 #define RT_THREAD_PRIORITY_32
 #define RT_THREAD_PRIORITY_MAX 32
-#define RT_TICK_PER_SECOND 1000
+#define RT_TICK_PER_SECOND     1000
 #define RT_USING_OVERFLOW_CHECK
 #define RT_USING_HOOK
 #define RT_HOOK_USING_FUNC_PTR
 #define RT_USING_IDLE_HOOK
 #define RT_IDLE_HOOK_LIST_SIZE 4
-#define IDLE_THREAD_STACK_SIZE 256
+#define IDLE_THREAD_STACK_SIZE 1024
 #define RT_USING_TIMER_SOFT
-#define RT_TIMER_THREAD_PRIO 4
+#define RT_TIMER_THREAD_PRIO       4
 #define RT_TIMER_THREAD_STACK_SIZE 512
 
 /* kservice optimization */
@@ -36,19 +36,20 @@
 
 /* Memory Management */
 
-#define RT_PAGE_MAX_ORDER 11
 #define RT_USING_MEMPOOL
-#define RT_USING_SMALL_MEM
-#define RT_USING_SMALL_MEM_AS_HEAP
+#define RT_USING_MEMHEAP
+#define RT_MEMHEAP_FAST_MODE
+#define RT_USING_MEMHEAP_AS_HEAP
+#define RT_USING_MEMHEAP_AUTO_BINDING
 #define RT_USING_HEAP
 
 /* Kernel Device Object */
 
 #define RT_USING_DEVICE
 #define RT_USING_CONSOLE
-#define RT_CONSOLEBUF_SIZE 128
+#define RT_CONSOLEBUF_SIZE     128
 #define RT_CONSOLE_DEVICE_NAME "uart1"
-#define RT_VER_NUM 0x50001
+#define RT_VER_NUM             0x50001
 #define RT_USING_HW_ATOMIC
 #define RT_USING_CPU_FFS
 #define ARCH_ARM
@@ -60,13 +61,13 @@
 #define RT_USING_COMPONENTS_INIT
 #define RT_USING_USER_MAIN
 #define RT_MAIN_THREAD_STACK_SIZE 2048
-#define RT_MAIN_THREAD_PRIORITY 10
+#define RT_MAIN_THREAD_PRIORITY   10
 #define RT_USING_LEGACY
 #define RT_USING_MSH
 #define RT_USING_FINSH
 #define FINSH_USING_MSH
-#define FINSH_THREAD_NAME "tshell"
-#define FINSH_THREAD_PRIORITY 20
+#define FINSH_THREAD_NAME       "tshell"
+#define FINSH_THREAD_PRIORITY   20
 #define FINSH_THREAD_STACK_SIZE 4096
 #define FINSH_USING_HISTORY
 #define FINSH_HISTORY_LINES 5
@@ -83,7 +84,7 @@
 #define DFS_USING_WORKDIR
 #define DFS_FD_MAX 16
 #define RT_USING_DFS_V1
-#define DFS_FILESYSTEMS_MAX 4
+#define DFS_FILESYSTEMS_MAX      4
 #define DFS_FILESYSTEM_TYPES_MAX 4
 #define RT_USING_DFS_DEVFS
 
@@ -93,7 +94,7 @@
 #define RT_UNAMED_PIPE_NUMBER 64
 #define RT_USING_SYSTEM_WORKQUEUE
 #define RT_SYSTEM_WORKQUEUE_STACKSIZE 2048
-#define RT_SYSTEM_WORKQUEUE_PRIORITY 23
+#define RT_SYSTEM_WORKQUEUE_PRIORITY  23
 #define RT_USING_SERIAL
 #define RT_USING_SERIAL_V1
 #define RT_SERIAL_USING_DMA
@@ -108,7 +109,6 @@
 #define RT_USING_SENSOR_CMD
 
 /* Using USB */
-
 
 /* C/C++ and POSIX layer */
 
@@ -128,7 +128,6 @@
 #define RT_USING_POSIX_PIPE_SIZE 512
 
 /* Socket is in the 'Network' category */
-
 
 /* Network */
 
@@ -151,11 +150,10 @@
 #define AT_CLIENT_NUM_MAX 1
 #define AT_USING_SOCKET
 #define AT_USING_CLI
-#define AT_CMD_MAX_LEN 128
+#define AT_CMD_MAX_LEN    128
 #define AT_SW_VERSION_NUM 0x10301
 
 /* Utilities */
-
 
 /* RT-Thread online packages */
 
@@ -164,7 +162,7 @@
 #define PKG_USING_PAHOMQTT
 #define PAHOMQTT_PIPE_MODE
 #define PKG_USING_PAHOMQTT_TEST
-#define RT_PKG_MQTT_THREAD_STACK_SIZE 4096
+#define RT_PKG_MQTT_THREAD_STACK_SIZE   8192
 #define PKG_PAHOMQTT_SUBSCRIBE_HANDLERS 1
 #define MQTT_DEBUG
 #define PKG_USING_PAHOMQTT_LATEST
@@ -173,7 +171,6 @@
 
 /* Marvell WiFi */
 
-
 /* Wiced WiFi */
 
 #define PKG_USING_AT_DEVICE
@@ -181,34 +178,28 @@
 #define AT_DEVICE_ESP8266_INIT_ASYN
 #define AT_DEVICE_ESP8266_SOCKET
 #define AT_DEVICE_ESP8266_SAMPLE
-#define ESP8266_SAMPLE_WIFI_SSID "扬名广场"
-#define ESP8266_SAMPLE_WIFI_PASSWORD "303303303"
-#define ESP8266_SAMPLE_CLIENT_NAME "uart4"
-#define ESP8266_SAMPLE_RECV_BUFF_LEN 512
+#define ESP8266_SAMPLE_WIFI_SSID     "APX"
+#define ESP8266_SAMPLE_WIFI_PASSWORD "12345678"
+#define ESP8266_SAMPLE_CLIENT_NAME   "uart4"
+#define ESP8266_SAMPLE_RECV_BUFF_LEN 1024
 #define PKG_USING_AT_DEVICE_LATEST_VERSION
 #define PKG_AT_DEVICE_VER_NUM 0x99999
 
 /* IoT Cloud */
 
-
 /* security packages */
-
 
 /* language packages */
 
 /* JSON: JavaScript Object Notation, a lightweight data-interchange format */
 
-
 /* XML: Extensible Markup Language */
-
 
 /* multimedia packages */
 
 /* LVGL: powerful and easy-to-use embedded GUI library */
 
-
 /* u8g2: a monochrome graphic library */
-
 
 /* tools packages */
 
@@ -228,12 +219,9 @@
 
 /* acceleration: Assembly language or algorithmic acceleration packages */
 
-
 /* CMSIS: ARM Cortex-M Microcontroller Software Interface Standard */
 
-
 /* Micrium: Micrium software products porting for RT-Thread */
-
 
 /* peripheral libraries and drivers */
 
@@ -242,21 +230,17 @@
 #define PKG_USING_MAX30102
 #define PKG_USING_MAX30102_LATEST_VERSION
 #define MAX30102_STACK_SIZE 1024
-#define MAX30102_PRIORITY 10
-#define MAX30102_TICKS 10
+#define MAX30102_PRIORITY   10
+#define MAX30102_TICKS      10
 #define MAX30102_USING_EXAMPLE
 
 /* touch drivers */
 
-
 /* Kendryte SDK */
-
 
 /* AI packages */
 
-
 /* Signal Processing and Control Algorithm Packages */
-
 
 /* miscellaneous packages */
 
@@ -264,41 +248,29 @@
 
 /* samples: kernel and components samples */
 
-
 /* entertainment: terminal games and other interesting software packages */
-
 
 /* Arduino libraries */
 
-
 /* Projects and Demos */
-
 
 /* Sensors */
 
-
 /* Display */
-
 
 /* Timing */
 
-
 /* Data Processing */
-
 
 /* Data Storage */
 
 /* Communication */
 
-
 /* Device Control */
-
 
 /* Other */
 
-
 /* Signal IO */
-
 
 /* Uncategorized */
 
@@ -330,6 +302,5 @@
 #define BSP_USING_TIM3
 #define BSP_USING_ONCHIP_RTC
 /* Board extended module Drivers */
-
 
 #endif

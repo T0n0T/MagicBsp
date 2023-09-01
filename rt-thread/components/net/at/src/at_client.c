@@ -515,7 +515,7 @@ rt_size_t at_client_obj_recv(at_client_t client, char *buf, rt_size_t size, rt_i
         if(rt_sem_take(client->rx_notice, rt_tick_from_millisecond(timeout)) != RT_EOK)
             break;
     }
-
+    at_print_raw_cmd("urc_recv", buf, len);
 #ifdef AT_PRINT_RAW_CMD
     at_print_raw_cmd("urc_recv", buf, len);
 #endif
