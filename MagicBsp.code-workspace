@@ -4,22 +4,6 @@
             "path": "."
         }
     ],
-    "settings": {
-        "files.associations": {
-            "*.cpp": "cpp",
-            "*.html": "html",
-            "*.env": "dotenv",
-            "*.go": "go",
-            "salof_defconfig.h": "c",
-            "rtthread.h": "c",
-            "mqttclient.h": "c",
-            "mqtt_defconfig.h": "c",
-            "rtdevice.h": "c",
-            "app.h": "c",
-            "platform_memory.h": "c",
-            "platform_mutex.h": "c",
-            "string.h": "c"
-        }
-    },
+    "settings": {},
     "extensions": {}
 }

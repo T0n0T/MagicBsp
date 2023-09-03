@@ -331,7 +331,7 @@
               <MiscControls />
               <Define>__STDC_LIMIT_MACROS, RT_USING_ARMLIBC, STM32F103xE, USE_HAL_DRIVER, RT_USING_LIBC, __CLK_TCK=RT_TICK_PER_SECOND, __RTTHREAD__</Define>
               <Undefine />
-              <IncludePath>rt-thread\components\dfs\dfs_v1\include;rt-thread\components\legacy\dfs;packages\CmBacktrace-v1.4.1;rt-thread\libcpu\arm\common;rt-thread\components\net\sal\include;rt-thread\components\net\sal\impl;applications;rt-thread\components\drivers\include;board;rt-thread\components\drivers\spi;rt-thread\components\net\netdev\include;packages\kawaii-mqtt\common;packages\kawaii-mqtt\mqtt;rt-thread\components\drivers\include;rt-thread\components\drivers\include;libraries\HAL_Drivers;board\CubeMX_Config\Inc;packages\kawaii-mqtt\common\log;libraries\HAL_Drivers\config;rt-thread\components\utilities\resource;rt-thread\components\net\sal\include\socket\sys_socket;rt-thread\components\drivers\include;rt-thread\libcpu\arm\cortex-m3;rt-thread\components\libc\posix\io\poll;rt-thread\components\drivers\include;rt-thread\components\finsh;rt-thread\components\libc\compilers\common\extension;rt-thread\components\net\sal\include\dfs_net;rt-thread\components\libc\posix\io\eventfd;.;rt-thread\components\net\at\include;packages\at_device-latest\inc;rt-thread\components\drivers\include;rt-thread\components\legacy;rt-thread\components\net\at\at_socket;packages\xpt2046-latest;packages\at_device-latest\class\esp8266;libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Include;packages\kawaii-mqtt\network;rt-thread\include;libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Inc;rt-thread\components\libc\compilers\common\include;rt-thread\components\libc\posix\io\epoll;libraries\HAL_Drivers\CMSIS\Include;rt-thread\components\libc\posix\ipc;packages\kawaii-mqtt\platform\RT-Thread;rt-thread\components\drivers\include;rt-thread\components\net\sal\include\socket;rt-thread\components\drivers\include;rt-thread\components\dfs\dfs_v1\filesystems\devfs;rt-thread\components\libc\compilers\common\extension\fcntl\octal;packages\kawaii-mqtt\mqttclient</IncludePath>
+              <IncludePath>rt-thread\components\dfs\dfs_v1\include;rt-thread\components\legacy\dfs;packages\CmBacktrace-v1.4.1;rt-thread\libcpu\arm\common;rt-thread\components\net\sal\include;rt-thread\components\net\sal\impl;applications;rt-thread\components\drivers\include;board;rt-thread\components\drivers\spi;rt-thread\components\net\netdev\include;kawaii-mqtt\platform\RT-Thread;rt-thread\components\drivers\include;rt-thread\components\drivers\include;libraries\HAL_Drivers;board\CubeMX_Config\Inc;libraries\HAL_Drivers\config;rt-thread\components\utilities\resource;kawaii-mqtt\mqttclient;rt-thread\components\net\sal\include\socket\sys_socket;rt-thread\components\drivers\include;rt-thread\libcpu\arm\cortex-m3;rt-thread\components\libc\posix\io\poll;rt-thread\components\drivers\include;rt-thread\components\finsh;rt-thread\components\libc\compilers\common\extension;rt-thread\components\net\sal\include\dfs_net;rt-thread\components\libc\posix\io\eventfd;.;rt-thread\components\net\at\include;packages\at_device-latest\inc;rt-thread\components\drivers\include;kawaii-mqtt\network;rt-thread\components\net\at\at_socket;rt-thread\components\legacy;packages\xpt2046-latest;packages\at_device-latest\class\esp8266;kawaii-mqtt\common;libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Include;rt-thread\include;libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Inc;rt-thread\components\libc\compilers\common\include;rt-thread\components\libc\posix\io\epoll;libraries\HAL_Drivers\CMSIS\Include;rt-thread\components\libc\posix\ipc;kawaii-mqtt\common\log;rt-thread\components\drivers\include;rt-thread\components\net\sal\include\socket;rt-thread\components\drivers\include;rt-thread\components\dfs\dfs_v1\filesystems\devfs;rt-thread\components\libc\compilers\common\extension\fcntl\octal;kawaii-mqtt\mqtt</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -375,27 +375,6 @@
           <GroupName>Applications</GroupName>
           <Files>
             <File>
-              <FileName>decode.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>applications\decode.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>ccm3310_test.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>applications\ccm3310_test.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>rt_kprintf.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>applications\rt_kprintf.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
               <FileName>drv_i2c.c</FileName>
               <FileType>1</FileType>
               <FilePath>applications\drv_i2c.c</FilePath>
@@ -410,16 +389,30 @@
           </Files>
           <Files>
             <File>
-              <FileName>crc32.c</FileName>
+              <FileName>rt_kprintf.c</FileName>
               <FileType>1</FileType>
-              <FilePath>applications\crc32.c</FilePath>
+              <FilePath>applications\rt_kprintf.c</FilePath>
             </File>
           </Files>
           <Files>
             <File>
-              <FileName>ccm3310.c</FileName>
+              <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>applications\ccm3310.c</FilePath>
+              <FilePath>applications\main.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>decode.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>applications\decode.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>crc32.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>applications\crc32.c</FilePath>
             </File>
           </Files>
           <Files>
@@ -431,9 +424,23 @@
           </Files>
           <Files>
             <File>
-              <FileName>main.c</FileName>
+              <FileName>ccm3310.c</FileName>
               <FileType>1</FileType>
-              <FilePath>applications\main.c</FilePath>
+              <FilePath>applications\ccm3310.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>tcpclient_sample.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>applications\tcpclient_sample.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>ccm3310_test.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>applications\ccm3310_test.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -472,20 +479,6 @@
           <GroupName>at_device</GroupName>
           <Files>
             <File>
-              <FileName>at_device.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\at_device-latest\src\at_device.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>at_device_esp8266.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\at_device-latest\class\esp8266\at_device_esp8266.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
               <FileName>at_socket_esp8266.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\at_device-latest\class\esp8266\at_socket_esp8266.c</FilePath>
@@ -498,21 +491,35 @@
               <FilePath>packages\at_device-latest\samples\at_sample_esp8266.c</FilePath>
             </File>
           </Files>
+          <Files>
+            <File>
+              <FileName>at_device_esp8266.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\at_device-latest\class\esp8266\at_device_esp8266.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>at_device.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\at_device-latest\src\at_device.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>cm_backtrace</GroupName>
           <Files>
             <File>
-              <FileName>cmb_port.c</FileName>
+              <FileName>cm_backtrace.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\CmBacktrace-v1.4.1\cmb_port.c</FilePath>
+              <FilePath>packages\CmBacktrace-v1.4.1\cm_backtrace.c</FilePath>
             </File>
           </Files>
           <Files>
             <File>
-              <FileName>cm_backtrace.c</FileName>
+              <FileName>cmb_port.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\CmBacktrace-v1.4.1\cm_backtrace.c</FilePath>
+              <FilePath>packages\CmBacktrace-v1.4.1\cmb_port.c</FilePath>
             </File>
           </Files>
           <Files>
@@ -909,177 +916,177 @@
           <GroupName>kawaii_mqtt</GroupName>
           <Files>
             <File>
-              <FileName>nettype_tls.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\network\nettype_tls.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>MQTTConnectServer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\mqtt\MQTTConnectServer.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
               <FileName>arch.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\common\log\arch\rt-thread\arch.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>platform_net_socket.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\platform\RT-Thread\platform_net_socket.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>MQTTDeserializePublish.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\mqtt\MQTTDeserializePublish.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>platform_timer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\platform\RT-Thread\platform_timer.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>format.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\common\log\format.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>platform_thread.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\platform\RT-Thread\platform_thread.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>MQTTSerializePublish.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\mqtt\MQTTSerializePublish.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>MQTTSubscribeServer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\mqtt\MQTTSubscribeServer.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>nettype_tcp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\network\nettype_tcp.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>random.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\common\random.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>MQTTFormat.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\mqtt\MQTTFormat.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>mqtt_list.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\common\mqtt_list.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>MQTTUnsubscribeClient.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\mqtt\MQTTUnsubscribeClient.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>mqttclient.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\mqttclient\mqttclient.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>MQTTPacket.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\mqtt\MQTTPacket.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>salof.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\common\log\salof.c</FilePath>
+              <FilePath>kawaii-mqtt\common\log\arch\rt-thread\arch.c</FilePath>
             </File>
           </Files>
           <Files>
             <File>
               <FileName>platform_memory.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\platform\RT-Thread\platform_memory.c</FilePath>
+              <FilePath>kawaii-mqtt\platform\RT-Thread\platform_memory.c</FilePath>
             </File>
           </Files>
           <Files>
             <File>
-              <FileName>MQTTUnsubscribeServer.c</FileName>
+              <FileName>nettype_tcp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\mqtt\MQTTUnsubscribeServer.c</FilePath>
+              <FilePath>kawaii-mqtt\network\nettype_tcp.c</FilePath>
             </File>
           </Files>
           <Files>
             <File>
-              <FileName>platform_mutex.c</FileName>
+              <FileName>salof.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\platform\RT-Thread\platform_mutex.c</FilePath>
+              <FilePath>kawaii-mqtt\common\log\salof.c</FilePath>
             </File>
           </Files>
           <Files>
             <File>
-              <FileName>MQTTConnectClient.c</FileName>
+              <FileName>mqtt_list.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\mqtt\MQTTConnectClient.c</FilePath>
+              <FilePath>kawaii-mqtt\common\mqtt_list.c</FilePath>
             </File>
           </Files>
           <Files>
             <File>
-              <FileName>fifo.c</FileName>
+              <FileName>MQTTConnectServer.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\common\log\fifo.c</FilePath>
+              <FilePath>kawaii-mqtt\mqtt\MQTTConnectServer.c</FilePath>
             </File>
           </Files>
           <Files>
             <File>
               <FileName>network.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\network\network.c</FilePath>
+              <FilePath>kawaii-mqtt\network\network.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>MQTTSerializePublish.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>kawaii-mqtt\mqtt\MQTTSerializePublish.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>platform_thread.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>kawaii-mqtt\platform\RT-Thread\platform_thread.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>MQTTPacket.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>kawaii-mqtt\mqtt\MQTTPacket.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>fifo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>kawaii-mqtt\common\log\fifo.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>MQTTConnectClient.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>kawaii-mqtt\mqtt\MQTTConnectClient.c</FilePath>
             </File>
           </Files>
           <Files>
             <File>
               <FileName>MQTTSubscribeClient.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\kawaii-mqtt\mqtt\MQTTSubscribeClient.c</FilePath>
+              <FilePath>kawaii-mqtt\mqtt\MQTTSubscribeClient.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>MQTTFormat.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>kawaii-mqtt\mqtt\MQTTFormat.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>nettype_tls.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>kawaii-mqtt\network\nettype_tls.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>platform_net_socket.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>kawaii-mqtt\platform\RT-Thread\platform_net_socket.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>mqttclient.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>kawaii-mqtt\mqttclient\mqttclient.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>random.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>kawaii-mqtt\common\random.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>MQTTUnsubscribeServer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>kawaii-mqtt\mqtt\MQTTUnsubscribeServer.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>platform_mutex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>kawaii-mqtt\platform\RT-Thread\platform_mutex.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>MQTTUnsubscribeClient.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>kawaii-mqtt\mqtt\MQTTUnsubscribeClient.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>MQTTSubscribeServer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>kawaii-mqtt\mqtt\MQTTSubscribeServer.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>MQTTDeserializePublish.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>kawaii-mqtt\mqtt\MQTTDeserializePublish.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>platform_timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>kawaii-mqtt\platform\RT-Thread\platform_timer.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>format.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>kawaii-mqtt\common\log\format.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1129,9 +1136,9 @@
           </Files>
           <Files>
             <File>
-              <FileName>mem.c</FileName>
+              <FileName>memheap.c</FileName>
               <FileType>1</FileType>
-              <FilePath>rt-thread\src\mem.c</FilePath>
+              <FilePath>rt-thread\src\memheap.c</FilePath>
             </File>
           </Files>
           <Files>
