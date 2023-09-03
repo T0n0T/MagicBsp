@@ -27,7 +27,7 @@
 #ifdef RT_USING_MEMHEAP
 
 #define DBG_TAG "kernel.memheap"
-#define DBG_LVL DBG_LOG
+#define DBG_LVL DBG_INFO
 #include <rtdbg.h>
 
 /* dynamic pool magic and mask */
@@ -313,10 +313,11 @@ void *rt_memheap_alloc(struct rt_memheap *heap, rt_size_t size)
             }
 
             /* Return a memory address to the caller.  */
-            LOG_D("alloc mem: memory[0x%08x], heap[0x%08x], size: %d",
+            LOG_D("alloc mem: memory[0x%08x], heap[0x%08x], size: %d, thread:%s",
                   (void *)((rt_uint8_t *)header_ptr + RT_MEMHEAP_SIZE),
                   header_ptr,
-                  size);
+                  size,
+                  rt_thread_self()->parent.name);
 
             return (void *)((rt_uint8_t *)header_ptr + RT_MEMHEAP_SIZE);
         }
@@ -577,8 +578,8 @@ void rt_memheap_free(void *ptr)
     new_ptr       = RT_NULL;
     header_ptr    = (struct rt_memheap_item *)((rt_uint8_t *)ptr - RT_MEMHEAP_SIZE);
 
-    LOG_D("free memory: memory[0x%08x], block[0x%08x]",
-          ptr, header_ptr);
+    LOG_D("free memory: memory[0x%08x], block[0x%08x], size: %d, thread: %s",
+          ptr, header_ptr, MEMITEM_SIZE(header_ptr), rt_thread_self()->parent.name);
 
     /* check magic */
     if (header_ptr->magic != (RT_MEMHEAP_MAGIC | RT_MEMHEAP_USED) ||
@@ -825,7 +826,8 @@ int memheapcheck(int argc, char *argv[])
     rt_base_t level;
     char *name;
 
-    name  = argc > 1 ? argv[1] : RT_NULL;
+    name = argc > 1 ? argv[1] : RT_NULL;
+
     level = rt_hw_interrupt_disable();
     info  = rt_object_get_information(RT_Object_Class_MemHeap);
     list  = &info->object_list;
@@ -862,6 +864,7 @@ int memheapcheck(int argc, char *argv[])
             }
         }
     }
+
     rt_hw_interrupt_enable(level);
     if (has_bad) {
         rt_kprintf("Memory block wrong:\n");

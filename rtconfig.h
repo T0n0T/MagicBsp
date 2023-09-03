@@ -16,7 +16,7 @@
 #define RT_HOOK_USING_FUNC_PTR
 #define RT_USING_IDLE_HOOK
 #define RT_IDLE_HOOK_LIST_SIZE 4
-#define IDLE_THREAD_STACK_SIZE 1024
+#define IDLE_THREAD_STACK_SIZE 256
 #define RT_USING_TIMER_SOFT
 #define RT_TIMER_THREAD_PRIO       4
 #define RT_TIMER_THREAD_STACK_SIZE 512
@@ -24,7 +24,10 @@
 /* kservice optimization */
 
 #define RT_KSERVICE_USING_STDLIB
-#define RT_DEBUG
+#define RT_USING_DEBUG
+#define RT_DEBUGING_COLOR
+#define RT_DEBUGING_CONTEXT
+#define RT_DEBUGING_INIT
 
 /* Inter-Thread communication */
 
@@ -42,6 +45,7 @@
 #define RT_USING_MEMHEAP_AS_HEAP
 #define RT_USING_MEMHEAP_AUTO_BINDING
 #define RT_USING_HEAP
+#define RT_USING_MEMTRACE
 
 /* Kernel Device Object */
 
@@ -103,8 +107,8 @@
 #define RT_USING_I2C
 #define RT_USING_I2C_BITOPS
 #define RT_USING_PIN
-#define RT_USING_SPI
 #define RT_USING_RTC
+#define RT_USING_SPI
 #define RT_USING_SENSOR
 #define RT_USING_SENSOR_CMD
 
@@ -112,7 +116,14 @@
 
 /* C/C++ and POSIX layer */
 
-#define RT_LIBC_DEFAULT_TIMEZONE 8
+/* ISO-ANSI C layer */
+
+/* Timezone and Daylight Saving Time */
+
+#define RT_LIBC_USING_LIGHT_TZ_DST
+#define RT_LIBC_TZ_DEFAULT_HOUR 8
+#define RT_LIBC_TZ_DEFAULT_MIN  0
+#define RT_LIBC_TZ_DEFAULT_SEC  0
 
 /* POSIX (Portable Operating System Interface) layer */
 
@@ -155,17 +166,37 @@
 
 /* Utilities */
 
+#define RT_USING_RESOURCE_ID
+
 /* RT-Thread online packages */
 
 /* IoT - internet of things */
 
-#define PKG_USING_PAHOMQTT
-#define PAHOMQTT_PIPE_MODE
-#define PKG_USING_PAHOMQTT_TEST
-#define RT_PKG_MQTT_THREAD_STACK_SIZE   8192
-#define PKG_PAHOMQTT_SUBSCRIBE_HANDLERS 1
-#define MQTT_DEBUG
-#define PKG_USING_PAHOMQTT_LATEST
+#define PKG_USING_KAWAII_MQTT
+#define KAWAII_MQTT_NETSOCKET_USE_SAL
+#define KAWAII_MQTT_LOG_IS_SALOF
+#define SALOF_USING_LOG
+#define SALOF_USING_SALOF
+#define SALOF_BUFF_SIZE                        512
+#define SALOF_FIFO_SIZE                        2048
+#define SALOF_TASK_STACK_SIZE                  2048
+#define SALOF_TASK_TICK                        50
+#define SALOF_LOG_LEVEL                        4
+#define KAWAII_MQTT_LOG_LEVEL                  4
+#define KAWAII_MQTT_VERSION                    4
+#define KAWAII_MQTT_KEEP_ALIVE_INTERVAL        60
+#define KAWAII_MQTT_THREAD_STACK_SIZE          4096
+#define KAWAII_MQTT_THREAD_PRIO                5
+#define KAWAII_MQTT_THREAD_TICK                50
+#define KAWAII_MQTT_MAX_PACKET_ID              0xFFFE
+#define KAWAII_MQTT_TOPIC_LEN_MAX              64
+#define KAWAII_MQTT_ACK_HANDLER_NUM_MAX        64
+#define KAWAII_MQTT_DEFAULT_BUF_SIZE           1024
+#define KAWAII_MQTT_DEFAULT_CMD_TIMEOUT        4000
+#define KAWAII_MQTT_MAX_CMD_TIMEOUT            20000
+#define KAWAII_MQTT_MIN_CMD_TIMEOUT            1000
+#define KAWAII_MQTT_RECONNECT_DEFAULT_DURATION 1000
+#define PKG_USING_KAWAII_MQTT_LATEST_VERSION
 
 /* Wi-Fi */
 
@@ -178,8 +209,8 @@
 #define AT_DEVICE_ESP8266_INIT_ASYN
 #define AT_DEVICE_ESP8266_SOCKET
 #define AT_DEVICE_ESP8266_SAMPLE
-#define ESP8266_SAMPLE_WIFI_SSID     "APX"
-#define ESP8266_SAMPLE_WIFI_PASSWORD "12345678"
+#define ESP8266_SAMPLE_WIFI_SSID     "扬名广场"
+#define ESP8266_SAMPLE_WIFI_PASSWORD "303303303"
 #define ESP8266_SAMPLE_CLIENT_NAME   "uart4"
 #define ESP8266_SAMPLE_RECV_BUFF_LEN 1024
 #define PKG_USING_AT_DEVICE_LATEST_VERSION
@@ -301,6 +332,7 @@
 #define BSP_USING_TIM
 #define BSP_USING_TIM3
 #define BSP_USING_ONCHIP_RTC
+
 /* Board extended module Drivers */
 
 #endif

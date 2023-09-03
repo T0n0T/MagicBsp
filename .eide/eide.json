@@ -13,7 +13,10 @@
         "name": "Applications",
         "files": [
           {
-            "path": "applications/crc32.c"
+            "path": "applications/app.c"
+          },
+          {
+            "path": "applications/ccm3310_test.c"
           },
           {
             "path": "applications/ccm3310.c"
@@ -22,19 +25,22 @@
             "path": "applications/cJSON.c"
           },
           {
-            "path": "applications/app.c"
-          },
-          {
-            "path": "applications/ccm3310_test.c"
-          },
-          {
-            "path": "applications/main.c"
+            "path": "applications/crc32.c"
           },
           {
             "path": "applications/decode.c"
           },
           {
+            "path": "applications/main.c"
+          },
+          {
             "path": "applications/rt_kprintf.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/test/test_ca.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/test/test.c"
           }
         ],
         "folders": []
@@ -151,13 +157,13 @@
             "path": "rt-thread/components/drivers/hwtimer/hwtimer.c"
           },
           {
-            "path": "rt-thread/components/drivers/i2c/i2c-bit-ops.c"
-          },
-          {
             "path": "rt-thread/components/drivers/i2c/i2c_core.c"
           },
           {
             "path": "rt-thread/components/drivers/i2c/i2c_dev.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/i2c/i2c-bit-ops.c"
           },
           {
             "path": "rt-thread/components/drivers/ipc/completion.c"
@@ -184,10 +190,13 @@
             "path": "rt-thread/components/drivers/misc/pin.c"
           },
           {
-            "path": "rt-thread/components/drivers/sensor/v1/sensor.c"
+            "path": "rt-thread/components/drivers/rtc/rtc.c"
           },
           {
             "path": "rt-thread/components/drivers/sensor/v1/sensor_cmd.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/sensor/v1/sensor.c"
           },
           {
             "path": "rt-thread/components/drivers/serial/serial.c"
@@ -197,9 +206,6 @@
           },
           {
             "path": "rt-thread/components/drivers/spi/spi_dev.c"
-          },
-          {
-            "path": "rt-thread/components/drivers/rtc/rtc.c"
           }
         ],
         "folders": []
@@ -283,6 +289,87 @@
         "folders": []
       },
       {
+        "name": "kawaii_mqtt",
+        "files": [
+          {
+            "path": "packages/kawaii-mqtt/common/log/arch/rt-thread/arch.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/common/log/fifo.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/common/log/format.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/common/log/salof.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/common/mqtt_list.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/common/random.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/mqtt/MQTTConnectClient.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/mqtt/MQTTConnectServer.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/mqtt/MQTTDeserializePublish.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/mqtt/MQTTFormat.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/mqtt/MQTTPacket.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/mqtt/MQTTSerializePublish.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/mqtt/MQTTSubscribeClient.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/mqtt/MQTTSubscribeServer.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/mqtt/MQTTUnsubscribeClient.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/mqtt/MQTTUnsubscribeServer.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/mqttclient/mqttclient.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/network/nettype_tcp.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/network/nettype_tls.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/network/network.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/platform/RT-Thread/platform_memory.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/platform/RT-Thread/platform_mutex.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/platform/RT-Thread/platform_net_socket.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/platform/RT-Thread/platform_thread.c"
+          },
+          {
+            "path": "packages/kawaii-mqtt/platform/RT-Thread/platform_timer.c"
+          }
+        ],
+        "folders": []
+      },
+      {
         "name": "Kernel",
         "files": [
           {
@@ -302,6 +389,9 @@
           },
           {
             "path": "rt-thread/src/kservice.c"
+          },
+          {
+            "path": "rt-thread/src/mem.c"
           },
           {
             "path": "rt-thread/src/memheap.c"
@@ -352,6 +442,9 @@
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c"
           },
           {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c"
+          },
+          {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c"
           },
           {
@@ -365,6 +458,9 @@
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c"
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_crc.c"
@@ -389,9 +485,6 @@
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c"
           }
         ],
         "folders": []
@@ -415,48 +508,6 @@
         "folders": []
       },
       {
-        "name": "paho-mqtt",
-        "files": [
-          {
-            "path": "packages/pahomqtt-latest/MQTTClient-RT/paho_mqtt_pipe.c"
-          },
-          {
-            "path": "packages/pahomqtt-latest/MQTTPacket/src/MQTTConnectClient.c"
-          },
-          {
-            "path": "packages/pahomqtt-latest/MQTTPacket/src/MQTTConnectServer.c"
-          },
-          {
-            "path": "packages/pahomqtt-latest/MQTTPacket/src/MQTTDeserializePublish.c"
-          },
-          {
-            "path": "packages/pahomqtt-latest/MQTTPacket/src/MQTTFormat.c"
-          },
-          {
-            "path": "packages/pahomqtt-latest/MQTTPacket/src/MQTTPacket.c"
-          },
-          {
-            "path": "packages/pahomqtt-latest/MQTTPacket/src/MQTTSerializePublish.c"
-          },
-          {
-            "path": "packages/pahomqtt-latest/MQTTPacket/src/MQTTSubscribeClient.c"
-          },
-          {
-            "path": "packages/pahomqtt-latest/MQTTPacket/src/MQTTSubscribeServer.c"
-          },
-          {
-            "path": "packages/pahomqtt-latest/MQTTPacket/src/MQTTUnsubscribeClient.c"
-          },
-          {
-            "path": "packages/pahomqtt-latest/MQTTPacket/src/MQTTUnsubscribeServer.c"
-          },
-          {
-            "path": "packages/pahomqtt-latest/tests/mqtt_test.c"
-          }
-        ],
-        "folders": []
-      },
-      {
         "name": "POSIX",
         "files": [
           {
@@ -469,22 +520,13 @@
         "folders": []
       },
       {
-        "name": "rt_kprintf",
-        "files": [
-          {
-            "path": "packages/rt_vsnprintf_full-latest/rt_vsnprintf.c"
-          }
-        ],
-        "folders": []
-      },
-      {
         "name": "SAL",
         "files": [
           {
-            "path": "rt-thread/components/net/netdev/src/netdev.c"
+            "path": "rt-thread/components/net/netdev/src/netdev_ipaddr.c"
           },
           {
-            "path": "rt-thread/components/net/netdev/src/netdev_ipaddr.c"
+            "path": "rt-thread/components/net/netdev/src/netdev.c"
           },
           {
             "path": "rt-thread/components/net/sal/dfs_net/dfs_net.c"
@@ -505,10 +547,19 @@
         "folders": []
       },
       {
-        "name": "utilities",
+        "name": "Utilities",
         "files": [
           {
             "path": "rt-thread/components/utilities/resource/resource_id.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "xpt2046_touch",
+        "files": [
+          {
+            "path": "packages/xpt2046-latest/drv_xpt2046.c"
           }
         ],
         "folders": []
@@ -525,14 +576,15 @@
     "rt-thread": {
       "excludeList": [
         "<virtual_root>/max30102",
-        "<virtual_root>/rt_kprintf"
+        "<virtual_root>/xpt2046_touch",
+        "<virtual_root>/Applications/test_ca.c"
       ],
       "toolchain": "AC5",
       "compileConfig": {
         "cpuType": "Cortex-M3",
         "floatingPointHardware": "none",
         "scatterFilePath": "board/linker_scripts/link.sct",
-        "useCustomScatterFile": false,
+        "useCustomScatterFile": true,
         "storageLayout": {
           "RAM": [
             {
@@ -570,7 +622,7 @@
               "id": 1,
               "mem": {
                 "startAddr": "0x20000000",
-                "size": "0xc000"
+                "size": "0x5000"
               },
               "isChecked": true,
               "noInit": false
@@ -622,7 +674,7 @@
               "id": 1,
               "mem": {
                 "startAddr": "0x8000000",
-                "size": "0x40000"
+                "size": "0x10000"
               },
               "isChecked": true,
               "isStartup": true
@@ -641,21 +693,16 @@
         },
         "options": "null"
       },
-      "uploader": "JLink",
+      "uploader": "OpenOCD",
       "uploadConfig": {
         "bin": "${ExecutableName}.hex",
-        "baseAddr": "0x08000000",
-        "cpuInfo": {
-          "vendor": "ST",
-          "cpuName": "STM32F103RC"
-        },
-        "proType": 1,
-        "speed": 8000,
-        "otherCmds": "ip 192.168.1.2"
+        "target": "stm32f1x",
+        "interface": "cmsis-dap",
+        "baseAddr": "0x08000000"
       },
       "uploadConfigMap": {
         "JLink": {
-          "bin": "${ExecutableName}.bin",
+          "bin": "${ExecutableName}.hex",
           "baseAddr": "0x08000000",
           "cpuInfo": {
             "vendor": "ST",
@@ -675,28 +722,32 @@
       "custom_dep": {
         "name": "default",
         "incList": [
-          "rt-thread/components/drivers/include",
+          "rt-thread/components/dfs/dfs_v1/include",
           "rt-thread/components/legacy/dfs",
           "packages/CmBacktrace-v1.4.1",
           "rt-thread/libcpu/arm/common",
-          "rt-thread/components/dfs/dfs_v1/include",
           "rt-thread/components/net/sal/include",
           "rt-thread/components/net/sal/impl",
           "applications",
+          "rt-thread/components/drivers/include",
           "board",
           "rt-thread/components/drivers/spi",
           "rt-thread/components/net/netdev/include",
-          ".",
+          "packages/kawaii-mqtt/common",
+          "packages/kawaii-mqtt/mqtt",
+          "libraries/HAL_Drivers",
           "board/CubeMX_Config/Inc",
+          "packages/kawaii-mqtt/common/log",
           "libraries/HAL_Drivers/config",
+          "rt-thread/components/utilities/resource",
           "rt-thread/components/net/sal/include/socket/sys_socket",
           "rt-thread/libcpu/arm/cortex-m3",
           "rt-thread/components/libc/posix/io/poll",
-          "rt-thread/components/libc/compilers/common/extension/fcntl/octal",
           "rt-thread/components/finsh",
           "rt-thread/components/libc/compilers/common/extension",
           "rt-thread/components/net/sal/include/dfs_net",
           "rt-thread/components/libc/posix/io/eventfd",
+          ".",
           "rt-thread/components/net/at/include",
           "packages/at_device-latest/inc",
           "rt-thread/components/legacy",
@@ -704,24 +755,22 @@
           "packages/xpt2046-latest",
           "packages/at_device-latest/class/esp8266",
           "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Include",
-          "packages/pahomqtt-latest/MQTTClient-RT",
+          "packages/kawaii-mqtt/network",
           "rt-thread/include",
           "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Inc",
           "rt-thread/components/libc/compilers/common/include",
           "rt-thread/components/libc/posix/io/epoll",
           "libraries/HAL_Drivers/CMSIS/Include",
           "rt-thread/components/libc/posix/ipc",
-          "packages/pahomqtt-latest/MQTTPacket/src",
+          "packages/kawaii-mqtt/platform/RT-Thread",
           "rt-thread/components/net/sal/include/socket",
           "rt-thread/components/dfs/dfs_v1/filesystems/devfs",
-          "libraries/HAL_Drivers",
-          "rt-thread/components/utilities/resource",
-          "RTE/_rt-thread"
+          "rt-thread/components/libc/compilers/common/extension/fcntl/octal",
+          "packages/kawaii-mqtt/mqttclient"
         ],
         "libList": [],
         "sourceDirList": [],
         "defineList": [
-          "RT_USING_DEBUG",
           "__STDC_LIMIT_MACROS",
           "RT_USING_ARMLIBC",
           "STM32F103xE",

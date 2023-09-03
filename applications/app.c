@@ -10,7 +10,7 @@
  */
 #include "app.h"
 #include "cJSON.h"
-#include "paho_mqtt.h"
+#include "mqttclient.h"
 #include <rtdevice.h>
 #include <stdio.h>
 
@@ -18,137 +18,89 @@
 #define DBG_TAG "app"
 #include <rtdbg.h>
 
-MQTTClient client;
-// #define USING_HWTIMER
-#define USING_SOFT_TIMER
-#if defined(USING_HWTIMER)
-#define TIMER_DEV "timer3"
-rt_device_t timer = NULL;
+#define MQTT_DELAY_MS 5000
 
-static rt_err_t hwtimer_call(rt_device_t dev, rt_size_t size)
-{
-    paho_mqtt_publish(&client, QOS1, MQTT_TOPIC_DATA, "hello");
-    LOG_I("publish msg!!!!!!!!\n");
-    return 0;
-}
+uint8_t thread_isinit = 0;
+mqtt_client_t *client = NULL;
+struct rt_thread mqtt_thread;
+char stack[2048];
+mqtt_message_t msg;
 
-static int timer_mission_init(void)
+static void mqtt_entry(void *p)
 {
-    rt_hwtimerval_t timeout_s = {5, 0};
-    rt_hwtimer_mode_t mode    = HWTIMER_MODE_PERIOD;
-    timer                     = rt_device_find(TIMER_DEV);
-    if (timer == RT_NULL) {
-        LOG_E("%s set callback failed!", TIMER_DEV);
-        return -1;
+    memset(&msg, 0, sizeof(msg));
+    mqtt_error_t err = KAWAII_MQTT_SUCCESS_ERROR;
+    msg.qos          = QOS0;
+    msg.payload      = (void *)"this is a kawaii mqtt test ...";
+    while (1) {
+        err = mqtt_publish(client, "/topic/test", &msg);
+        if (err != KAWAII_MQTT_SUCCESS_ERROR) {
+            LOG_E("publish msg fail, err[%d]", err);
+        }
+        LOG_D("publish msg success!!!!!!!!\n");
+        rt_thread_mdelay(MQTT_DELAY_MS);
     }
-    if (rt_device_set_rx_indicate(timer, hwtimer_call)) {
-        LOG_E("%s set callback failed!", TIMER_DEV);
-        return -1;
+}
+
+static int thread_mission_init(void)
+{
+    rt_err_t err = RT_EOK;
+    // memset(stack, 0, sizeof(stack));
+    if (!thread_isinit) {
+        err = rt_thread_init(&mqtt_thread, "mqtt", mqtt_entry, RT_NULL, stack, sizeof(stack), 20, 10);
+        if (err != RT_EOK) {
+            LOG_E("mqtt thread init fail, err[%d]", err);
+            return err;
+        }
+        thread_isinit = 1;
     }
-    if (rt_device_control(timer, HWTIMER_CTRL_MODE_SET, &mode) != RT_EOK) {
-        LOG_E("%s set mode failed!", TIMER_DEV);
-        return -1;
-    }
-    if (rt_device_open(timer, RT_DEVICE_OFLAG_RDWR) != RT_EOK) {
-        LOG_E("open %s device failed!", TIMER_DEV);
-        return -1;
-    }
-    if (rt_device_write(timer, 0, &timeout_s, sizeof(timeout_s)) != sizeof(timeout_s)) {
-        LOG_E("set timeout value failed\n");
-        return -1;
-    }
-
-    return 0;
+    return rt_thread_startup(&mqtt_thread);
 }
 
-static int timer_mission_deinit(void)
+static void thread_mission_deinit(void)
 {
-    rt_device_close(timer);
-    return 0;
+    rt_thread_detach(&mqtt_thread);
 }
 
-#elif defined(USING_SOFT_TIMER)
-
-rt_timer_t soft_timer = 0;
-static void timer_call(void *parameter)
+static void sub_handle(void *client, message_data_t *msg)
 {
-    paho_mqtt_publish(&client, QOS1, MQTT_TOPIC_DATA, "hello");
-    LOG_I("publish msg!!!!!!!!\n");
-}
-
-static int timer_mission_init(void)
-{
-    rt_err_t result = 0;
-    soft_timer      = rt_timer_create("mqtt_timer", timer_call, 0, rt_tick_from_millisecond(5000), RT_TIMER_FLAG_PERIODIC);
-    result          = rt_timer_start(soft_timer);
-    if (result != RT_EOK) {
-        LOG_E("mqtt timer start fail!");
-        return -1;
-    }
-    LOG_I("mqtt timer start success!");
-    return 0;
-}
-
-static int timer_mission_deinit(void)
-{
-    rt_timer_stop(soft_timer);
-    rt_timer_delete(soft_timer);
-    return 0;
-}
-#endif
-
-static void mqtt_sub_callback(MQTTClient *c, MessageData *msg_data)
-{
-    *((char *)msg_data->message->payload + msg_data->message->payloadlen) = '\0';
-    LOG_D("mqtt sub callback: %.*s %.*s",
-          msg_data->topicName->lenstring.len,
-          msg_data->topicName->lenstring.data,
-          msg_data->message->payloadlen,
-          (char *)msg_data->message->payload);
-}
-
-static void mqtt_sub_default_callback(MQTTClient *c, MessageData *msg_data)
-{
-    *((char *)msg_data->message->payload + msg_data->message->payloadlen) = '\0';
-    LOG_D("mqtt sub default callback: %.*s %.*s",
-          msg_data->topicName->lenstring.len,
-          msg_data->topicName->lenstring.data,
-          msg_data->message->payloadlen,
-          (char *)msg_data->message->payload);
+    (void)client;
+    LOG_I("-----------------------------------------------------------------------------------");
+    LOG_I("%s:%d %s()...\ntopic: %s\nmessage:%s", __FILE__, __LINE__, __FUNCTION__, msg->topic_name, (char *)msg->message->payload);
+    LOG_I("-----------------------------------------------------------------------------------");
 }
 
 static int mqtt_mission_init(void)
 {
-    rt_memset(&client, 0, sizeof(MQTTClient));
-    MQTTPacket_connectData condata = MQTTPacket_connectData_initializer;
-    client.isconnected             = 0;
-    client.uri                     = MQTT_URI;
 
-    /* config connect param */
-    rt_memcpy(&client.condata, &condata, sizeof(condata));
-    client.condata.clientID.cstring  = DEVICE_ID;
-    client.condata.keepAliveInterval = 30;
-    client.condata.cleansession      = 1;
-    client.condata.username.cstring  = "test";
-    client.condata.password.cstring  = "public";
+    mqtt_error_t err = KAWAII_MQTT_SUCCESS_ERROR;
+    rt_thread_delay(2000);
 
-    /* rt_malloc buffer. */
-    client.buf_size = client.readbuf_size = 1024;
-    client.buf                            = rt_calloc(1, client.buf_size);
-    client.readbuf                        = rt_calloc(1, client.readbuf_size);
-    if (!(client.buf && client.readbuf)) {
-        LOG_E("no memory for MQTT client buffer!");
+    // mqtt_log_init();
+
+    client = mqtt_lease();
+    if (client == RT_NULL) {
+        LOG_E("mqtt alloec fail");
         return -1;
     }
 
-    /* set subscribe table and event callback */
-    client.messageHandlers[0].topicFilter = rt_strdup(MQTT_TOPIC_DATA);
-    client.messageHandlers[0].callback    = mqtt_sub_callback;
-    client.messageHandlers[0].qos         = QOS1;
+    mqtt_set_host(client, MQTT_URI_HOST);
+    mqtt_set_port(client, MQTT_URI_PORT);
+    // mqtt_set_user_name(client, "rt-thread");
+    // mqtt_set_password(client, "rt-thread");
+    mqtt_set_client_id(client, DEVICE_ID);
+    mqtt_set_clean_session(client, 1);
 
-    client.defaultMessageHandler = mqtt_sub_default_callback;
-    if (paho_mqtt_start(&client) != RT_EOK) {
-        LOG_E("MQTT client start fail!");
+    KAWAII_MQTT_LOG_I("The ID of the Kawaii client is: %s ", DEVICE_ID);
+
+    err = mqtt_connect(client);
+    if (err != KAWAII_MQTT_SUCCESS_ERROR) {
+        LOG_E("mqtt connect fail, err[%d]", err);
+        return -1;
+    }
+    err = mqtt_subscribe(client, "/topic/test", QOS1, sub_handle);
+    if (err != KAWAII_MQTT_SUCCESS_ERROR) {
+        LOG_E("mqtt set subscribe fail, err[%d]", err);
         return -1;
     }
     return 0;
@@ -156,21 +108,26 @@ static int mqtt_mission_init(void)
 
 void mission_init(void)
 {
-    int result = 0;
-    result     = mqtt_mission_init();
-    if (result != 0) {
-        LOG_E("mqtt init fail");
+    if (mqtt_mission_init() != 0) {
+        return;
     }
-    result = timer_mission_init();
-    if (result != 0) {
-        LOG_E("hwtimer init fail");
+    if (thread_mission_init() != 0) {
+        mqtt_disconnect(client);
+        mqtt_release(client);
+        rt_free(client);
     }
 }
 MSH_CMD_EXPORT(mission_init, test);
 
 void mission_deinit(void)
 {
-    timer_mission_deinit();
-    paho_mqtt_stop(&client);
+    // thread_mission_deinit();
+    printf("1\n");
+    mqtt_disconnect(client);
+    printf("2\n");
+    mqtt_release(client);
+    printf("3\n");
+    rt_free(client);
+    printf("4\n");
 }
 MSH_CMD_EXPORT(mission_deinit, test);

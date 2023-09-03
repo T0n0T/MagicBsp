@@ -1,46 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="project_projx.xsd">
-
   <SchemaVersion>2.1</SchemaVersion>
-
   <Header>### uVision Project, (C) Keil Software</Header>
-
   <Targets>
     <Target>
       <TargetName>rt-thread</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
-      <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
-          <Device>STM32F103RC</Device>
+          <Device>STM32F103C8</Device>
           <Vendor>STMicroelectronics</Vendor>
-          <PackID>Keil.STM32F1xx_DFP.2.4.0</PackID>
+          <PackID>Keil.STM32F1xx_DFP.2.1.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
-          <Cpu>IRAM(0x20000000,0x0000C000) IROM(0x08000000,0x00040000) CPUTYPE("Cortex-M3") CLOCK(12000000) ELITTLE</Cpu>
-          <FlashUtilSpec></FlashUtilSpec>
-          <StartupFile></StartupFile>
-          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD20000000 -FC1000 -FN1 -FF0STM32F10x_512 -FS08000000 -FL080000 -FP0($$Device:STM32F103RC$Flash\STM32F10x_512.FLM))</FlashDriverDll>
+          <Cpu>IRAM(0x20000000,0x5000) IROM(0x08000000,0x10000) CPUTYPE("Cortex-M3") CLOCK(12000000) ELITTLE</Cpu>
+          <FlashUtilSpec />
+          <StartupFile />
+          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD20000000 -FC1000 -FN1 -FF0STM32F10x_128 -FS08000000 -FL020000 -FP0($$Device:STM32F103C8$Flash\STM32F10x_128.FLM))</FlashDriverDll>
           <DeviceId>0</DeviceId>
-          <RegisterFile>$$Device:STM32F103RC$Device\Include\stm32f10x.h</RegisterFile>
-          <MemoryEnv></MemoryEnv>
-          <Cmp></Cmp>
-          <Asm></Asm>
-          <Linker></Linker>
-          <OHString></OHString>
-          <InfinionOptionDll></InfinionOptionDll>
-          <SLE66CMisc></SLE66CMisc>
-          <SLE66AMisc></SLE66AMisc>
-          <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>$$Device:STM32F103RC$SVD\STM32F103xx.svd</SFDFile>
+          <RegisterFile>$$Device:STM32F103C8$Device\Include\stm32f10x.h</RegisterFile>
+          <MemoryEnv />
+          <Cmp />
+          <Asm />
+          <Linker />
+          <OHString />
+          <InfinionOptionDll />
+          <SLE66CMisc />
+          <SLE66AMisc />
+          <SLE66LinkerMisc />
+          <SFDFile>$$Device:STM32F103C8$SVD\STM32F103xx.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
-          <BinPath></BinPath>
-          <IncludePath></IncludePath>
-          <LibPath></LibPath>
-          <RegisterFilePath></RegisterFilePath>
-          <DBRegisterFilePath></DBRegisterFilePath>
+          <BinPath />
+          <IncludePath />
+          <LibPath />
+          <RegisterFilePath />
+          <DBRegisterFilePath />
           <TargetStatus>
             <Error>0</Error>
             <ExitCodeStop>0</ExitCodeStop>
@@ -54,7 +50,7 @@
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
-          <BrowseInformation>1</BrowseInformation>
+          <BrowseInformation>0</BrowseInformation>
           <ListingPath>.\build\keil\List\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
@@ -62,8 +58,8 @@
           <BeforeCompile>
             <RunUserProg1>0</RunUserProg1>
             <RunUserProg2>0</RunUserProg2>
-            <UserProg1Name></UserProg1Name>
-            <UserProg2Name></UserProg2Name>
+            <UserProg1Name />
+            <UserProg2Name />
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
             <nStopU1X>0</nStopU1X>
@@ -72,8 +68,8 @@
           <BeforeMake>
             <RunUserProg1>0</RunUserProg1>
             <RunUserProg2>0</RunUserProg2>
-            <UserProg1Name></UserProg1Name>
-            <UserProg2Name></UserProg2Name>
+            <UserProg1Name />
+            <UserProg2Name />
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
             <nStopB1X>0</nStopB1X>
@@ -83,14 +79,14 @@
             <RunUserProg1>1</RunUserProg1>
             <RunUserProg2>0</RunUserProg2>
             <UserProg1Name>fromelf --bin !L --output rtthread.bin</UserProg1Name>
-            <UserProg2Name></UserProg2Name>
+            <UserProg2Name />
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
             <nStopA1X>0</nStopA1X>
             <nStopA2X>0</nStopA2X>
           </AfterMake>
           <SelectedForBatchBuild>0</SelectedForBatchBuild>
-          <SVCSIdString></SVCSIdString>
+          <SVCSIdString />
         </TargetCommonOption>
         <CommonProperty>
           <UseCPPCompiler>0</UseCPPCompiler>
@@ -104,8 +100,8 @@
           <AssembleAssemblyFile>0</AssembleAssemblyFile>
           <PublicsOnly>0</PublicsOnly>
           <StopOnExitCode>3</StopOnExitCode>
-          <CustomArgument></CustomArgument>
-          <IncludeLibraryModules></IncludeLibraryModules>
+          <CustomArgument />
+          <IncludeLibraryModules />
           <ComprImg>1</ComprImg>
         </CommonProperty>
         <DllOption>
@@ -114,7 +110,7 @@
           <SimDlgDll>DCM.DLL</SimDlgDll>
           <SimDlgDllArguments>-pCM3</SimDlgDllArguments>
           <TargetDllName>SARMCM3.DLL</TargetDllName>
-          <TargetDllArguments></TargetDllArguments>
+          <TargetDllArguments />
           <TargetDlgDll>TCM.DLL</TargetDlgDll>
           <TargetDlgDllArguments>-pCM3</TargetDlgDllArguments>
         </DllOption>
@@ -138,11 +134,11 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3></Flash3>
-          <Flash4></Flash4>
-          <pFcarmOut></pFcarmOut>
-          <pFcarmGrp></pFcarmGrp>
-          <pFcArmRoot></pFcArmRoot>
+          <Flash3 />
+          <Flash4 />
+          <pFcarmOut />
+          <pFcarmGrp />
+          <pFcArmRoot />
           <FcArmLst>0</FcArmLst>
         </Utilities>
         <TargetArmAds>
@@ -175,7 +171,7 @@
             <RvctClst>0</RvctClst>
             <GenPPlst>0</GenPPlst>
             <AdsCpuType>"Cortex-M3"</AdsCpuType>
-            <RvctDeviceName></RvctDeviceName>
+            <RvctDeviceName />
             <mOS>0</mOS>
             <uocRom>0</uocRom>
             <uocRam>0</uocRam>
@@ -244,12 +240,12 @@
               <IRAM>
                 <Type>0</Type>
                 <StartAddress>0x20000000</StartAddress>
-                <Size>0xc000</Size>
+                <Size>0x5000</Size>
               </IRAM>
               <IROM>
                 <Type>1</Type>
                 <StartAddress>0x8000000</StartAddress>
-                <Size>0x40000</Size>
+                <Size>0x10000</Size>
               </IROM>
               <XRAM>
                 <Type>0</Type>
@@ -274,7 +270,7 @@
               <OCR_RVCT4>
                 <Type>1</Type>
                 <StartAddress>0x8000000</StartAddress>
-                <Size>0x40000</Size>
+                <Size>0x10000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
@@ -299,7 +295,7 @@
               <OCR_RVCT9>
                 <Type>0</Type>
                 <StartAddress>0x20000000</StartAddress>
-                <Size>0xc000</Size>
+                <Size>0x5000</Size>
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
@@ -307,7 +303,7 @@
                 <Size>0x0</Size>
               </OCR_RVCT10>
             </OnChipMemories>
-            <RvctStartVector></RvctStartVector>
+            <RvctStartVector />
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
@@ -324,7 +320,6 @@
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>1</uC99>
-            <uGnu>0</uGnu>
             <useXO>0</useXO>
             <v6Lang>1</v6Lang>
             <v6LangP>1</v6LangP>
@@ -332,12 +327,11 @@
             <vShortWch>1</vShortWch>
             <v6Lto>0</v6Lto>
             <v6WtE>0</v6WtE>
-            <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls></MiscControls>
-              <Define>RT_USING_DEBUG,__STDC_LIMIT_MACROS, RT_USING_ARMLIBC, STM32F103xE, USE_HAL_DRIVER, RT_USING_LIBC, __CLK_TCK=RT_TICK_PER_SECOND, __RTTHREAD__</Define>
-              <Undefine></Undefine>
-              <IncludePath>rt-thread\components\drivers\include;rt-thread\components\legacy\dfs;packages\CmBacktrace-v1.4.1;rt-thread\libcpu\arm\common;rt-thread\components\dfs\dfs_v1\include;rt-thread\components\net\sal\include;rt-thread\components\net\sal\impl;applications;rt-thread\components\drivers\include;board;rt-thread\components\drivers\spi;rt-thread\components\net\netdev\include;rt-thread\components\drivers\include;.;board\CubeMX_Config\Inc;libraries\HAL_Drivers\config;rt-thread\components\net\sal\include\socket\sys_socket;rt-thread\components\drivers\include;rt-thread\libcpu\arm\cortex-m3;rt-thread\components\libc\posix\io\poll;rt-thread\components\libc\compilers\common\extension\fcntl\octal;rt-thread\components\finsh;rt-thread\components\libc\compilers\common\extension;rt-thread\components\net\sal\include\dfs_net;rt-thread\components\libc\posix\io\eventfd;rt-thread\components\net\at\include;packages\at_device-latest\inc;rt-thread\components\drivers\include;rt-thread\components\legacy;rt-thread\components\net\at\at_socket;packages\xpt2046-latest;packages\at_device-latest\class\esp8266;libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Include;packages\pahomqtt-latest\MQTTClient-RT;rt-thread\include;libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Inc;rt-thread\components\libc\compilers\common\include;rt-thread\components\libc\posix\io\epoll;libraries\HAL_Drivers\CMSIS\Include;rt-thread\components\libc\posix\ipc;packages\pahomqtt-latest\MQTTPacket\src;rt-thread\components\drivers\include;rt-thread\components\net\sal\include\socket;rt-thread\components\drivers\include;rt-thread\components\dfs\dfs_v1\filesystems\devfs;libraries\HAL_Drivers;.\rt-thread\components\utilities\resource</IncludePath>
+              <MiscControls />
+              <Define>__STDC_LIMIT_MACROS, RT_USING_ARMLIBC, STM32F103xE, USE_HAL_DRIVER, RT_USING_LIBC, __CLK_TCK=RT_TICK_PER_SECOND, __RTTHREAD__</Define>
+              <Undefine />
+              <IncludePath>rt-thread\components\dfs\dfs_v1\include;rt-thread\components\legacy\dfs;packages\CmBacktrace-v1.4.1;rt-thread\libcpu\arm\common;rt-thread\components\net\sal\include;rt-thread\components\net\sal\impl;applications;rt-thread\components\drivers\include;board;rt-thread\components\drivers\spi;rt-thread\components\net\netdev\include;packages\kawaii-mqtt\common;packages\kawaii-mqtt\mqtt;rt-thread\components\drivers\include;rt-thread\components\drivers\include;libraries\HAL_Drivers;board\CubeMX_Config\Inc;packages\kawaii-mqtt\common\log;libraries\HAL_Drivers\config;rt-thread\components\utilities\resource;rt-thread\components\net\sal\include\socket\sys_socket;rt-thread\components\drivers\include;rt-thread\libcpu\arm\cortex-m3;rt-thread\components\libc\posix\io\poll;rt-thread\components\drivers\include;rt-thread\components\finsh;rt-thread\components\libc\compilers\common\extension;rt-thread\components\net\sal\include\dfs_net;rt-thread\components\libc\posix\io\eventfd;.;rt-thread\components\net\at\include;packages\at_device-latest\inc;rt-thread\components\drivers\include;rt-thread\components\legacy;rt-thread\components\net\at\at_socket;packages\xpt2046-latest;packages\at_device-latest\class\esp8266;libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Include;packages\kawaii-mqtt\network;rt-thread\include;libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Inc;rt-thread\components\libc\compilers\common\include;rt-thread\components\libc\posix\io\epoll;libraries\HAL_Drivers\CMSIS\Include;rt-thread\components\libc\posix\ipc;packages\kawaii-mqtt\platform\RT-Thread;rt-thread\components\drivers\include;rt-thread\components\net\sal\include\socket;rt-thread\components\drivers\include;rt-thread\components\dfs\dfs_v1\filesystems\devfs;rt-thread\components\libc\compilers\common\extension\fcntl\octal;packages\kawaii-mqtt\mqttclient</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -350,16 +344,15 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <uClangAs>0</uClangAs>
             <VariousControls>
-              <MiscControls></MiscControls>
-              <Define></Define>
-              <Undefine></Undefine>
-              <IncludePath></IncludePath>
+              <MiscControls />
+              <Define />
+              <Undefine />
+              <IncludePath />
             </VariousControls>
           </Aads>
           <LDads>
-            <umfTarg>1</umfTarg>
+            <umfTarg>0</umfTarg>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
             <noStLib>0</noStLib>
@@ -367,13 +360,13 @@
             <useFile>0</useFile>
             <TextAddressRange>0x08000000</TextAddressRange>
             <DataAddressRange>0x20000000</DataAddressRange>
-            <pXoBase></pXoBase>
+            <pXoBase />
             <ScatterFile>.\board\linker_scripts\link.sct</ScatterFile>
-            <IncludeLibs></IncludeLibs>
-            <IncludeLibsPath></IncludeLibsPath>
-            <Misc></Misc>
-            <LinkerInputFile></LinkerInputFile>
-            <DisabledWarnings></DisabledWarnings>
+            <IncludeLibs />
+            <IncludeLibsPath />
+            <Misc />
+            <LinkerInputFile />
+            <DisabledWarnings />
           </LDads>
         </TargetArmAds>
       </TargetOption>
@@ -382,44 +375,65 @@
           <GroupName>Applications</GroupName>
           <Files>
             <File>
-              <FileName>crc32.c</FileName>
+              <FileName>decode.c</FileName>
               <FileType>1</FileType>
-              <FilePath>applications\crc32.c</FilePath>
+              <FilePath>applications\decode.c</FilePath>
             </File>
-            <File>
-              <FileName>ccm3310.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>applications\ccm3310.c</FilePath>
-            </File>
-            <File>
-              <FileName>cJSON.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>applications\cJSON.c</FilePath>
-            </File>
-            <File>
-              <FileName>app.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>applications\app.c</FilePath>
-            </File>
+          </Files>
+          <Files>
             <File>
               <FileName>ccm3310_test.c</FileName>
               <FileType>1</FileType>
               <FilePath>applications\ccm3310_test.c</FilePath>
             </File>
-            <File>
-              <FileName>main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>applications\main.c</FilePath>
-            </File>
-            <File>
-              <FileName>decode.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>applications\decode.c</FilePath>
-            </File>
+          </Files>
+          <Files>
             <File>
               <FileName>rt_kprintf.c</FileName>
               <FileType>1</FileType>
               <FilePath>applications\rt_kprintf.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>drv_i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>applications\drv_i2c.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>cJSON.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>applications\cJSON.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>crc32.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>applications\crc32.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>ccm3310.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>applications\ccm3310.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>app.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>applications\app.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>applications\main.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -431,20 +445,26 @@
               <FileType>1</FileType>
               <FilePath>rt-thread\components\net\at\at_socket\at_socket.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>at_utils.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\net\at\src\at_utils.c</FilePath>
             </File>
-            <File>
-              <FileName>at_client.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>rt-thread\components\net\at\src\at_client.c</FilePath>
-            </File>
+          </Files>
+          <Files>
             <File>
               <FileName>at_cli.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\net\at\src\at_cli.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>at_client.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\net\at\src\at_client.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -456,16 +476,22 @@
               <FileType>1</FileType>
               <FilePath>packages\at_device-latest\src\at_device.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>at_device_esp8266.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\at_device-latest\class\esp8266\at_device_esp8266.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>at_socket_esp8266.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\at_device-latest\class\esp8266\at_socket_esp8266.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>at_sample_esp8266.c</FileName>
               <FileType>1</FileType>
@@ -481,11 +507,15 @@
               <FileType>1</FileType>
               <FilePath>packages\CmBacktrace-v1.4.1\cmb_port.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>cm_backtrace.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\CmBacktrace-v1.4.1\cm_backtrace.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>cmb_flash_log.c</FileName>
               <FileType>1</FileType>
@@ -501,36 +531,50 @@
               <FileType>1</FileType>
               <FilePath>rt-thread\components\libc\compilers\armlibc\syscall_mem.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>syscalls.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\libc\compilers\armlibc\syscalls.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>cctype.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\libc\compilers\common\cctype.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>cstdlib.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\libc\compilers\common\cstdlib.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>cstring.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\libc\compilers\common\cstring.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>ctime.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\libc\compilers\common\ctime.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>cunistd.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\libc\compilers\common\cunistd.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>cwchar.c</FileName>
               <FileType>1</FileType>
@@ -546,21 +590,29 @@
               <FileType>1</FileType>
               <FilePath>rt-thread\libcpu\arm\common\atomic_arm.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>div0.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\libcpu\arm\common\div0.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>showmem.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\libcpu\arm\common\showmem.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>context_rvds.S</FileName>
               <FileType>2</FileType>
               <FilePath>rt-thread\libcpu\arm\cortex-m3\context_rvds.S</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>cpuport.c</FileName>
               <FileType>1</FileType>
@@ -576,95 +628,131 @@
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\core\device.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>hwtimer.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\hwtimer\hwtimer.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>i2c-bit-ops.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\i2c\i2c-bit-ops.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>i2c_core.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\i2c\i2c_core.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>i2c_dev.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\i2c\i2c_dev.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>completion.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\ipc\completion.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>dataqueue.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\ipc\dataqueue.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>pipe.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\ipc\pipe.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>ringblk_buf.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\ipc\ringblk_buf.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>ringbuffer.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\ipc\ringbuffer.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>waitqueue.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\ipc\waitqueue.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>workqueue.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\ipc\workqueue.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>pin.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\misc\pin.c</FilePath>
             </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\drivers\rtc\rtc.c</FilePath>
+            </File>
+          </Files>
+          <Files>
             <File>
               <FileName>sensor.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\sensor\v1\sensor.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>sensor_cmd.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\sensor\v1\sensor_cmd.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>serial.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\serial\serial.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>spi_core.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\spi\spi_core.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>spi_dev.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\spi\spi_dev.c</FilePath>
-            </File>
-            <File>
-              <FileName>rtc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\rt-thread\components\drivers\rtc\rtc.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -676,50 +764,68 @@
               <FileType>1</FileType>
               <FilePath>board\CubeMX_Config\Src\stm32f1xx_hal_msp.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>board.c</FileName>
               <FileType>1</FileType>
               <FilePath>board\board.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>startup_stm32f103xe.s</FileName>
               <FileType>2</FileType>
               <FilePath>libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Source\Templates\arm\startup_stm32f103xe.s</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>drv_common.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\HAL_Drivers\drv_common.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>drv_gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\HAL_Drivers\drv_gpio.c</FilePath>
             </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>drv_rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>libraries\HAL_Drivers\drv_rtc.c</FilePath>
+            </File>
+          </Files>
+          <Files>
             <File>
               <FileName>drv_soft_i2c.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\HAL_Drivers\drv_soft_i2c.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>drv_spi.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\HAL_Drivers\drv_spi.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>drv_tim.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\HAL_Drivers\drv_tim.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>drv_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\HAL_Drivers\drv_usart.c</FilePath>
-            </File>
-            <File>
-              <FileName>drv_rtc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\libraries\HAL_Drivers\drv_rtc.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -731,21 +837,29 @@
               <FileType>1</FileType>
               <FilePath>rt-thread\components\dfs\dfs_v1\filesystems\devfs\devfs.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>dfs.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\dfs\dfs_v1\src\dfs.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>dfs_file.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\dfs\dfs_v1\src\dfs_file.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>dfs_fs.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\dfs\dfs_v1\src\dfs_fs.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>dfs_posix.c</FileName>
               <FileType>1</FileType>
@@ -761,25 +875,211 @@
               <FileType>1</FileType>
               <FilePath>rt-thread\components\finsh\shell.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>msh.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\finsh\msh.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>msh_parse.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\finsh\msh_parse.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>cmd.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\finsh\cmd.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>msh_file.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\finsh\msh_file.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>kawaii_mqtt</GroupName>
+          <Files>
+            <File>
+              <FileName>nettype_tls.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\network\nettype_tls.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>MQTTConnectServer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\mqtt\MQTTConnectServer.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>arch.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\common\log\arch\rt-thread\arch.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>platform_net_socket.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\platform\RT-Thread\platform_net_socket.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>MQTTDeserializePublish.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\mqtt\MQTTDeserializePublish.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>platform_timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\platform\RT-Thread\platform_timer.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>format.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\common\log\format.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>platform_thread.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\platform\RT-Thread\platform_thread.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>MQTTSerializePublish.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\mqtt\MQTTSerializePublish.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>MQTTSubscribeServer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\mqtt\MQTTSubscribeServer.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>nettype_tcp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\network\nettype_tcp.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>random.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\common\random.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>MQTTFormat.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\mqtt\MQTTFormat.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>mqtt_list.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\common\mqtt_list.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>MQTTUnsubscribeClient.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\mqtt\MQTTUnsubscribeClient.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>mqttclient.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\mqttclient\mqttclient.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>MQTTPacket.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\mqtt\MQTTPacket.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>salof.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\common\log\salof.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>platform_memory.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\platform\RT-Thread\platform_memory.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>MQTTUnsubscribeServer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\mqtt\MQTTUnsubscribeServer.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>platform_mutex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\platform\RT-Thread\platform_mutex.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>MQTTConnectClient.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\mqtt\MQTTConnectClient.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>fifo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\common\log\fifo.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>network.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\network\network.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>MQTTSubscribeClient.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\kawaii-mqtt\mqtt\MQTTSubscribeClient.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -791,56 +1091,78 @@
               <FileType>1</FileType>
               <FilePath>rt-thread\src\clock.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>components.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\src\components.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>idle.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\src\idle.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>ipc.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\src\ipc.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>irq.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\src\irq.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>kservice.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\src\kservice.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>mem.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\src\mem.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>mempool.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\src\mempool.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>object.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\src\object.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>scheduler_up.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\src\scheduler_up.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>thread.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\src\thread.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>timer.c</FileName>
               <FileType>1</FileType>
@@ -866,254 +1188,169 @@
               <FileType>1</FileType>
               <FilePath>libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rcc_ex.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>stm32f1xx_ll_spi.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_spi.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>stm32f1xx_hal_cortex.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_cortex.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>stm32f1xx_hal_spi.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_spi.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>stm32f1xx_hal_gpio_ex.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_gpio_ex.c</FilePath>
             </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>stm32f1xx_hal_rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rtc.c</FilePath>
+            </File>
+          </Files>
+          <Files>
             <File>
               <FileName>stm32f1xx_hal_rcc.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rcc.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>stm32f1xx_hal_pwr.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_pwr.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>stm32f1xx_hal_dma.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_dma.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>stm32f1xx_hal_tim_ex.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_tim_ex.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>stm32f1xx_hal_tim.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_tim.c</FilePath>
             </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>stm32f1xx_hal_rtc_ex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rtc_ex.c</FilePath>
+            </File>
+          </Files>
+          <Files>
             <File>
               <FileName>stm32f1xx_hal_crc.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_crc.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>system_stm32f1xx.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Source\Templates\system_stm32f1xx.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>stm32f1xx_hal_uart.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_uart.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>stm32f1xx_hal.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>stm32f1xx_hal_i2c.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_i2c.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>stm32f1xx_hal_cec.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_cec.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>stm32f1xx_hal_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_usart.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>stm32f1xx_hal_gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_gpio.c</FilePath>
             </File>
-            <File>
-              <FileName>stm32f1xx_hal_rtc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rtc.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>max30102</GroupName>
-          <GroupOption>
-            <CommonProperty>
-              <UseCPPCompiler>0</UseCPPCompiler>
-              <RVCTCodeConst>0</RVCTCodeConst>
-              <RVCTZI>0</RVCTZI>
-              <RVCTOtherData>0</RVCTOtherData>
-              <ModuleSelection>0</ModuleSelection>
-              <IncludeInBuild>0</IncludeInBuild>
-              <AlwaysBuild>2</AlwaysBuild>
-              <GenerateAssemblyFile>2</GenerateAssemblyFile>
-              <AssembleAssemblyFile>2</AssembleAssemblyFile>
-              <PublicsOnly>2</PublicsOnly>
-              <StopOnExitCode>11</StopOnExitCode>
-              <CustomArgument></CustomArgument>
-              <IncludeLibraryModules></IncludeLibraryModules>
-              <ComprImg>1</ComprImg>
-            </CommonProperty>
-            <GroupArmAds>
-              <Cads>
-                <interw>2</interw>
-                <Optim>0</Optim>
-                <oTime>2</oTime>
-                <SplitLS>2</SplitLS>
-                <OneElfS>2</OneElfS>
-                <Strict>2</Strict>
-                <EnumInt>2</EnumInt>
-                <PlainCh>2</PlainCh>
-                <Ropi>2</Ropi>
-                <Rwpi>2</Rwpi>
-                <wLevel>0</wLevel>
-                <uThumb>2</uThumb>
-                <uSurpInc>2</uSurpInc>
-                <uC99>2</uC99>
-                <uGnu>2</uGnu>
-                <useXO>2</useXO>
-                <v6Lang>0</v6Lang>
-                <v6LangP>0</v6LangP>
-                <vShortEn>2</vShortEn>
-                <vShortWch>2</vShortWch>
-                <v6Lto>2</v6Lto>
-                <v6WtE>2</v6WtE>
-                <v6Rtti>2</v6Rtti>
-                <VariousControls>
-                  <MiscControls></MiscControls>
-                  <Define></Define>
-                  <Undefine></Undefine>
-                  <IncludePath></IncludePath>
-                </VariousControls>
-              </Cads>
-              <Aads>
-                <interw>2</interw>
-                <Ropi>2</Ropi>
-                <Rwpi>2</Rwpi>
-                <thumb>2</thumb>
-                <SplitLS>2</SplitLS>
-                <SwStkChk>2</SwStkChk>
-                <NoWarn>2</NoWarn>
-                <uSurpInc>2</uSurpInc>
-                <useXO>2</useXO>
-                <uClangAs>2</uClangAs>
-                <VariousControls>
-                  <MiscControls></MiscControls>
-                  <Define></Define>
-                  <Undefine></Undefine>
-                  <IncludePath></IncludePath>
-                </VariousControls>
-              </Aads>
-            </GroupArmAds>
-          </GroupOption>
           <Files>
             <File>
               <FileName>max30102.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\max30102-latest\src\max30102.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>example.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\max30102-latest\examples\example.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>port.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\max30102-latest\port\port.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>CircularBuffer.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\max30102-latest\src\CircularBuffer.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>paho-mqtt</GroupName>
-          <Files>
-            <File>
-              <FileName>MQTTSerializePublish.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\pahomqtt-latest\MQTTPacket\src\MQTTSerializePublish.c</FilePath>
-            </File>
-            <File>
-              <FileName>MQTTDeserializePublish.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\pahomqtt-latest\MQTTPacket\src\MQTTDeserializePublish.c</FilePath>
-            </File>
-            <File>
-              <FileName>MQTTSubscribeClient.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\pahomqtt-latest\MQTTPacket\src\MQTTSubscribeClient.c</FilePath>
-            </File>
-            <File>
-              <FileName>paho_mqtt_pipe.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\pahomqtt-latest\MQTTClient-RT\paho_mqtt_pipe.c</FilePath>
-            </File>
-            <File>
-              <FileName>mqtt_test.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\pahomqtt-latest\tests\mqtt_test.c</FilePath>
-            </File>
-            <File>
-              <FileName>MQTTPacket.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\pahomqtt-latest\MQTTPacket\src\MQTTPacket.c</FilePath>
-            </File>
-            <File>
-              <FileName>MQTTUnsubscribeClient.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\pahomqtt-latest\MQTTPacket\src\MQTTUnsubscribeClient.c</FilePath>
-            </File>
-            <File>
-              <FileName>MQTTUnsubscribeServer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\pahomqtt-latest\MQTTPacket\src\MQTTUnsubscribeServer.c</FilePath>
-            </File>
-            <File>
-              <FileName>MQTTSubscribeServer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\pahomqtt-latest\MQTTPacket\src\MQTTSubscribeServer.c</FilePath>
-            </File>
-            <File>
-              <FileName>MQTTFormat.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\pahomqtt-latest\MQTTPacket\src\MQTTFormat.c</FilePath>
-            </File>
-            <File>
-              <FileName>MQTTConnectServer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\pahomqtt-latest\MQTTPacket\src\MQTTConnectServer.c</FilePath>
-            </File>
-            <File>
-              <FileName>MQTTConnectClient.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\pahomqtt-latest\MQTTPacket\src\MQTTConnectClient.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1125,89 +1362,12 @@
               <FileType>1</FileType>
               <FilePath>rt-thread\components\libc\posix\io\poll\poll.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>select.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\libc\posix\io\poll\select.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>rt_kprintf</GroupName>
-          <GroupOption>
-            <CommonProperty>
-              <UseCPPCompiler>0</UseCPPCompiler>
-              <RVCTCodeConst>0</RVCTCodeConst>
-              <RVCTZI>0</RVCTZI>
-              <RVCTOtherData>0</RVCTOtherData>
-              <ModuleSelection>0</ModuleSelection>
-              <IncludeInBuild>0</IncludeInBuild>
-              <AlwaysBuild>2</AlwaysBuild>
-              <GenerateAssemblyFile>2</GenerateAssemblyFile>
-              <AssembleAssemblyFile>2</AssembleAssemblyFile>
-              <PublicsOnly>2</PublicsOnly>
-              <StopOnExitCode>11</StopOnExitCode>
-              <CustomArgument></CustomArgument>
-              <IncludeLibraryModules></IncludeLibraryModules>
-              <ComprImg>1</ComprImg>
-            </CommonProperty>
-            <GroupArmAds>
-              <Cads>
-                <interw>2</interw>
-                <Optim>0</Optim>
-                <oTime>2</oTime>
-                <SplitLS>2</SplitLS>
-                <OneElfS>2</OneElfS>
-                <Strict>2</Strict>
-                <EnumInt>2</EnumInt>
-                <PlainCh>2</PlainCh>
-                <Ropi>2</Ropi>
-                <Rwpi>2</Rwpi>
-                <wLevel>0</wLevel>
-                <uThumb>2</uThumb>
-                <uSurpInc>2</uSurpInc>
-                <uC99>2</uC99>
-                <uGnu>2</uGnu>
-                <useXO>2</useXO>
-                <v6Lang>0</v6Lang>
-                <v6LangP>0</v6LangP>
-                <vShortEn>2</vShortEn>
-                <vShortWch>2</vShortWch>
-                <v6Lto>2</v6Lto>
-                <v6WtE>2</v6WtE>
-                <v6Rtti>2</v6Rtti>
-                <VariousControls>
-                  <MiscControls></MiscControls>
-                  <Define></Define>
-                  <Undefine></Undefine>
-                  <IncludePath></IncludePath>
-                </VariousControls>
-              </Cads>
-              <Aads>
-                <interw>2</interw>
-                <Ropi>2</Ropi>
-                <Rwpi>2</Rwpi>
-                <thumb>2</thumb>
-                <SplitLS>2</SplitLS>
-                <SwStkChk>2</SwStkChk>
-                <NoWarn>2</NoWarn>
-                <uSurpInc>2</uSurpInc>
-                <useXO>2</useXO>
-                <uClangAs>2</uClangAs>
-                <VariousControls>
-                  <MiscControls></MiscControls>
-                  <Define></Define>
-                  <Undefine></Undefine>
-                  <IncludePath></IncludePath>
-                </VariousControls>
-              </Aads>
-            </GroupArmAds>
-          </GroupOption>
-          <Files>
-            <File>
-              <FileName>rt_vsnprintf.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\rt_vsnprintf_full-latest\rt_vsnprintf.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1219,31 +1379,43 @@
               <FileType>1</FileType>
               <FilePath>rt-thread\components\net\netdev\src\netdev.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>netdev_ipaddr.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\net\netdev\src\netdev_ipaddr.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>dfs_net.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\net\sal\dfs_net\dfs_net.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>af_inet_at.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\net\sal\impl\af_inet_at.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>net_netdb.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\net\sal\socket\net_netdb.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>net_sockets.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\net\sal\socket\net_sockets.c</FilePath>
             </File>
+          </Files>
+          <Files>
             <File>
               <FileName>sal_socket.c</FileName>
               <FileType>1</FileType>
@@ -1252,23 +1424,26 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>utilities</GroupName>
+          <GroupName>Utilities</GroupName>
           <Files>
             <File>
               <FileName>resource_id.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\rt-thread\components\utilities\resource\resource_id.c</FilePath>
+              <FilePath>rt-thread\components\utilities\resource\resource_id.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>xpt2046_touch</GroupName>
+          <Files>
+            <File>
+              <FileName>drv_xpt2046.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\xpt2046-latest\drv_xpt2046.c</FilePath>
             </File>
           </Files>
         </Group>
       </Groups>
     </Target>
   </Targets>
-
-  <RTE>
-    <apis/>
-    <components/>
-    <files/>
-  </RTE>
-
 </Project>
