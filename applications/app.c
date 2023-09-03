@@ -33,7 +33,7 @@ static void mqtt_entry(void *p)
     msg.qos          = QOS0;
     msg.payload      = (void *)"this is a kawaii mqtt test ...";
     while (1) {
-        err = mqtt_publish(client, "/topic/test", &msg);
+        // err = mqtt_publish(client, "/topic/test", &msg);
         if (err != KAWAII_MQTT_SUCCESS_ERROR) {
             LOG_E("publish msg fail, err[%d]", err);
         }
