@@ -47,7 +47,7 @@ static int thread_mission_init(void)
     rt_err_t err = RT_EOK;
     // memset(stack, 0, sizeof(stack));
     if (!thread_isinit) {
-        err = rt_thread_init(&mqtt_thread, "mqtt", mqtt_entry, RT_NULL, stack, sizeof(stack), 20, 10);
+        err = rt_thread_init(&mqtt_thread, "app", mqtt_entry, RT_NULL, stack, sizeof(stack), 21, 10);
         if (err != RT_EOK) {
             LOG_E("mqtt thread init fail, err[%d]", err);
             return err;
@@ -74,9 +74,8 @@ static int mqtt_mission_init(void)
 {
 
     mqtt_error_t err = KAWAII_MQTT_SUCCESS_ERROR;
-    rt_thread_delay(2000);
 
-    // mqtt_log_init();
+    mqtt_log_init();
 
     client = mqtt_lease();
     if (client == RT_NULL) {
@@ -86,8 +85,8 @@ static int mqtt_mission_init(void)
 
     mqtt_set_host(client, MQTT_URI_HOST);
     mqtt_set_port(client, MQTT_URI_PORT);
-    // mqtt_set_user_name(client, "rt-thread");
-    // mqtt_set_password(client, "rt-thread");
+    mqtt_set_user_name(client, "test");
+    mqtt_set_password(client, "public");
     mqtt_set_client_id(client, DEVICE_ID);
     mqtt_set_clean_session(client, 1);
 
@@ -98,11 +97,13 @@ static int mqtt_mission_init(void)
         LOG_E("mqtt connect fail, err[%d]", err);
         return -1;
     }
+    rt_thread_delay(1000);
     err = mqtt_subscribe(client, "/topic/test", QOS1, sub_handle);
     if (err != KAWAII_MQTT_SUCCESS_ERROR) {
         LOG_E("mqtt set subscribe fail, err[%d]", err);
         return -1;
     }
+    LOG_I("mqtt app init success");
     return 0;
 }
 

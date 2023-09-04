@@ -25,7 +25,10 @@
 #define BUFSZ 1024
 
 static const char send_data[] = "This is TCP Client from RT-Thread."; /* 发送用到的数据 */
+char *recv_data;
 int sock;
+rt_thread_t thread = 0;
+
 void tcp_entry(void *p)
 {
     int ret;
@@ -84,23 +87,17 @@ void tcp_entry(void *p)
     }
 }
 
-static void tcpclient(int argc, char **argv)
+static void tcpstart(int argc, char **argv)
 {
     int ret;
-    char *recv_data;
+
     struct hostent *host;
     int bytes_received;
     struct sockaddr_in server_addr;
     const char *url;
     int port;
 
-    if (argc < 3) {
-        rt_kprintf("Usage: tcpclient URL PORT\n");
-        rt_kprintf("Like: tcpclient 192.168.12.44 5000\n");
-        return;
-    }
-
-    url  = "192.168.1.6";
+    url  = "192.168.1.3";
     port = 5000;
 
     /* 通过函数入口参数url获得host地址（如果是域名，会做域名解析） */
@@ -143,9 +140,16 @@ static void tcpclient(int argc, char **argv)
         rt_kprintf("Connect successful sock %d\n", sock);
     }
 
-    rt_thread_t thread = rt_thread_create("tcptest", tcp_entry, &sock, 1024, 20, 15);
+    thread = rt_thread_create("tcptest", tcp_entry, &sock, 1024, 20, 15);
     rt_thread_startup(thread);
     return;
 }
 
-MSH_CMD_EXPORT(tcpclient, a tcp client sample);
+void tcpstop(void)
+{
+    rt_thread_delete(thread);
+    closesocket(sock);
+    rt_free(recv_data);
+}
+MSH_CMD_EXPORT(tcpstart, a tcp client sample);
+MSH_CMD_EXPORT(tcpstop, a tcp client sample);
