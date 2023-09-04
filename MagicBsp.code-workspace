@@ -6,13 +6,18 @@
     ],
     "settings": {
         "files.associations": {
+            "*.cpp": "cpp",
+            "*.html": "html",
+            "*.env": "dotenv",
+            "*.go": "go",
             "rtdbg.h": "c",
             "stdio.h": "c",
             "rtdevice.h": "c",
             "mqttclient.h": "c",
             "app.h": "c",
             "platform_memory.h": "c",
-            "rtdef.h": "c"
+            "rtdef.h": "c",
+            "cjson.h": "c"
         }
     },
     "extensions": {}

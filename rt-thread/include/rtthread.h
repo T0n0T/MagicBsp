@@ -270,15 +270,25 @@ void rt_system_heap_init(void *begin_addr, void *end_addr);
 
 void *rtt_malloc(rt_size_t size);
 void rtt_free(void *ptr);
+void *rtt_realloc(void *ptr, rt_size_t newsize);
+void *rtt_calloc(rt_size_t count, rt_size_t size);
 
-#define rt_malloc(size) \
-    ((void)printf("memory_alloc sizeof %d, %s:%d %s\n", size, __FILE__, __LINE__, __FUNCTION__), rtt_malloc(size))
+#define rt_malloc(size)                                                                        \
+    ((void)rt_kprintf("malloc sizeof %d, %s:%d %s\n", size, __FILE__, __LINE__, __FUNCTION__), \
+     rtt_malloc(size))
 
-#define rt_free(ptr) \
-    ((void)printf("memory_free addr 0x%02x, %s:%d %s\n", ptr, __FILE__, __LINE__, __FUNCTION__), rtt_free(ptr))
+#define rt_free(ptr)                                                                          \
+    ((void)rt_kprintf("free addr 0x%08x, %s:%d %s\n", ptr, __FILE__, __LINE__, __FUNCTION__), \
+     rtt_free(ptr))
 
-void *rt_realloc(void *ptr, rt_size_t newsize);
-void *rt_calloc(rt_size_t count, rt_size_t size);
+#define rt_realloc(ptr, newsize)                                                                                \
+    ((void)rt_kprintf("realloc sizeof 0x%08x, %d, %s:%d %s\n", ptr, newsize, __FILE__, __LINE__, __FUNCTION__), \
+     rtt_realloc(ptr, newsize))
+
+#define rt_calloc(count, size)                                                                         \
+    ((void)rt_kprintf("calloc sizeof %d, %s:%d %s\n", count * size, __FILE__, __LINE__, __FUNCTION__), \
+     rtt_calloc(count, size))
+
 void *rt_malloc_align(rt_size_t size, rt_size_t align);
 void rt_free_align(void *ptr);
 

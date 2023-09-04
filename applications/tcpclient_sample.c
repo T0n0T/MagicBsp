@@ -97,7 +97,7 @@ static void tcpstart(int argc, char **argv)
     const char *url;
     int port;
 
-    url  = "192.168.1.3";
+    url  = "192.168.1.6";
     port = 5000;
 
     /* 通过函数入口参数url获得host地址（如果是域名，会做域名解析） */
@@ -141,7 +141,7 @@ static void tcpstart(int argc, char **argv)
     }
 
     thread = rt_thread_create("tcptest", tcp_entry, &sock, 1024, 20, 15);
-    rt_thread_startup(thread);
+    // rt_thread_startup(thread);
     return;
 }
 

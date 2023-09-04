@@ -1601,7 +1601,7 @@ RTM_EXPORT(rt_malloc);
  *
  * @return the changed memory block address.
  */
-rt_weak void *rt_realloc(void *ptr, rt_size_t newsize)
+rt_weak void *rtt_realloc(void *ptr, rt_size_t newsize)
 {
     rt_base_t level;
     void *nptr;
@@ -1629,12 +1629,12 @@ RTM_EXPORT(rt_realloc);
  *
  * @return pointer to allocated memory / NULL pointer if there is an error.
  */
-rt_weak void *rt_calloc(rt_size_t count, rt_size_t size)
+rt_weak void *rtt_calloc(rt_size_t count, rt_size_t size)
 {
     void *p;
 
     /* allocate 'count' objects of size 'size' */
-    p = rt_malloc(count * size);
+    p = rtt_malloc(count * size);
     /* zero the memory */
     if (p) {
         rt_memset(p, 0, count * size);

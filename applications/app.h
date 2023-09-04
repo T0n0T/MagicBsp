@@ -9,7 +9,7 @@
  *
  */
 #define DEVICE_ID        "test"
-#define MQTT_URI_HOST    "broker.emqx.io"
+#define MQTT_URI_HOST    "192.168.1.22"
 #define MQTT_URI_PORT    "1883"
 #define MQTT_TOPIC_REPLY "/topic/test"
 #define MQTT_TOPIC_DATA  "/topic/test"
