@@ -28,4 +28,4 @@ int stm32_flash_erase(rt_uint32_t addr, size_t size);
 }
 #endif
 
-#endif  /* __DRV_FLASH_H__ */
+#endif /* __DRV_FLASH_H__ */

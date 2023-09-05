@@ -1,0 +1,606 @@
+{
+  "name": "boot",
+  "type": "ARM",
+  "dependenceList": [],
+  "srcDirs": [
+    ".eide/deps"
+  ],
+  "virtualFolder": {
+    "name": "<virtual_root>",
+    "files": [],
+    "folders": [
+      {
+        "name": "Applications",
+        "files": [
+          {
+            "path": "applications/main.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Compiler",
+        "files": [
+          {
+            "path": "rt-thread/components/libc/compilers/armlibc/syscall_mem.c"
+          },
+          {
+            "path": "rt-thread/components/libc/compilers/armlibc/syscalls.c"
+          },
+          {
+            "path": "rt-thread/components/libc/compilers/common/cctype.c"
+          },
+          {
+            "path": "rt-thread/components/libc/compilers/common/cstdio.c"
+          },
+          {
+            "path": "rt-thread/components/libc/compilers/common/cstdlib.c"
+          },
+          {
+            "path": "rt-thread/components/libc/compilers/common/cstring.c"
+          },
+          {
+            "path": "rt-thread/components/libc/compilers/common/ctime.c"
+          },
+          {
+            "path": "rt-thread/components/libc/compilers/common/cwchar.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "CPU",
+        "files": [
+          {
+            "path": "rt-thread/libcpu/arm/common/atomic_arm.c"
+          },
+          {
+            "path": "rt-thread/libcpu/arm/common/div0.c"
+          },
+          {
+            "path": "rt-thread/libcpu/arm/common/showmem.c"
+          },
+          {
+            "path": "rt-thread/libcpu/arm/cortex-m3/context_rvds.S"
+          },
+          {
+            "path": "rt-thread/libcpu/arm/cortex-m3/cpuport.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "crclib",
+        "files": [
+          {
+            "path": "bootloader/crclib-v1.02/src/crc16.c"
+          },
+          {
+            "path": "bootloader/crclib-v1.02/src/crc16_ex_sample.c"
+          },
+          {
+            "path": "bootloader/crclib-v1.02/src/crc16_ex.c"
+          },
+          {
+            "path": "bootloader/crclib-v1.02/src/crc8_ex.c"
+          },
+          {
+            "path": "bootloader/crclib-v1.02/src/crc32.c"
+          },
+          {
+            "path": "bootloader/crclib-v1.02/src/crc32_ex.c"
+          },
+          {
+            "path": "bootloader/crclib-v1.02/src/crc8.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "DeviceDrivers",
+        "files": [
+          {
+            "path": "rt-thread/components/drivers/ipc/completion.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/ipc/dataqueue.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/ipc/pipe.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/ipc/ringblk_buf.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/ipc/ringbuffer.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/ipc/waitqueue.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/ipc/workqueue.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/misc/pin.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/serial/serial.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/spi/spi_core.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/spi/spi_dev.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Drivers",
+        "files": [
+          {
+            "path": "board/board.c"
+          },
+          {
+            "path": "board/CubeMX_Config/Src/stm32f1xx_hal_msp.c"
+          },
+          {
+            "path": "libraries/HAL_Drivers/drv_common.c"
+          },
+          {
+            "path": "libraries/HAL_Drivers/drv_flash/drv_flash_f1.c"
+          },
+          {
+            "path": "libraries/HAL_Drivers/drv_gpio.c"
+          },
+          {
+            "path": "libraries/HAL_Drivers/drv_spi.c"
+          },
+          {
+            "path": "libraries/HAL_Drivers/drv_usart.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f103xe.s"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Fal",
+        "files": [
+          {
+            "path": "rt-thread/components/fal/src/fal.c"
+          },
+          {
+            "path": "rt-thread/components/fal/src/fal_flash.c"
+          },
+          {
+            "path": "rt-thread/components/fal/src/fal_rtt.c"
+          },
+          {
+            "path": "rt-thread/components/fal/src/fal_partition.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Filesystem",
+        "files": [
+          {
+            "path": "rt-thread/components/dfs/dfs_v1/filesystems/devfs/devfs.c"
+          },
+          {
+            "path": "rt-thread/components/dfs/dfs_v1/src/dfs.c"
+          },
+          {
+            "path": "rt-thread/components/dfs/dfs_v1/src/dfs_file.c"
+          },
+          {
+            "path": "rt-thread/components/dfs/dfs_v1/src/dfs_fs.c"
+          },
+          {
+            "path": "rt-thread/components/dfs/dfs_v1/src/dfs_posix.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Finsh",
+        "files": [
+          {
+            "path": "rt-thread/components/finsh/shell.c"
+          },
+          {
+            "path": "rt-thread/components/finsh/msh.c"
+          },
+          {
+            "path": "rt-thread/components/finsh/msh_parse.c"
+          },
+          {
+            "path": "rt-thread/components/finsh/cmd.c"
+          },
+          {
+            "path": "rt-thread/components/finsh/msh_file.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Kernel",
+        "files": [
+          {
+            "path": "rt-thread/src/clock.c"
+          },
+          {
+            "path": "rt-thread/src/components.c"
+          },
+          {
+            "path": "rt-thread/src/device.c"
+          },
+          {
+            "path": "rt-thread/src/idle.c"
+          },
+          {
+            "path": "rt-thread/src/ipc.c"
+          },
+          {
+            "path": "rt-thread/src/irq.c"
+          },
+          {
+            "path": "rt-thread/src/kservice.c"
+          },
+          {
+            "path": "rt-thread/src/mem.c"
+          },
+          {
+            "path": "rt-thread/src/mempool.c"
+          },
+          {
+            "path": "rt-thread/src/object.c"
+          },
+          {
+            "path": "rt-thread/src/scheduler_up.c"
+          },
+          {
+            "path": "rt-thread/src/thread.c"
+          },
+          {
+            "path": "rt-thread/src/timer.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Libraries",
+        "files": [
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_spi.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_crc.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Source/Templates/system_stm32f1xx.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cec.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_usart.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "ota_downloader",
+        "files": [
+          {
+            "path": "bootloader/ota_downloader-v1.0.0/src/ymodem_ota.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "qboot",
+        "files": [
+          {
+            "path": "bootloader/qboot/src/qboot_aes.c"
+          },
+          {
+            "path": "bootloader/qboot/src/qboot_at32.c"
+          },
+          {
+            "path": "bootloader/qboot/src/qboot_fastlz.c"
+          },
+          {
+            "path": "bootloader/qboot/src/qboot_gd32.c"
+          },
+          {
+            "path": "bootloader/qboot/src/qboot_gzip.c"
+          },
+          {
+            "path": "bootloader/qboot/src/qboot_hc32f460.c"
+          },
+          {
+            "path": "bootloader/qboot/src/qboot_n32.c"
+          },
+          {
+            "path": "bootloader/qboot/src/qboot_quicklz.c"
+          },
+          {
+            "path": "bootloader/qboot/src/qboot_stm32.c"
+          },
+          {
+            "path": "bootloader/qboot/src/qboot.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "quick_led",
+        "files": [
+          {
+            "path": "bootloader/quick_led-latest/src/qled.c"
+          },
+          {
+            "path": "bootloader/quick_led-latest/src/qled_sample.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "quicklz",
+        "files": [
+          {
+            "path": "bootloader/quicklz-v1.0.1/quicklz.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Utilities",
+        "files": [
+          {
+            "path": "rt-thread/components/utilities/ymodem/ry_sy.c"
+          },
+          {
+            "path": "rt-thread/components/utilities/ymodem/ymodem.c"
+          }
+        ],
+        "folders": []
+      }
+    ]
+  },
+  "outDir": "build",
+  "deviceName": null,
+  "packDir": null,
+  "miscInfo": {
+    "uid": "dedaabbbd5e6542c286689c0674c71c6"
+  },
+  "targets": {
+    "rt-thread": {
+      "excludeList": [
+        "<virtual_root>/Drivers/drv_spi.c"
+      ],
+      "toolchain": "AC5",
+      "compileConfig": {
+        "cpuType": "Cortex-M3",
+        "floatingPointHardware": "none",
+        "scatterFilePath": "board/linker_scripts/link.sct",
+        "useCustomScatterFile": false,
+        "storageLayout": {
+          "RAM": [
+            {
+              "tag": "RAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "RAM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "RAM",
+              "id": 3,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "IRAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x20000000",
+                "size": "0x4000"
+              },
+              "isChecked": true,
+              "noInit": false
+            },
+            {
+              "tag": "IRAM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            }
+          ],
+          "ROM": [
+            {
+              "tag": "ROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "ROM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "ROM",
+              "id": 3,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "IROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x8000000",
+                "size": "0x18000"
+              },
+              "isChecked": true,
+              "isStartup": true
+            },
+            {
+              "tag": "IROM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            }
+          ]
+        },
+        "options": "null"
+      },
+      "uploader": "OpenOCD",
+      "uploadConfig": {
+        "bin": "",
+        "target": "stm32f1x",
+        "interface": "cmsis-dap",
+        "baseAddr": "0x08000000"
+      },
+      "uploadConfigMap": {
+        "JLink": {
+          "bin": "",
+          "baseAddr": "",
+          "cpuInfo": {
+            "vendor": "null",
+            "cpuName": "null"
+          },
+          "proType": 1,
+          "speed": 8000,
+          "otherCmds": ""
+        }
+      },
+      "custom_dep": {
+        "name": "default",
+        "incList": [
+          "libraries/HAL_Drivers",
+          "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Include",
+          "bootloader/ota_downloader-v1.0.0",
+          "rt-thread/components/finsh",
+          "rt-thread/components/dfs/dfs_v1/include",
+          "rt-thread/components/dfs/dfs_v1/filesystems/devfs",
+          "rt-thread/components/drivers/include",
+          "applications",
+          "libraries/HAL_Drivers/config",
+          "bootloader/quick_led-latest/inc",
+          "rt-thread/components/utilities/ymodem",
+          "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Inc",
+          "libraries/HAL_Drivers/CMSIS/Include",
+          "rt-thread/components/libc/compilers/common/include",
+          ".",
+          "rt-thread/components/libc/posix/io/poll",
+          "rt-thread/components/libc/posix/ipc",
+          "bootloader/qboot/inc",
+          "bootloader/crclib-v1.02/inc",
+          "libraries/HAL_Drivers/drv_flash",
+          "rt-thread/include",
+          "rt-thread/libcpu/arm/cortex-m3",
+          "rt-thread/libcpu/arm/common",
+          "rt-thread/components/libc/compilers/common/extension/fcntl/octal",
+          "rt-thread/components/libc/posix/io/stdio",
+          "rt-thread/components/fal/inc",
+          "rt-thread/components/drivers/spi",
+          "bootloader/quicklz-v1.0.1",
+          "board/CubeMX_Config/Inc",
+          "board",
+          "rt-thread/components/libc/compilers/common/extension"
+        ],
+        "libList": [],
+        "sourceDirList": [],
+        "defineList": [
+          "__STDC_LIMIT_MACROS",
+          "RT_USING_ARMLIBC",
+          "STM32F103xE",
+          "USE_HAL_DRIVER",
+          "RT_USING_LIBC",
+          "__CLK_TCK=RT_TICK_PER_SECOND",
+          "__RTTHREAD__",
+          "CHIP_FAMILY_STM32"
+        ]
+      }
+    }
+  },
+  "version": "3.3"
+}
