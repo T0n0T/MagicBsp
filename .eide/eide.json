@@ -13,6 +13,9 @@
         "name": "Applications",
         "files": [
           {
+            "path": "applications/fal_cfg.h"
+          },
+          {
             "path": "applications/main.c"
           }
         ],
@@ -73,22 +76,22 @@
         "name": "crclib",
         "files": [
           {
-            "path": "bootloader/crclib-v1.02/src/crc16.c"
-          },
-          {
             "path": "bootloader/crclib-v1.02/src/crc16_ex_sample.c"
           },
           {
             "path": "bootloader/crclib-v1.02/src/crc16_ex.c"
           },
           {
-            "path": "bootloader/crclib-v1.02/src/crc8_ex.c"
+            "path": "bootloader/crclib-v1.02/src/crc16.c"
+          },
+          {
+            "path": "bootloader/crclib-v1.02/src/crc32_ex.c"
           },
           {
             "path": "bootloader/crclib-v1.02/src/crc32.c"
           },
           {
-            "path": "bootloader/crclib-v1.02/src/crc32_ex.c"
+            "path": "bootloader/crclib-v1.02/src/crc8_ex.c"
           },
           {
             "path": "bootloader/crclib-v1.02/src/crc8.c"
@@ -169,16 +172,16 @@
         "name": "Fal",
         "files": [
           {
-            "path": "rt-thread/components/fal/src/fal.c"
+            "path": "rt-thread/components/fal/src/fal_flash.c"
           },
           {
-            "path": "rt-thread/components/fal/src/fal_flash.c"
+            "path": "rt-thread/components/fal/src/fal_partition.c"
           },
           {
             "path": "rt-thread/components/fal/src/fal_rtt.c"
           },
           {
-            "path": "rt-thread/components/fal/src/fal_partition.c"
+            "path": "rt-thread/components/fal/src/fal.c"
           }
         ],
         "folders": []
@@ -190,9 +193,6 @@
             "path": "rt-thread/components/dfs/dfs_v1/filesystems/devfs/devfs.c"
           },
           {
-            "path": "rt-thread/components/dfs/dfs_v1/src/dfs.c"
-          },
-          {
             "path": "rt-thread/components/dfs/dfs_v1/src/dfs_file.c"
           },
           {
@@ -200,6 +200,9 @@
           },
           {
             "path": "rt-thread/components/dfs/dfs_v1/src/dfs_posix.c"
+          },
+          {
+            "path": "rt-thread/components/dfs/dfs_v1/src/dfs.c"
           }
         ],
         "folders": []
@@ -208,19 +211,19 @@
         "name": "Finsh",
         "files": [
           {
-            "path": "rt-thread/components/finsh/shell.c"
+            "path": "rt-thread/components/finsh/cmd.c"
           },
           {
-            "path": "rt-thread/components/finsh/msh.c"
+            "path": "rt-thread/components/finsh/msh_file.c"
           },
           {
             "path": "rt-thread/components/finsh/msh_parse.c"
           },
           {
-            "path": "rt-thread/components/finsh/cmd.c"
+            "path": "rt-thread/components/finsh/msh.c"
           },
           {
-            "path": "rt-thread/components/finsh/msh_file.c"
+            "path": "rt-thread/components/finsh/shell.c"
           }
         ],
         "folders": []
@@ -274,55 +277,55 @@
         "name": "Libraries",
         "files": [
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_spi.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_crc.c"
-          },
-          {
             "path": "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Source/Templates/system_stm32f1xx.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c"
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cec.c"
           },
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_usart.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_crc.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c"
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c"
           },
           {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c"
+          },
+          {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_usart.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_spi.c"
           }
         ],
         "folders": []
@@ -376,10 +379,10 @@
         "name": "quick_led",
         "files": [
           {
-            "path": "bootloader/quick_led-latest/src/qled.c"
+            "path": "bootloader/quick_led-latest/src/qled_sample.c"
           },
           {
-            "path": "bootloader/quick_led-latest/src/qled_sample.c"
+            "path": "bootloader/quick_led-latest/src/qled.c"
           }
         ],
         "folders": []
@@ -416,7 +419,23 @@
   "targets": {
     "rt-thread": {
       "excludeList": [
-        "<virtual_root>/Drivers/drv_spi.c"
+        "<virtual_root>/Drivers/drv_spi.c",
+        "<virtual_root>/DeviceDrivers/spi_core.c",
+        "<virtual_root>/DeviceDrivers/spi_dev.c",
+        "<virtual_root>/qboot/qboot_gzip.c",
+        "<virtual_root>/qboot/qboot_gd32.c",
+        "<virtual_root>/qboot/qboot_fastlz.c",
+        "<virtual_root>/qboot/qboot_at32.c",
+        "<virtual_root>/qboot/qboot_aes.c",
+        "<virtual_root>/qboot/qboot_hc32f460.c",
+        "<virtual_root>/qboot/qboot_n32.c",
+        "<virtual_root>/ota_downloader",
+        "<virtual_root>/Libraries/stm32f1xx_ll_spi.c",
+        "<virtual_root>/Libraries/stm32f1xx_hal_spi.c",
+        "<virtual_root>/Libraries/stm32f1xx_hal_cec.c",
+        "<virtual_root>/DeviceDrivers/ringblk_buf.c",
+        "<virtual_root>/DeviceDrivers/ringbuffer.c",
+        "<virtual_root>/DeviceDrivers/pipe.c"
       ],
       "toolchain": "AC5",
       "compileConfig": {
@@ -513,7 +532,7 @@
               "id": 1,
               "mem": {
                 "startAddr": "0x8000000",
-                "size": "0x18000"
+                "size": "0x17000"
               },
               "isChecked": true,
               "isStartup": true
@@ -532,12 +551,17 @@
         },
         "options": "null"
       },
-      "uploader": "OpenOCD",
+      "uploader": "JLink",
       "uploadConfig": {
         "bin": "",
-        "target": "stm32f1x",
-        "interface": "cmsis-dap",
-        "baseAddr": "0x08000000"
+        "baseAddr": "",
+        "cpuInfo": {
+          "vendor": "ST",
+          "cpuName": "STM32F103RC"
+        },
+        "proType": 1,
+        "speed": 8000,
+        "otherCmds": "ip 192.168.1.2"
       },
       "uploadConfigMap": {
         "JLink": {
@@ -550,6 +574,12 @@
           "proType": 1,
           "speed": 8000,
           "otherCmds": ""
+        },
+        "OpenOCD": {
+          "bin": "",
+          "target": "stm32f1x",
+          "interface": "cmsis-dap",
+          "baseAddr": "0x08000000"
         }
       },
       "custom_dep": {

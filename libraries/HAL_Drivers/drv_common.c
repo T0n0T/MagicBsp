@@ -19,8 +19,8 @@
 #endif /* RT_USING_SERIAL */
 #endif /* RT_USING_SERIAL_V2 */
 
-#define DBG_TAG    "drv_common"
-#define DBG_LVL    DBG_INFO
+#define DBG_TAG "drv_common"
+#define DBG_LVL DBG_INFO
 #include <rtdbg.h>
 
 #ifdef RT_USING_FINSH
@@ -43,7 +43,7 @@ void rt_hw_systick_init(void)
     NVIC_SetPriority(SysTick_IRQn, 0xFF);
 
     _systick_ms = 1000u / RT_TICK_PER_SECOND;
-    if(_systick_ms == 0)
+    if (_systick_ms == 0)
         _systick_ms = 1;
 }
 
@@ -56,7 +56,7 @@ void SysTick_Handler(void)
     /* enter interrupt */
     rt_interrupt_enter();
 
-    if(SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk)
+    if (SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk)
         HAL_IncTick();
 
     rt_tick_increase();
@@ -67,7 +67,7 @@ void SysTick_Handler(void)
 
 uint32_t HAL_GetTick(void)
 {
-    if(SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk)
+    if (SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk)
         HAL_IncTick();
 
     return uwTick;
@@ -88,14 +88,10 @@ void HAL_ResumeTick(void)
 
 void HAL_Delay(__IO uint32_t Delay)
 {
-    if (rt_thread_self())
-    {
+    if (rt_thread_self()) {
         rt_thread_mdelay(Delay);
-    }
-    else
-    {
-        for (rt_uint32_t count = 0; count < Delay; count++)
-        {
+    } else {
+        for (rt_uint32_t count = 0; count < Delay; count++) {
             rt_hw_us_delay(1000);
         }
     }
@@ -111,17 +107,16 @@ HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority)
 }
 
 /**
-  * @brief  This function is executed in case of error occurrence.
-  * @param  None
-  * @retval None
-  */
+ * @brief  This function is executed in case of error occurrence.
+ * @param  None
+ * @retval None
+ */
 void _Error_Handler(char *s, int num)
 {
     /* USER CODE BEGIN Error_Handler */
     /* User can add his own implementation to report the HAL error return state */
     LOG_E("Error_Handler at file:%s num:%d", s, num);
-    while (1)
-    {
+    while (1) {
     }
     /* USER CODE END Error_Handler */
 }
@@ -138,23 +133,17 @@ void rt_hw_us_delay(rt_uint32_t us)
     rt_uint32_t reload = SysTick->LOAD;
 
     ticks = us * (reload / (1000000 / RT_TICK_PER_SECOND));
-    told = SysTick->VAL;
-    while (1)
-    {
+    told  = SysTick->VAL;
+    while (1) {
         tnow = SysTick->VAL;
-        if (tnow != told)
-        {
-            if (tnow < told)
-            {
+        if (tnow != told) {
+            if (tnow < told) {
                 tcnt += told - tnow;
-            }
-            else
-            {
+            } else {
                 tcnt += reload - tnow + told;
             }
             told = tnow;
-            if (tcnt >= ticks)
-            {
+            if (tcnt >= ticks) {
                 break;
             }
         }
@@ -203,8 +192,8 @@ rt_weak void rt_hw_board_init(void)
 #endif
 
     /* Board underlying hardware initialization */
+    rt_kprintf("comeinto boot!!!\n");
 #ifdef RT_USING_COMPONENTS_INIT
     rt_components_board_init();
 #endif
 }
-

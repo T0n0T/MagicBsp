@@ -49,10 +49,11 @@
 
 #include <rtdbg.h>
 
-#define QBOOT_VER_MSG      "V1.0.5 2020.10.05"
-#define QBOOT_SHELL_PROMPT "Qboot>"
+#define QBOOT_STATUS_LED_PIN GET_PIN(B, 2)
+#define QBOOT_VER_MSG        "V1.0.5 2020.10.05"
+#define QBOOT_SHELL_PROMPT   "Qboot>"
 
-#define QBOOT_BUF_SIZE     4096 // must is 4096
+#define QBOOT_BUF_SIZE       4096 // must is 4096
 #if (defined(QBOOT_USING_QUICKLZ) || defined(QBOOT_USING_FASTLZ))
 #define QBOOT_CMPRS_READ_SIZE 1024 // it can is 512, 1024, 2048, 4096,
 #define QBOOT_CMPRS_BUF_SIZE  (QBOOT_BUF_SIZE + QBOOT_CMPRS_READ_SIZE)

@@ -15,9 +15,9 @@
 /* defined the LED0 pin: PB2 */
 #define LED0_PIN GET_PIN(B, 2)
 
-#include <fal.h>
-extern int fal_init(void);
-INIT_COMPONENT_EXPORT(fal_init);
+// #include <fal.h>
+// extern int fal_init(void);
+// INIT_COMPONENT_EXPORT(fal_init);
 
 int main(void)
 {

@@ -135,7 +135,7 @@ static void usage_fault_track(void)
     if(SCB_CFSR_UFSR & (1<<2))
     {
         /* [2]:INVPC */
-        rt_kprintf("INVPC ");
+        rt_kprintf("INVPC ###");
     }
 
     if(SCB_CFSR_UFSR & (1<<3))
