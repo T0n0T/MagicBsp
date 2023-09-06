@@ -13,70 +13,7 @@
         "name": "Applications",
         "files": [
           {
-            "path": "applications/app.c"
-          },
-          {
-            "path": "applications/ccm3310_test.c"
-          },
-          {
-            "path": "applications/ccm3310.c"
-          },
-          {
-            "path": "applications/cJSON.c"
-          },
-          {
-            "path": "applications/crc32.c"
-          },
-          {
-            "path": "applications/decode.c"
-          },
-          {
-            "path": "applications/drv_i2c.c"
-          },
-          {
             "path": "applications/main.c"
-          },
-          {
-            "path": "applications/rt_kprintf.c"
-          },
-          {
-            "path": "applications/tcpclient_sample.c"
-          }
-        ],
-        "folders": []
-      },
-      {
-        "name": "AT",
-        "files": [
-          {
-            "path": "rt-thread/components/net/at/at_socket/at_socket.c"
-          },
-          {
-            "path": "rt-thread/components/net/at/src/at_cli.c"
-          },
-          {
-            "path": "rt-thread/components/net/at/src/at_client.c"
-          },
-          {
-            "path": "rt-thread/components/net/at/src/at_utils.c"
-          }
-        ],
-        "folders": []
-      },
-      {
-        "name": "at_device",
-        "files": [
-          {
-            "path": "packages/at_device-latest/class/esp8266/at_device_esp8266.c"
-          },
-          {
-            "path": "packages/at_device-latest/class/esp8266/at_socket_esp8266.c"
-          },
-          {
-            "path": "packages/at_device-latest/samples/at_sample_esp8266.c"
-          },
-          {
-            "path": "packages/at_device-latest/src/at_device.c"
           }
         ],
         "folders": []
@@ -85,13 +22,13 @@
         "name": "cm_backtrace",
         "files": [
           {
-            "path": "packages/CmBacktrace-v1.4.1/cm_backtrace.c"
+            "path": "CmBacktrace-v1.4.1/cm_backtrace.c"
           },
           {
-            "path": "packages/CmBacktrace-v1.4.1/cmb_port.c"
+            "path": "CmBacktrace-v1.4.1/cmb_flash_log.c"
           },
           {
-            "path": "packages/CmBacktrace-v1.4.1/cmb_flash_log.c"
+            "path": "CmBacktrace-v1.4.1/cmb_port.c"
           }
         ],
         "folders": []
@@ -109,6 +46,9 @@
             "path": "rt-thread/components/libc/compilers/common/cctype.c"
           },
           {
+            "path": "rt-thread/components/libc/compilers/common/cstdio.c"
+          },
+          {
             "path": "rt-thread/components/libc/compilers/common/cstdlib.c"
           },
           {
@@ -116,9 +56,6 @@
           },
           {
             "path": "rt-thread/components/libc/compilers/common/ctime.c"
-          },
-          {
-            "path": "rt-thread/components/libc/compilers/common/cunistd.c"
           },
           {
             "path": "rt-thread/components/libc/compilers/common/cwchar.c"
@@ -151,19 +88,7 @@
         "name": "DeviceDrivers",
         "files": [
           {
-            "path": "rt-thread/components/drivers/core/device.c"
-          },
-          {
             "path": "rt-thread/components/drivers/hwtimer/hwtimer.c"
-          },
-          {
-            "path": "rt-thread/components/drivers/i2c/i2c_core.c"
-          },
-          {
-            "path": "rt-thread/components/drivers/i2c/i2c_dev.c"
-          },
-          {
-            "path": "rt-thread/components/drivers/i2c/i2c-bit-ops.c"
           },
           {
             "path": "rt-thread/components/drivers/ipc/completion.c"
@@ -190,15 +115,6 @@
             "path": "rt-thread/components/drivers/misc/pin.c"
           },
           {
-            "path": "rt-thread/components/drivers/rtc/rtc.c"
-          },
-          {
-            "path": "rt-thread/components/drivers/sensor/v1/sensor_cmd.c"
-          },
-          {
-            "path": "rt-thread/components/drivers/sensor/v1/sensor.c"
-          },
-          {
             "path": "rt-thread/components/drivers/serial/serial.c"
           },
           {
@@ -206,6 +122,9 @@
           },
           {
             "path": "rt-thread/components/drivers/spi/spi_dev.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/touch/touch.c"
           }
         ],
         "folders": []
@@ -226,12 +145,6 @@
             "path": "libraries/HAL_Drivers/drv_gpio.c"
           },
           {
-            "path": "libraries/HAL_Drivers/drv_rtc.c"
-          },
-          {
-            "path": "libraries/HAL_Drivers/drv_soft_i2c.c"
-          },
-          {
             "path": "libraries/HAL_Drivers/drv_spi.c"
           },
           {
@@ -242,27 +155,6 @@
           },
           {
             "path": "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f103xe.s"
-          }
-        ],
-        "folders": []
-      },
-      {
-        "name": "Filesystem",
-        "files": [
-          {
-            "path": "rt-thread/components/dfs/dfs_v1/filesystems/devfs/devfs.c"
-          },
-          {
-            "path": "rt-thread/components/dfs/dfs_v1/src/dfs_file.c"
-          },
-          {
-            "path": "rt-thread/components/dfs/dfs_v1/src/dfs_fs.c"
-          },
-          {
-            "path": "rt-thread/components/dfs/dfs_v1/src/dfs_posix.c"
-          },
-          {
-            "path": "rt-thread/components/dfs/dfs_v1/src/dfs.c"
           }
         ],
         "folders": []
@@ -281,90 +173,6 @@
           },
           {
             "path": "rt-thread/components/finsh/cmd.c"
-          },
-          {
-            "path": "rt-thread/components/finsh/msh_file.c"
-          }
-        ],
-        "folders": []
-      },
-      {
-        "name": "kawaii_mqtt",
-        "files": [
-          {
-            "path": "kawaii-mqtt/common/log/arch/rt-thread/arch.c"
-          },
-          {
-            "path": "kawaii-mqtt/common/log/fifo.c"
-          },
-          {
-            "path": "kawaii-mqtt/common/log/format.c"
-          },
-          {
-            "path": "kawaii-mqtt/common/log/salof.c"
-          },
-          {
-            "path": "kawaii-mqtt/common/mqtt_list.c"
-          },
-          {
-            "path": "kawaii-mqtt/common/random.c"
-          },
-          {
-            "path": "kawaii-mqtt/mqtt/MQTTConnectClient.c"
-          },
-          {
-            "path": "kawaii-mqtt/mqtt/MQTTConnectServer.c"
-          },
-          {
-            "path": "kawaii-mqtt/mqtt/MQTTDeserializePublish.c"
-          },
-          {
-            "path": "kawaii-mqtt/mqtt/MQTTFormat.c"
-          },
-          {
-            "path": "kawaii-mqtt/mqtt/MQTTPacket.c"
-          },
-          {
-            "path": "kawaii-mqtt/mqtt/MQTTSerializePublish.c"
-          },
-          {
-            "path": "kawaii-mqtt/mqtt/MQTTSubscribeClient.c"
-          },
-          {
-            "path": "kawaii-mqtt/mqtt/MQTTSubscribeServer.c"
-          },
-          {
-            "path": "kawaii-mqtt/mqtt/MQTTUnsubscribeClient.c"
-          },
-          {
-            "path": "kawaii-mqtt/mqtt/MQTTUnsubscribeServer.c"
-          },
-          {
-            "path": "kawaii-mqtt/mqttclient/mqttclient.c"
-          },
-          {
-            "path": "kawaii-mqtt/network/nettype_tcp.c"
-          },
-          {
-            "path": "kawaii-mqtt/network/nettype_tls.c"
-          },
-          {
-            "path": "kawaii-mqtt/network/network.c"
-          },
-          {
-            "path": "kawaii-mqtt/platform/RT-Thread/platform_memory.c"
-          },
-          {
-            "path": "kawaii-mqtt/platform/RT-Thread/platform_mutex.c"
-          },
-          {
-            "path": "kawaii-mqtt/platform/RT-Thread/platform_net_socket.c"
-          },
-          {
-            "path": "kawaii-mqtt/platform/RT-Thread/platform_thread.c"
-          },
-          {
-            "path": "kawaii-mqtt/platform/RT-Thread/platform_timer.c"
           }
         ],
         "folders": []
@@ -379,6 +187,9 @@
             "path": "rt-thread/src/components.c"
           },
           {
+            "path": "rt-thread/src/device.c"
+          },
+          {
             "path": "rt-thread/src/idle.c"
           },
           {
@@ -391,7 +202,7 @@
             "path": "rt-thread/src/kservice.c"
           },
           {
-            "path": "rt-thread/src/memheap.c"
+            "path": "rt-thread/src/mem.c"
           },
           {
             "path": "rt-thread/src/mempool.c"
@@ -424,46 +235,28 @@
         "name": "Libraries",
         "files": [
           {
-            "path": "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Source/Templates/system_stm32f1xx.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c"
           },
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cec.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_spi.c"
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c"
           },
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_crc.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c"
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c"
           },
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c"
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c"
           },
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c"
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c"
@@ -472,91 +265,25 @@
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c"
           },
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_crc.c"
           },
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_usart.c"
+            "path": "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Source/Templates/system_stm32f1xx.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c"
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c"
           },
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_spi.c"
-          }
-        ],
-        "folders": []
-      },
-      {
-        "name": "max30102",
-        "files": [
-          {
-            "path": "packages/max30102-latest/src/max30102.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cec.c"
           },
           {
-            "path": "packages/max30102-latest/examples/example.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_usart.c"
           },
           {
-            "path": "packages/max30102-latest/port/port.c"
-          },
-          {
-            "path": "packages/max30102-latest/src/CircularBuffer.c"
-          }
-        ],
-        "folders": []
-      },
-      {
-        "name": "POSIX",
-        "files": [
-          {
-            "path": "rt-thread/components/libc/posix/io/poll/poll.c"
-          },
-          {
-            "path": "rt-thread/components/libc/posix/io/poll/select.c"
-          }
-        ],
-        "folders": []
-      },
-      {
-        "name": "SAL",
-        "files": [
-          {
-            "path": "rt-thread/components/net/netdev/src/netdev.c"
-          },
-          {
-            "path": "rt-thread/components/net/netdev/src/netdev_ipaddr.c"
-          },
-          {
-            "path": "rt-thread/components/net/sal/dfs_net/dfs_net.c"
-          },
-          {
-            "path": "rt-thread/components/net/sal/impl/af_inet_at.c"
-          },
-          {
-            "path": "rt-thread/components/net/sal/socket/net_netdb.c"
-          },
-          {
-            "path": "rt-thread/components/net/sal/socket/net_sockets.c"
-          },
-          {
-            "path": "rt-thread/components/net/sal/src/sal_socket.c"
-          }
-        ],
-        "folders": []
-      },
-      {
-        "name": "Utilities",
-        "files": [
-          {
-            "path": "rt-thread/components/utilities/resource/resource_id.c"
-          }
-        ],
-        "folders": []
-      },
-      {
-        "name": "xpt2046_touch",
-        "files": [
-          {
-            "path": "packages/xpt2046-latest/drv_xpt2046.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c"
           }
         ],
         "folders": []
@@ -567,21 +294,19 @@
   "deviceName": null,
   "packDir": null,
   "miscInfo": {
-    "uid": "9fee352ca1987f4df7ccc1f2a46122c4"
+    "uid": "638e14d7ba3085f5b1a00e8d60191901"
   },
   "targets": {
     "rt-thread": {
       "excludeList": [
-        "<virtual_root>/xpt2046_touch",
-        "<virtual_root>/max30102",
-        "<virtual_root>/Applications/drv_i2c.c"
+        "<virtual_root>/cm_backtrace"
       ],
       "toolchain": "AC5",
       "compileConfig": {
         "cpuType": "Cortex-M3",
         "floatingPointHardware": "none",
         "scatterFilePath": "board/linker_scripts/link.sct",
-        "useCustomScatterFile": true,
+        "useCustomScatterFile": false,
         "storageLayout": {
           "RAM": [
             {
@@ -619,7 +344,7 @@
               "id": 1,
               "mem": {
                 "startAddr": "0x20000000",
-                "size": "0x5000"
+                "size": "0xc000"
               },
               "isChecked": true,
               "noInit": false
@@ -670,8 +395,8 @@
               "tag": "IROM",
               "id": 1,
               "mem": {
-                "startAddr": "0x8000000",
-                "size": "0x10000"
+                "startAddr": "0x8017000",
+                "size": "0x14800"
               },
               "isChecked": true,
               "isStartup": true
@@ -690,80 +415,47 @@
         },
         "options": "null"
       },
-      "uploader": "OpenOCD",
+      "uploader": "JLink",
       "uploadConfig": {
-        "bin": "${ExecutableName}.bin",
-        "target": "stm32f1x",
-        "interface": "cmsis-dap",
-        "baseAddr": "0x08000000"
-      },
-      "uploadConfigMap": {
-        "JLink": {
-          "bin": "${ExecutableName}.hex",
-          "baseAddr": "0x08000000",
-          "cpuInfo": {
-            "vendor": "ST",
-            "cpuName": "STM32F103RC"
-          },
-          "proType": 1,
-          "speed": 8000,
-          "otherCmds": "ip 192.168.1.2"
+        "bin": "",
+        "baseAddr": "",
+        "cpuInfo": {
+          "vendor": "ST",
+          "cpuName": "STM32F103RC"
         },
-        "OpenOCD": {
-          "bin": "${ExecutableName}.bin",
-          "target": "stm32f1x",
-          "interface": "cmsis-dap",
-          "baseAddr": "0x08000000"
-        }
+        "proType": 1,
+        "speed": 8000,
+        "otherCmds": "ip 192.168.1.2"
       },
+      "uploadConfigMap": {},
       "custom_dep": {
         "name": "default",
         "incList": [
-          "rt-thread/components/dfs/dfs_v1/include",
-          "rt-thread/components/legacy/dfs",
-          "packages/CmBacktrace-v1.4.1",
-          "rt-thread/libcpu/arm/common",
-          "rt-thread/components/net/sal/include",
-          "rt-thread/components/net/sal/impl",
-          "applications",
-          "rt-thread/components/drivers/include",
           "board",
-          "rt-thread/components/drivers/spi",
-          "rt-thread/components/net/netdev/include",
-          "kawaii-mqtt/platform/RT-Thread",
-          "libraries/HAL_Drivers",
-          "board/CubeMX_Config/Inc",
-          "libraries/HAL_Drivers/config",
-          "rt-thread/components/utilities/resource",
-          "kawaii-mqtt/mqttclient",
-          "rt-thread/components/net/sal/include/socket/sys_socket",
-          "rt-thread/libcpu/arm/cortex-m3",
-          "rt-thread/components/libc/posix/io/poll",
-          "rt-thread/components/finsh",
-          "rt-thread/components/libc/compilers/common/extension",
-          "rt-thread/components/net/sal/include/dfs_net",
-          "rt-thread/components/libc/posix/io/eventfd",
-          ".",
-          "rt-thread/components/net/at/include",
-          "packages/at_device-latest/inc",
-          "kawaii-mqtt/network",
-          "rt-thread/components/net/at/at_socket",
-          "rt-thread/components/legacy",
-          "packages/xpt2046-latest",
-          "packages/at_device-latest/class/esp8266",
-          "kawaii-mqtt/common",
-          "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Include",
-          "rt-thread/include",
-          "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Inc",
-          "rt-thread/components/libc/compilers/common/include",
-          "rt-thread/components/libc/posix/io/epoll",
           "libraries/HAL_Drivers/CMSIS/Include",
+          "rt-thread/libcpu/arm/cortex-m3",
+          "rt-thread/components/legacy",
+          "rt-thread/include",
+          "rt-thread/components/libc/posix/io/poll",
+          "rt-thread/components/drivers/include",
+          "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Include",
+          "board/CubeMX_Config/Inc",
+          "rt-thread/components/libc/compilers/common/extension",
+          "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Inc",
+          "libraries/HAL_Drivers",
+          "rt-thread/components/libc/posix/io/stdio",
+          "rt-thread/components/drivers/spi",
+          "rt-thread/components/libc/compilers/common/include",
+          "applications",
+          ".",
           "rt-thread/components/libc/posix/ipc",
-          "kawaii-mqtt/common/log",
-          "rt-thread/components/net/sal/include/socket",
-          "rt-thread/components/dfs/dfs_v1/filesystems/devfs",
+          "rt-thread/components/finsh",
+          "libraries/HAL_Drivers/config",
+          "rt-thread/components/drivers/touch",
+          "CmBacktrace-v1.4.1",
+          "rt-thread/libcpu/arm/common",
           "rt-thread/components/libc/compilers/common/extension/fcntl/octal",
-          "kawaii-mqtt/mqtt"
+          "RTE/_rt-thread"
         ],
         "libList": [],
         "sourceDirList": [],
@@ -774,7 +466,8 @@
           "USE_HAL_DRIVER",
           "RT_USING_LIBC",
           "__CLK_TCK=RT_TICK_PER_SECOND",
-          "__RTTHREAD__"
+          "__RTTHREAD__",
+          "USER_VECT_TAB_ADDRESS"
         ]
       }
     }

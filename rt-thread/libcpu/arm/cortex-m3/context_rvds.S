@@ -85,7 +85,6 @@ _reswitch
 ; psr, pc, lr, r12, r3, r2, r1, r0 are pushed into [from] stack
 PendSV_Handler   PROC
     EXPORT PendSV_Handler
-
     ; disable interrupt to protect context switch
     MRS     r2, PRIMASK
     CPSID   I
@@ -144,7 +143,7 @@ rt_hw_context_switch_to    PROC
     LDR     r1, =rt_thread_switch_interrupt_flag
     MOV     r0, #1
     STR     r0, [r1]
-
+ 
     ; set the PendSV and SysTick exception priority
     LDR     r0, =NVIC_SYSPRI2
     LDR     r1, =NVIC_PENDSV_PRI
@@ -166,6 +165,7 @@ rt_hw_context_switch_to    PROC
     ; enable interrupts at processor level
     CPSIE   F
     CPSIE   I
+
 
     ; ensure PendSV exception taken place before subsequent operation
     DSB
