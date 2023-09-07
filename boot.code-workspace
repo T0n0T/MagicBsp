@@ -4,6 +4,13 @@
             "path": "."
         }
     ],
-    "settings": {},
+    "settings": {
+        "files.associations": {
+            "spi_flash_sfud.h": "c",
+            "drv_spi.h": "c",
+            "drv_gpio.h": "c",
+            "sfud.h": "c"
+        }
+    },
     "extensions": {}
 }

@@ -15,27 +15,28 @@
 #include <rtconfig.h>
 #include <board.h>
 
-#define RT_APP_PART_ADDR   (0x08000000 + 0x17000) // app partition begin address
+#define RT_APP_PART_ADDR   (0xC0000000) // app partition begin address
 
 #define NOR_FLASH_DEV_NAME FAL_USING_NOR_FLASH_DEV_NAME //"norflash0"
 
 /* ===================== Flash device Configuration ========================= */
 extern const struct fal_flash_dev stm32_onchip_flash;
-// extern struct fal_flash_dev nor_flash0;
+extern struct fal_flash_dev nor_flash0;
 
 /* flash device table */
 #define FAL_FLASH_DEV_TABLE  \
     {                        \
         &stm32_onchip_flash, \
-        /*&nor_flash0,*/     \
+            &nor_flash0,     \
     }
 /* ====================== Partition Configuration ========================== */
 #ifdef FAL_PART_HAS_TABLE_CFG
 /* partition table */
-#define FAL_PART_TABLE                                                              \
-    {                                                                               \
-        {FAL_PART_MAGIC_WORD, "app", "onchip_flash", 0x17000, 0x14800, 0},          \
-            {FAL_PART_MAGIC_WORD, "download", "onchip_flash", 0x2B800, 0x14800, 0}, \
+#define FAL_PART_TABLE                                                             \
+    {                                                                              \
+        {FAL_PART_MAGIC_WORD, "app", "norflash0", 0x0, 0x200000, 0},               \
+            {FAL_PART_MAGIC_WORD, "download", "norflash0", 0x200000, 0x400000, 0}, \
+            {FAL_PART_MAGIC_WORD, "data", "norflash0", 0x400000, 0x1000000, 0},    \
     }
 #endif /* FAL_PART_HAS_TABLE_CFG */
 
