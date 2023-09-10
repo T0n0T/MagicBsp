@@ -48,13 +48,13 @@ static struct ep_id _ep_pool[] =
     {0xFF, USB_EP_ATTR_TYPE_MASK,   USB_DIR_MASK,   0,  ID_ASSIGNED  },
 };
 
-void USBD_IRQ_HANDLER(void)
-{
-    rt_interrupt_enter();
-    HAL_PCD_IRQHandler(&_stm_pcd);
-    /* leave interrupt */
-    rt_interrupt_leave();
-}
+// void USBD_IRQ_HANDLER(void)
+// {
+//     rt_interrupt_enter();
+//     HAL_PCD_IRQHandler(&_stm_pcd);
+//     /* leave interrupt */
+//     rt_interrupt_leave();
+// }
 
 void HAL_PCD_ResetCallback(PCD_HandleTypeDef *pcd)
 {

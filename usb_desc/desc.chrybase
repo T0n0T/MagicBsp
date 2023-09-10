@@ -1,0 +1,37 @@
+{
+    "device": {
+        "usb": 1.1,
+        "class": "0x00",
+        "subclass": "0x00",
+        "protocol": "0x00",
+        "ep0size": 64,
+        "pid": "0xffff",
+        "vid": "0xffff",
+        "version": 1
+    },
+    "config": [
+        {
+            "string": 0,
+            "selfpower": false,
+            "remotewakeup": true,
+            "power": 500,
+            "group": [
+                "F:\\code\\Embedded\\project\\Magic\\rtthread\\MagicBsp\\usb_desc\\msc.chry"
+            ]
+        }
+    ],
+    "string": [
+        {
+            "name": "manufacturer",
+            "value": "Your Manufacturer"
+        },
+        {
+            "name": "product",
+            "value": "Your Product"
+        },
+        {
+            "name": "serial number",
+            "value": "Your Serial Number"
+        }
+    ]
+}

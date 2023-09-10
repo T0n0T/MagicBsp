@@ -17,22 +17,21 @@
 #endif
 
 #ifndef FAL_USING_NOR_FLASH_DEV_NAME
-#define FAL_USING_NOR_FLASH_DEV_NAME             "norflash0"
+#define FAL_USING_NOR_FLASH_DEV_NAME "norflash0"
 #endif
 
 static int init(void);
-static int read(long offset, uint8_t *buf, size_t size);
-static int write(long offset, const uint8_t *buf, size_t size);
+static int read(long offset, uint8_t* buf, size_t size);
+static int write(long offset, const uint8_t* buf, size_t size);
 static int erase(long offset, size_t size);
 
 static sfud_flash_t sfud_dev = NULL;
-struct fal_flash_dev nor_flash0 =
-{
-    .name       = FAL_USING_NOR_FLASH_DEV_NAME,
-    .addr       = 0,
-    .len        = 8 * 1024 * 1024,
-    .blk_size   = 4096,
-    .ops        = {init, read, write, erase},
+struct fal_flash_dev nor_flash0 = {
+    .name = FAL_USING_NOR_FLASH_DEV_NAME,
+    .addr = 0,
+    .len = 16 * 1024 * 1024,
+    .blk_size = 4096,
+    .ops = { init, read, write, erase },
     .write_gran = 1
 };
 
@@ -48,8 +47,7 @@ static int init(void)
     sfud_dev = &sfud_norflash0;
 #endif
 
-    if (NULL == sfud_dev)
-    {
+    if (NULL == sfud_dev) {
         return -1;
     }
 
@@ -60,7 +58,7 @@ static int init(void)
     return 0;
 }
 
-static int read(long offset, uint8_t *buf, size_t size)
+static int read(long offset, uint8_t* buf, size_t size)
 {
     assert(sfud_dev);
     assert(sfud_dev->init_ok);
@@ -69,12 +67,11 @@ static int read(long offset, uint8_t *buf, size_t size)
     return size;
 }
 
-static int write(long offset, const uint8_t *buf, size_t size)
+static int write(long offset, const uint8_t* buf, size_t size)
 {
     assert(sfud_dev);
     assert(sfud_dev->init_ok);
-    if (sfud_write(sfud_dev, nor_flash0.addr + offset, size, buf) != SFUD_SUCCESS)
-    {
+    if (sfud_write(sfud_dev, nor_flash0.addr + offset, size, buf) != SFUD_SUCCESS) {
         return -1;
     }
 
@@ -85,12 +82,10 @@ static int erase(long offset, size_t size)
 {
     assert(sfud_dev);
     assert(sfud_dev->init_ok);
-    if (sfud_erase(sfud_dev, nor_flash0.addr + offset, size) != SFUD_SUCCESS)
-    {
+    if (sfud_erase(sfud_dev, nor_flash0.addr + offset, size) != SFUD_SUCCESS) {
         return -1;
     }
 
     return size;
 }
 #endif /* FAL_USING_SFUD_PORT */
-

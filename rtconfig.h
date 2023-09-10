@@ -7,7 +7,7 @@
 /* RT-Thread Kernel */
 
 #define RT_NAME_MAX 8
-#define RT_ALIGN_SIZE 4
+#define RT_ALIGN_SIZE 8
 #define RT_THREAD_PRIORITY_32
 #define RT_THREAD_PRIORITY_MAX 32
 #define RT_TICK_PER_SECOND 1000
@@ -20,8 +20,10 @@
 
 /* kservice optimization */
 
-#define RT_DEBUG
-#define RT_DEBUG_COLOR
+#define RT_USING_DEBUG
+#define RT_DEBUGING_COLOR
+#define RT_DEBUGING_CONTEXT
+#define RT_DEBUGING_INIT
 
 /* Inter-Thread communication */
 
@@ -33,7 +35,6 @@
 
 /* Memory Management */
 
-#define RT_PAGE_MAX_ORDER 11
 #define RT_USING_MEMPOOL
 #define RT_USING_SMALL_MEM
 #define RT_USING_SMALL_MEM_AS_HEAP
@@ -98,6 +99,12 @@
 #define RT_DFS_ELM_REENTRANT
 #define RT_DFS_ELM_MUTEX_TIMEOUT 3000
 #define RT_USING_DFS_DEVFS
+#define RT_USING_FAL
+#define FAL_DEBUG_CONFIG
+#define FAL_DEBUG 1
+#define FAL_PART_HAS_TABLE_CFG
+#define FAL_USING_SFUD_PORT
+#define FAL_USING_NOR_FLASH_DEV_NAME "norflash0"
 
 /* Device Drivers */
 
@@ -123,7 +130,14 @@
 
 /* C/C++ and POSIX layer */
 
-#define RT_LIBC_DEFAULT_TIMEZONE 8
+/* ISO-ANSI C layer */
+
+/* Timezone and Daylight Saving Time */
+
+#define RT_LIBC_USING_LIGHT_TZ_DST
+#define RT_LIBC_TZ_DEFAULT_HOUR 8
+#define RT_LIBC_TZ_DEFAULT_MIN 0
+#define RT_LIBC_TZ_DEFAULT_SEC 0
 
 /* POSIX (Portable Operating System Interface) layer */
 
@@ -211,8 +225,6 @@
 
 /* u8g2: a monochrome graphic library */
 
-/* PainterEngine: A cross-platform graphics application framework written in C language */
-
 /* tools packages */
 
 #define PKG_USING_CMBACKTRACE
@@ -232,11 +244,26 @@
 
 /* Micrium: Micrium software products porting for RT-Thread */
 
+#define PKG_USING_CHERRYUSB
+#define PKG_CHERRYUSB_DEVICE
+#define PKG_CHERRYUSB_DEVICE_FS
+#define PKG_CHERRYUSB_DEVICE_FSDEV
+#define PKG_CHERRYUSB_DEVICE_FSDEV_STM32
+#define PKG_CHERRYUSB_DEVICE_MSC
+#define PKG_CHERRYUSB_DEVICE_MSC_TEMPLATE
+#define PKG_USING_CHERRYUSB_LATEST_VERSION
+
 /* peripheral libraries and drivers */
+
+/* sensors drivers */
+
+/* touch drivers */
 
 /* Kendryte SDK */
 
 /* AI packages */
+
+/* Signal Processing and Control Algorithm Packages */
 
 /* miscellaneous packages */
 
@@ -248,7 +275,7 @@
 
 /* Arduino libraries */
 
-/* Projects */
+/* Projects and Demos */
 
 /* Sensors */
 

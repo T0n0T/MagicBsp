@@ -1,0 +1,28 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "files.associations": {
+            "*.cpp": "cpp",
+            "*.html": "html",
+            "*.env": "dotenv",
+            "*.go": "go",
+            "usbd_core.h": "c",
+            "usb_fsdev_reg.h": "c",
+            "main.h": "c",
+            "stm32f1xx_hal.h": "c",
+            "stm32f1xx_hal_def.h": "c",
+            "stm32f1xx.h": "c",
+            "usbd_msc.h": "c",
+            "dfs_fs.h": "c",
+            "rtdevice.h": "c",
+            "fal.h": "c",
+            "rtthread.h": "c",
+            "rtdef.h": "c"
+        }
+    },
+    "extensions": {}
+}
