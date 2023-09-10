@@ -146,14 +146,14 @@ void usbd_msc_get_cap(uint8_t lun, uint32_t* block_num, uint16_t* block_size)
 
 int usbd_msc_sector_read(uint32_t sector, uint8_t* buffer, uint32_t length)
 {
-    USB_LOG_DBG("read sector: %d, length: %d", sector, length / blsz);
+    USB_LOG_DBG("read sector: %d, length: %d", sector, length);
     rt_device_read(flash_dev, sector, buffer, length / blsz);
     return 0;
 }
 
 int usbd_msc_sector_write(uint32_t sector, uint8_t* buffer, uint32_t length)
 {
-    USB_LOG_DBG("write sector: %d, length: %d", sector, length / blsz);
+    USB_LOG_DBG("write sector: %d, length: %d", sector, length);
     rt_device_write(flash_dev, sector, buffer, length / blsz);
     return 0;
 }

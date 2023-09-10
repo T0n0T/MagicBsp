@@ -36,8 +36,10 @@
 /* Memory Management */
 
 #define RT_USING_MEMPOOL
-#define RT_USING_SMALL_MEM
-#define RT_USING_SMALL_MEM_AS_HEAP
+#define RT_USING_MEMHEAP
+#define RT_MEMHEAP_FAST_MODE
+#define RT_USING_MEMHEAP_AS_HEAP
+#define RT_USING_MEMHEAP_AUTO_BINDING
 #define RT_USING_HEAP
 
 /* Kernel Device Object */
@@ -128,6 +130,7 @@
 
 /* Using USB */
 
+
 /* C/C++ and POSIX layer */
 
 /* ISO-ANSI C layer */
@@ -148,7 +151,9 @@
 
 /* Interprocess Communication (IPC) */
 
+
 /* Socket is in the 'Network' category */
+
 
 /* Network */
 
@@ -176,13 +181,16 @@
 
 /* Utilities */
 
+
 /* RT-Thread online packages */
 
 /* IoT - internet of things */
 
+
 /* Wi-Fi */
 
 /* Marvell WiFi */
+
 
 /* Wiced WiFi */
 
@@ -202,8 +210,8 @@
 #define AT_DEVICE_ESP8266_INIT_ASYN
 #define AT_DEVICE_ESP8266_SOCKET
 #define AT_DEVICE_ESP8266_SAMPLE
-#define ESP8266_SAMPLE_WIFI_SSID "扬名广场"
-#define ESP8266_SAMPLE_WIFI_PASSWORD "303303303"
+#define ESP8266_SAMPLE_WIFI_SSID "APX"
+#define ESP8266_SAMPLE_WIFI_PASSWORD "12345678"
 #define ESP8266_SAMPLE_CLIENT_NAME "uart4"
 #define ESP8266_SAMPLE_RECV_BUFF_LEN 512
 #define PKG_USING_AT_DEVICE_LATEST_VERSION
@@ -211,19 +219,25 @@
 
 /* IoT Cloud */
 
+
 /* security packages */
+
 
 /* language packages */
 
 /* JSON: JavaScript Object Notation, a lightweight data-interchange format */
 
+
 /* XML: Extensible Markup Language */
+
 
 /* multimedia packages */
 
 /* LVGL: powerful and easy-to-use embedded GUI library */
 
+
 /* u8g2: a monochrome graphic library */
+
 
 /* tools packages */
 
@@ -238,9 +252,12 @@
 
 /* enhanced kernel services */
 
+
 /* acceleration: Assembly language or algorithmic acceleration packages */
 
+
 /* CMSIS: ARM Cortex-M Microcontroller Software Interface Standard */
+
 
 /* Micrium: Micrium software products porting for RT-Thread */
 
@@ -257,13 +274,18 @@
 
 /* sensors drivers */
 
+
 /* touch drivers */
+
 
 /* Kendryte SDK */
 
+
 /* AI packages */
 
+
 /* Signal Processing and Control Algorithm Packages */
+
 
 /* miscellaneous packages */
 
@@ -271,29 +293,41 @@
 
 /* samples: kernel and components samples */
 
+
 /* entertainment: terminal games and other interesting software packages */
+
 
 /* Arduino libraries */
 
+
 /* Projects and Demos */
+
 
 /* Sensors */
 
+
 /* Display */
+
 
 /* Timing */
 
+
 /* Data Processing */
+
 
 /* Data Storage */
 
 /* Communication */
 
+
 /* Device Control */
+
 
 /* Other */
 
+
 /* Signal IO */
+
 
 /* Uncategorized */
 
@@ -319,5 +353,6 @@
 #define BSP_USING_SPI1
 
 /* Board extended module Drivers */
+
 
 #endif

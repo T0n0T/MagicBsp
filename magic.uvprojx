@@ -379,6 +379,13 @@
           <GroupName>Applications</GroupName>
           <Files>
             <File>
+              <FileName>usb_desc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>applications\usb_desc.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
               <FileName>fs.c</FileName>
               <FileType>1</FileType>
               <FilePath>applications\fs.c</FilePath>
@@ -391,23 +398,16 @@
               <FilePath>applications\main.c</FilePath>
             </File>
           </Files>
+          <Files>
+            <File>
+              <FileName>msc_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>applications\msc_flash.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>AT</GroupName>
-          <Files>
-            <File>
-              <FileName>at_socket.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>rt-thread\components\net\at\at_socket\at_socket.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>at_utils.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>rt-thread\components\net\at\src\at_utils.c</FilePath>
-            </File>
-          </Files>
           <Files>
             <File>
               <FileName>at_cli.c</FileName>
@@ -422,23 +422,23 @@
               <FilePath>rt-thread\components\net\at\src\at_client.c</FilePath>
             </File>
           </Files>
+          <Files>
+            <File>
+              <FileName>at_utils.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\net\at\src\at_utils.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>at_socket.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\net\at\at_socket\at_socket.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>at_device</GroupName>
-          <Files>
-            <File>
-              <FileName>at_device_esp8266.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\at_device-latest\class\esp8266\at_device_esp8266.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>at_socket_esp8266.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\at_device-latest\class\esp8266\at_socket_esp8266.c</FilePath>
-            </File>
-          </Files>
           <Files>
             <File>
               <FileName>at_device.c</FileName>
@@ -448,9 +448,23 @@
           </Files>
           <Files>
             <File>
+              <FileName>at_device_esp8266.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\at_device-latest\class\esp8266\at_device_esp8266.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
               <FileName>at_sample_esp8266.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\at_device-latest\samples\at_sample_esp8266.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>at_socket_esp8266.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\at_device-latest\class\esp8266\at_socket_esp8266.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -465,16 +479,16 @@
           </Files>
           <Files>
             <File>
-              <FileName>usbd_core.c</FileName>
+              <FileName>msc_ram_template.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\CherryUSB-latest\core\usbd_core.c</FilePath>
+              <FilePath>packages\CherryUSB-latest\demo\msc_ram_template.c</FilePath>
             </File>
           </Files>
           <Files>
             <File>
-              <FileName>msc_ram_template.c</FileName>
+              <FileName>usbd_msc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\CherryUSB-latest\demo\msc_ram_template.c</FilePath>
+              <FilePath>packages\CherryUSB-latest\class\msc\usbd_msc.c</FilePath>
             </File>
           </Files>
           <Files>
@@ -486,9 +500,9 @@
           </Files>
           <Files>
             <File>
-              <FileName>usbd_msc.c</FileName>
+              <FileName>usbd_core.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\CherryUSB-latest\class\msc\usbd_msc.c</FilePath>
+              <FilePath>packages\CherryUSB-latest\core\usbd_core.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -496,16 +510,16 @@
           <GroupName>cm_backtrace</GroupName>
           <Files>
             <File>
-              <FileName>cmb_port.c</FileName>
+              <FileName>cmb_flash_log.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\CmBacktrace-v1.4.1\cmb_port.c</FilePath>
+              <FilePath>packages\CmBacktrace-v1.4.1\cmb_flash_log.c</FilePath>
             </File>
           </Files>
           <Files>
             <File>
-              <FileName>cmb_flash_log.c</FileName>
+              <FileName>cmb_port.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\CmBacktrace-v1.4.1\cmb_flash_log.c</FilePath>
+              <FilePath>packages\CmBacktrace-v1.4.1\cmb_port.c</FilePath>
             </File>
           </Files>
           <Files>
@@ -995,6 +1009,20 @@
           <GroupName>Fal</GroupName>
           <Files>
             <File>
+              <FileName>fal_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\fal\src\fal_flash.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
+              <FileName>fal_rtt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\fal\src\fal_rtt.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
               <FileName>fal_flash_sfud_port.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\fal\samples\porting\fal_flash_sfud_port.c</FilePath>
@@ -1012,20 +1040,6 @@
               <FileName>fal.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\fal\src\fal.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>fal_rtt.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>rt-thread\components\fal\src\fal_rtt.c</FilePath>
-            </File>
-          </Files>
-          <Files>
-            <File>
-              <FileName>fal_flash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>rt-thread\components\fal\src\fal_flash.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1172,9 +1186,9 @@
           </Files>
           <Files>
             <File>
-              <FileName>mem.c</FileName>
+              <FileName>memheap.c</FileName>
               <FileType>1</FileType>
-              <FilePath>rt-thread\src\mem.c</FilePath>
+              <FilePath>rt-thread\src\memheap.c</FilePath>
             </File>
           </Files>
           <Files>

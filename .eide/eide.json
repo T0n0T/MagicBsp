@@ -19,6 +19,12 @@
             "path": "applications/main.c"
           },
           {
+            "path": "applications/msc_flash.c"
+          },
+          {
+            "path": "applications/usb_desc.c"
+          },
+          {
             "path": "board/fal_cfg.h"
           }
         ],
@@ -28,9 +34,6 @@
         "name": "AT",
         "files": [
           {
-            "path": "rt-thread/components/net/at/at_socket/at_socket.c"
-          },
-          {
             "path": "rt-thread/components/net/at/src/at_cli.c"
           },
           {
@@ -38,6 +41,9 @@
           },
           {
             "path": "rt-thread/components/net/at/src/at_utils.c"
+          },
+          {
+            "path": "rt-thread/components/net/at/at_socket/at_socket.c"
           }
         ],
         "folders": []
@@ -64,9 +70,6 @@
         "name": "CherryUSB",
         "files": [
           {
-            "path": "applications/msc_flash.c"
-          },
-          {
             "path": "board/usb_config.h"
           },
           {
@@ -74,6 +77,9 @@
           },
           {
             "path": "packages/CherryUSB-latest/core/usbd_core.c"
+          },
+          {
+            "path": "packages/CherryUSB-latest/demo/msc_ram_template.c"
           },
           {
             "path": "packages/CherryUSB-latest/osal/usb_osal_rtthread.c"
@@ -91,10 +97,10 @@
         "name": "cm_backtrace",
         "files": [
           {
-            "path": "packages/CmBacktrace-v1.4.1/cmb_port.c"
+            "path": "packages/CmBacktrace-v1.4.1/cmb_flash_log.c"
           },
           {
-            "path": "packages/CmBacktrace-v1.4.1/cmb_flash_log.c"
+            "path": "packages/CmBacktrace-v1.4.1/cmb_port.c"
           },
           {
             "path": "packages/CmBacktrace-v1.4.1/cm_backtrace.c"
@@ -193,10 +199,10 @@
             "path": "rt-thread/components/drivers/serial/serial.c"
           },
           {
-            "path": "rt-thread/components/drivers/spi/sfud/src/sfud_sfdp.c"
+            "path": "rt-thread/components/drivers/spi/sfud/src/sfud.c"
           },
           {
-            "path": "rt-thread/components/drivers/spi/sfud/src/sfud.c"
+            "path": "rt-thread/components/drivers/spi/sfud/src/sfud_sfdp.c"
           },
           {
             "path": "rt-thread/components/drivers/spi/spi_core.c"
@@ -274,6 +280,9 @@
             "path": "rt-thread/components/dfs/dfs_v1/filesystems/elmfat/ffunicode.c"
           },
           {
+            "path": "rt-thread/components/dfs/dfs_v1/src/dfs.c"
+          },
+          {
             "path": "rt-thread/components/dfs/dfs_v1/src/dfs_file.c"
           },
           {
@@ -281,9 +290,6 @@
           },
           {
             "path": "rt-thread/components/dfs/dfs_v1/src/dfs_posix.c"
-          },
-          {
-            "path": "rt-thread/components/dfs/dfs_v1/src/dfs.c"
           }
         ],
         "folders": []
@@ -331,7 +337,7 @@
             "path": "rt-thread/src/kservice.c"
           },
           {
-            "path": "rt-thread/src/mem.c"
+            "path": "rt-thread/src/memheap.c"
           },
           {
             "path": "rt-thread/src/mempool.c"
@@ -364,67 +370,67 @@
         "name": "Libraries",
         "files": [
           {
-            "path": "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Source/Templates/system_stm32f1xx.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cec.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_crc.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_hcd.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c"
-          },
-          {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_usart.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c"
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_spi.c"
           },
           {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_crc.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Source/Templates/system_stm32f1xx.c"
+          },
+          {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cec.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_usart.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_hcd.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c"
           }
         ],
         "folders": []
@@ -523,7 +529,9 @@
       "excludeList": [
         "<virtual_root>/xpt2046_touch",
         "<virtual_root>/NetUtils",
-        "<virtual_root>/Applications/usb_desc.c"
+        "<virtual_root>/Applications/usb_desc.c",
+        "<virtual_root>/CherryUSB/msc_ram_template.c",
+        "<virtual_root>/at_device/at_sample_esp8266.c"
       ],
       "toolchain": "AC5",
       "compileConfig": {
@@ -687,6 +695,7 @@
           "board",
           "rt-thread/components/net/at/at_socket",
           "packages/CherryUSB-latest/class/dfu",
+          "rt-thread/components/drivers/usb/usbdevice",
           "packages/CherryUSB-latest/class/msc",
           "libraries/HAL_Drivers",
           "board/CubeMX_Config/Inc",

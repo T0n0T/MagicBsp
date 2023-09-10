@@ -33,8 +33,8 @@ extern struct fal_flash_dev nor_flash0;
 /* partition table */
 #define FAL_PART_TABLE                                                                                      \
     {                                                                                                       \
-        { FAL_PART_MAGIC_WORD, UPDATE_PARTITION_NAME, FAL_USING_NOR_FLASH_DEV_NAME, 0x0, 0x40000, 0 },      \
-            { FAL_PART_MAGIC_WORD, FS_PARTITION_NAME, FAL_USING_NOR_FLASH_DEV_NAME, 0x40000, 0x9c0000, 0 }, \
+        { FAL_PART_MAGIC_WORD, UPDATE_PARTITION_NAME, FAL_USING_NOR_FLASH_DEV_NAME, 0x0, 0x50000, 0 },      \
+            { FAL_PART_MAGIC_WORD, FS_PARTITION_NAME, FAL_USING_NOR_FLASH_DEV_NAME, 0x50000, 0x9b0000, 0 }, \
     }
 #endif /* FAL_PART_HAS_TABLE_CFG */
 

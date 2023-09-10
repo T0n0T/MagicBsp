@@ -12,6 +12,7 @@
 #include <board.h>
 #include <rtdevice.h>
 #include <rtthread.h>
+
 /* defined the LED0 pin: PB2 */
 #define LED0_PIN GET_PIN(B, 2)
 
