@@ -15,21 +15,38 @@
 #include "main.h"
 
 // APP_ADDR need to fit size of bootloader
-#define APP_ADDR (0x08000000 + 0x6400)
-static char update_flag[] = "update";
+#define APP_ADDR (0x08000000 + 0x3000)
+static char update_flag[]          = "update";
+uint8_t fw_buf[NOR_FLASH_BLK_SIZE] = {0};
+char check_buf[20]                 = {0};
 
-void update_fw(void)
+static int update_fw(uint32_t sectornum_using)
 {
-    int sector_num = 1;
-    uint8_t fw_buf[NOR_FLASH_BLK_SIZE];
+    int result              = 0;
+    uint32_t nor_sector_num = 1;
+    uint32_t addr           = 0;
+    uint8_t *p_fw_buf       = fw_buf;
+
     LL_Flash_Unlock();
-    while (/* condition */) {
+    while (nor_sector_num < 1 + sectornum_using) {
         memset(fw_buf, 0, sizeof(fw_buf));
-        nor_flash_read(sector_num * NOR_FLASH_BLK_SIZE, sizeof(fw_buf), fw_buf);
-        LL_Flash_PageErase(FLASH_START_ADRESS, NOR_FLASH_BLK_SIZE / FLASH_PAGE_SIZE);
-        ll_flash
-            sector_num++;
+        nor_flash_read(nor_sector_num * NOR_FLASH_BLK_SIZE, sizeof(fw_buf), fw_buf);
+        addr = APP_ADDR + NOR_FLASH_BLK_SIZE * (nor_sector_num - 1);
+        LL_Flash_PageErase(addr, NOR_FLASH_BLK_SIZE / FLASH_PAGE_SIZE);
+        while (addr < (APP_ADDR + NOR_FLASH_BLK_SIZE * nor_sector_num)) {
+            LL_FLASH_Program(ProgaraType_DATA32, addr, *(uint64_t *)p_fw_buf);
+            if (*(uint32_t *)addr != *(uint32_t *)p_fw_buf) {
+                result = ERROR;
+                break;
+            }
+            addr += 4;
+            p_fw_buf += 4;
+        }
+
+        nor_sector_num++;
     }
+    LL_FLASH_Lock(FLASH);
+    return result;
 }
 
 void check_update(void)
@@ -38,15 +55,17 @@ void check_update(void)
         printf("nor flash init failed\r\n");
         return;
     }
-    char read_buf[10] = {0};
-    nor_flash_read(0, sizeof(read_buf), read_buf);
-    if (strncmp(read_buf, update_flag, sizeof(update_flag)) == 0) {
+
+    nor_flash_read(0, sizeof(check_buf), check_buf);
+    if (strncmp(check_buf, update_flag, sizeof(update_flag)) == 0) {
         printf("application will be updated\r\n");
-        update_fw();
+        update_fw((uint32_t)check_buf[10]);
+        memset(check_buf, 0, sizeof(check_buf));
     } else {
         printf("application is up to date\r\n");
         return;
     }
+    nor_flash_write(0, sizeof(check_buf), check_buf);
     printf("==========================================\r\n");
 }
 
@@ -68,9 +87,11 @@ void jump_to_app(void)
     __disable_irq();
     LL_APB2_GRP1_DisableClock(LL_APB2_GRP1_PERIPH_AFIO);
     LL_APB2_GRP1_DisableClock(LL_APB1_GRP1_PERIPH_PWR);
-    LL_APB2_GRP1_DisableClock(LL_APB2_GRP1_PERIPH_GPIOD);
+
     LL_APB2_GRP1_DisableClock(LL_APB2_GRP1_PERIPH_GPIOA);
+    LL_APB2_GRP1_DisableClock(LL_APB2_GRP1_PERIPH_GPIOB);
     LL_APB2_GRP1_DisableClock(LL_APB2_GRP1_PERIPH_GPIOC);
+    LL_APB2_GRP1_DisableClock(LL_APB2_GRP1_PERIPH_GPIOD);
 
     LL_RCC_HSE_Disable();
     LL_RCC_DeInit();

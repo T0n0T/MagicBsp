@@ -18,12 +18,12 @@ int nor_flash_init(void)
 {
     sfud_err result = SFUD_SUCCESS;
     flash           = sfud_get_device(SFUD_W25Q128_DEVICE_INDEX);
-    result          = sfud_init();
+    result          = sfud_device_init(flash);
     if (result != SFUD_SUCCESS) {
-        printf("SFUD init fail!\n");
+        printf("SFUD init fail!\r\n");
         return -1;
     }
-    printf("SFUD init success!\n");
+    printf("SFUD init success!\r\n");
     return 0;
 }
 
@@ -32,7 +32,7 @@ void nor_flash_read(uint32_t addr, size_t size, uint8_t *data)
     sfud_err result = SFUD_SUCCESS;
     result          = sfud_read(flash, addr, size, data);
     if (result != SFUD_SUCCESS) {
-        printf("SFUD read fail!\n");
+        printf("SFUD read fail!\r\n");
     }
 }
 
@@ -41,6 +41,6 @@ void nor_flash_write(uint32_t addr, size_t size, uint8_t *data)
     sfud_err result = SFUD_SUCCESS;
     result          = sfud_erase_write(flash, addr, size, data);
     if (result != SFUD_SUCCESS) {
-        printf("SFUD read fail!\n");
+        printf("SFUD read fail!\r\n");
     }
 }

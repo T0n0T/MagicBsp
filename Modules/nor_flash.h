@@ -12,6 +12,9 @@
 #ifndef __NOR_FLASH_H__
 #define __NOR_FLASH_H__
 
+#include <stdint.h>
+#include <stddef.h>
+
 #define NOR_FLASH_PAGE_SIZE 256
 #define NOR_FLASH_BLK_SIZE  4096
 

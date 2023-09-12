@@ -34,6 +34,13 @@ int main(void)
     LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_AFIO);
     LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_PWR);
 
+    LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
+    GPIO_InitStruct.Pin                 = LL_GPIO_PIN_2;
+    GPIO_InitStruct.Mode                = LL_GPIO_MODE_ALTERNATE;
+    GPIO_InitStruct.Speed               = LL_GPIO_SPEED_FREQ_HIGH;
+    GPIO_InitStruct.OutputType          = LL_GPIO_OUTPUT_PUSHPULL;
+    LL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
     /* System interrupt init*/
     NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
     NVIC_SetPriority(SysTick_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 15, 0));
@@ -48,20 +55,57 @@ int main(void)
     MX_SPI1_Init();
     MX_USART1_UART_Init();
 
-    printf("  __  __             _      ____              _   \n");
-    printf(" |  \\/  |           (_)    |  _ \\            | |  \n");
-    printf(" | \\  / | __ _  __ _ _  ___| |_) | ___   ___ | |_ \n");
-    printf(" | |\\/| |/ _` |/ _` | |/ __|  _ < / _ \\ / _ \\| __|\n");
-    printf(" | |  | | (_| | (_| | | (__| |_) | (_) | (_) | |_ \n");
-    printf(" |_|  |_|\\__,_|\\__, |_|\\___|____/ \\___/ \\___/ \\__|\n");
-    printf("                __/ |                             \n");
-    printf("               |___/                              \n");
+    printf("  __  __             _      ____              _   \r\n");
+    printf(" |  \\/  |           (_)    |  _ \\            | |  \r\n");
+    printf(" | \\  / | __ _  __ _ _  ___| |_) | ___   ___ | |_ \r\n");
+    printf(" | |\\/| |/ _` |/ _` | |/ __|  _ < / _ \\ / _ \\| __|\r\n");
+    printf(" | |  | | (_| | (_| | | (__| |_) | (_) | (_) | |_ \r\n");
+    printf(" |_|  |_|\\__,_|\\__, |_|\\___|____/ \\___/ \\___/ \\__|\r\n");
+    printf("                __/ |                             \r\n");
+    printf("               |___/                              \r\n");
 
-    while (1) {
-        printf("Hello World!\r\n");
-        LL_mDelay(1000);
-    }
+    int second = 5;
+    printf("\r\n");
+    do {
+        printf("Hello, MagicBoot will work after %d seconds\r", second);
+        LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_2);
+        LL_mDelay(500);
+        LL_GPIO_SetOutputPin(GPIOB, LL_GPIO_PIN_2);
+        LL_mDelay(500);
+    } while (second--);
+    printf("\n");
+    check_update();
+    printf("\nWow, MagicBoot JUMP\r\n", second);
+    jump_to_app();
+
+    printf("\nWow, MagicBoot met some wrong!!!!\r\n", second);
+    while (1) {}
 }
+
+// int main(void)
+// {
+//     LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_AFIO);
+//     LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_PWR);
+
+//     /* System interrupt init*/
+//     NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
+//     NVIC_SetPriority(SysTick_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 15, 0));
+
+//     /** NOJTAG: JTAG-DP Disabled and SW-DP Enabled
+//      */
+//     LL_GPIO_AF_Remap_SWJ_NOJTAG();
+
+//     SystemClock_Config();
+
+//     MX_GPIO_Init();
+//     MX_SPI1_Init();
+//     MX_USART1_UART_Init();
+
+//     while (1) {
+//         printf("Hello World!\r\n");
+//         LL_mDelay(1000);
+//     }
+// }
 
 /**
  * @brief System Clock Configuration
@@ -219,9 +263,10 @@ static void MX_GPIO_Init(void)
     /* USER CODE END MX_GPIO_Init_1 */
 
     /* GPIO Ports Clock Enable */
-    LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOD);
     LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOA);
+    LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOB);
     LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOC);
+    LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOD);
     /* USER CODE BEGIN MX_GPIO_Init_2 */
     /* USER CODE END MX_GPIO_Init_2 */
 }
