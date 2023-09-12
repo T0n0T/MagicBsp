@@ -69,11 +69,6 @@ void updateapp(int argc, char **argv)
     do {
         rt_memset(app_buff, 0, blk_sz);
         n = read(fd, app_buff, blk_sz);
-        printf("read %d byte\n", n);
-        for (size_t i = 0; i < 100; i++) {
-            printf("%c", *(app_buff + i));
-        }
-        printf("\n");
 
         if (n < 0) {
             printf("read file %s fail\n", argv[1]);
@@ -84,16 +79,17 @@ void updateapp(int argc, char **argv)
             printf("write file %s fail\n", argv[1]);
             goto err;
         }
-        pos++;
+
         if (n < blk_sz) {
             break;
         }
-
+        pos++;
     } while (pos < blk_update->geometry.sector_count);
 
     // set update flag
     rt_memset(app_buff, 0, blk_sz);
     rt_memcpy(app_buff, "update", sizeof("update"));
+    *(uint32_t *)(&app_buff[10]) = (uint32_t)pos;
     if (rt_device_write(update_part, 0, app_buff, 1) != 1) {
         printf("write update_flag fail\n");
         goto err;
