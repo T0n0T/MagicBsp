@@ -12,6 +12,9 @@
 #ifndef __NOR_FLASH_H__
 #define __NOR_FLASH_H__
 
+#define NOR_FLASH_PAGE_SIZE 256
+#define NOR_FLASH_BLK_SIZE  4096
+
 int nor_flash_init(void);
 void nor_flash_read(uint32_t addr, size_t size, uint8_t *data);
 void nor_flash_write(uint32_t addr, size_t size, uint8_t *data);

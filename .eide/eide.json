@@ -35,6 +35,9 @@
                 "name": "Core",
                 "files": [
                   {
+                    "path": "Core/Src/boot.c"
+                  },
+                  {
                     "path": "Core/Src/main.c"
                   },
                   {
@@ -46,6 +49,9 @@
               {
                 "name": "Service",
                 "files": [
+                  {
+                    "path": "Modules/mcu_flash.c"
+                  },
                   {
                     "path": "Modules/nor_flash.c"
                   },
@@ -272,8 +278,8 @@
           "Drivers/CMSIS/Include",
           ".cmsis/include",
           "MDK-ARM/RTE/_boot",
-          ".eide/deps",
-          "Middleware/sfud/inc"
+          "Middleware/sfud/inc",
+          "Modules"
         ],
         "libList": [],
         "sourceDirList": [],

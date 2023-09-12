@@ -48,6 +48,15 @@ int main(void)
     MX_SPI1_Init();
     MX_USART1_UART_Init();
 
+    printf("  __  __             _      ____              _   \n");
+    printf(" |  \\/  |           (_)    |  _ \\            | |  \n");
+    printf(" | \\  / | __ _  __ _ _  ___| |_) | ___   ___ | |_ \n");
+    printf(" | |\\/| |/ _` |/ _` | |/ __|  _ < / _ \\ / _ \\| __|\n");
+    printf(" | |  | | (_| | (_| | | (__| |_) | (_) | (_) | |_ \n");
+    printf(" |_|  |_|\\__,_|\\__, |_|\\___|____/ \\___/ \\___/ \\__|\n");
+    printf("                __/ |                             \n");
+    printf("               |___/                              \n");
+
     while (1) {
         printf("Hello World!\r\n");
         LL_mDelay(1000);
