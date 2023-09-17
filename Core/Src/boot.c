@@ -15,7 +15,7 @@
 #include "main.h"
 
 // APP_ADDR need to fit size of bootloader
-#define APP_ADDR (0x08000000 + 0x2400)
+#define APP_ADDR (0x08000000 + 0x3000)
 static char update_flag[]          = "update";
 uint8_t fw_buf[NOR_FLASH_BLK_SIZE] = {0};
 char check_buf[20]                 = {0};
