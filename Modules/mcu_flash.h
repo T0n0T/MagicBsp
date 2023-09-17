@@ -36,12 +36,12 @@ typedef enum {
 
 typedef enum {
     FLASH_Lock   = 1U,
-    Flash_Unlock = !FLASH_Lock
+    FLASH_Unlock = !FLASH_Lock
 } FlashStates;
 
-__STATIC_INLINE void LL_FLASH_Lock(FLASH_TypeDef *FLASHx)
+__STATIC_INLINE void LL_FLASH_Lock(void)
 {
-    SET_BIT(FLASHx->CR, FLASH_CR_LOCK);
+    SET_BIT(FLASH->CR, FLASH_CR_LOCK);
 }
 
 /* @brief  Set flash erase type.
@@ -134,7 +134,7 @@ __STATIC_INLINE void LL_FLASh_SetKey(FLASH_TypeDef *FLASHx, uint32_t key)
     WRITE_REG(FLASH->KEYR, key);
 }
 
-ErrorStatus LL_Flash_Unlock(void);
-ErrorStatus LL_Flash_PageErase(uint32_t page_addr, uint16_t NbPages);
+ErrorStatus LL_FLASH_Unlock(void);
+ErrorStatus LL_FLASH_PageErase(uint32_t page_addr, uint16_t NbPages);
 ErrorStatus LL_FLASH_Program(ProgaramDataType ProgramType, uint32_t flash_addr, uint64_t data);
 #endif

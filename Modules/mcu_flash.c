@@ -11,13 +11,13 @@
 
 #include "mcu_flash.h"
 
-void static LL_FLASH_Program_TwoBtye(uint32_t flash_addr, uint16_t data)
+void static LL_FLASH_Program_TwoBtye(uint16_t flash_addr, uint16_t data)
 {
     LL_FLASH_EnableProgram(FLASH);
     *(__IO uint16_t *)(flash_addr) = data;
 }
 
-ErrorStatus LL_Flash_Unlock(void)
+ErrorStatus LL_FLASH_Unlock(void)
 {
     while (LL_FLASH_IsActiveFlag_BSY(FLASH)) {
     }
@@ -28,7 +28,7 @@ ErrorStatus LL_Flash_Unlock(void)
     return SUCCESS;
 }
 
-ErrorStatus LL_Flash_PageErase(uint32_t page_addr, uint16_t pagenum)
+ErrorStatus LL_FLASH_PageErase(uint32_t page_addr, uint16_t pagenum)
 {
     uint32_t End_addr   = pagenum * FLASH_PAGE_SIZE + page_addr;
     uint32_t Start_addr = page_addr;

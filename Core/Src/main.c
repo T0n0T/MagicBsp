@@ -17,7 +17,6 @@
  */
 
 #include "main.h"
-
 #include <stdio.h>
 
 void SystemClock_Config(void);
@@ -55,6 +54,7 @@ int main(void)
     MX_SPI1_Init();
     MX_USART1_UART_Init();
 
+    printf("\r\n");
     printf("  __  __             _      ____              _   \r\n");
     printf(" |  \\/  |           (_)    |  _ \\            | |  \r\n");
     printf(" | \\  / | __ _  __ _ _  ___| |_) | ___   ___ | |_ \r\n");
@@ -64,7 +64,8 @@ int main(void)
     printf("                __/ |                             \r\n");
     printf("               |___/                              \r\n");
 
-    int second = 5;
+    LL_mDelay(1000);
+    int second = 3;
     printf("\r\n");
     do {
         printf("Hello, MagicBoot will work after %d seconds\r", second);
@@ -75,11 +76,12 @@ int main(void)
     } while (second--);
     printf("\n");
     check_update();
-    printf("\nWow, MagicBoot JUMP\r\n", second);
+    printf("\nWow, MagicBoot JUMP\r\n");
     jump_to_app();
 
-    printf("\nWow, MagicBoot met some wrong!!!!\r\n", second);
-    while (1) {}
+    printf("\nWow, MagicBoot met some wrong!!!!\r\n");
+    while (1) {
+    }
 }
 
 // int main(void)
@@ -171,14 +173,17 @@ static void MX_SPI1_Init(void)
     GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
     LL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-    // PIN_SS = PC13
-    GPIO_InitStruct.Pin = LL_GPIO_PIN_13;
-    LL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-
     GPIO_InitStruct.Pin  = LL_GPIO_PIN_6;
     GPIO_InitStruct.Mode = LL_GPIO_MODE_FLOATING;
     LL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+    // PIN_SS = PC13
+    GPIO_InitStruct.Pin        = LL_GPIO_PIN_13;
+    GPIO_InitStruct.Mode       = LL_GPIO_MODE_OUTPUT;
+    GPIO_InitStruct.Pull       = LL_GPIO_PULL_UP;
+    GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_OPENDRAIN;
+    LL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+    LL_GPIO_SetOutputPin(GPIOC, LL_GPIO_PIN_13);
     /* USER CODE BEGIN SPI1_Init 1 */
 
     /* USER CODE END SPI1_Init 1 */
@@ -189,7 +194,7 @@ static void MX_SPI1_Init(void)
     SPI_InitStruct.ClockPolarity     = LL_SPI_POLARITY_LOW;
     SPI_InitStruct.ClockPhase        = LL_SPI_PHASE_1EDGE;
     SPI_InitStruct.NSS               = LL_SPI_NSS_SOFT;
-    SPI_InitStruct.BaudRate          = LL_SPI_BAUDRATEPRESCALER_DIV4;
+    SPI_InitStruct.BaudRate          = LL_SPI_BAUDRATEPRESCALER_DIV8;
     SPI_InitStruct.BitOrder          = LL_SPI_MSB_FIRST;
     SPI_InitStruct.CRCCalculation    = LL_SPI_CRCCALCULATION_DISABLE;
     SPI_InitStruct.CRCPoly           = 10;
@@ -267,6 +272,14 @@ static void MX_GPIO_Init(void)
     LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOB);
     LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOC);
     LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOD);
+
+    LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+    GPIO_InitStruct.Pin        = LL_GPIO_PIN_2;
+    GPIO_InitStruct.Mode       = LL_GPIO_MODE_OUTPUT;
+    GPIO_InitStruct.Speed      = LL_GPIO_SPEED_FREQ_HIGH;
+    GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
+    LL_GPIO_Init(GPIOB, &GPIO_InitStruct);
     /* USER CODE BEGIN MX_GPIO_Init_2 */
     /* USER CODE END MX_GPIO_Init_2 */
 }

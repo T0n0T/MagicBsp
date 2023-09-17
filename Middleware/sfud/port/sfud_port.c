@@ -35,9 +35,9 @@ static char log_buf[256];
 typedef struct {
     SPI_TypeDef *spix;
     GPIO_TypeDef *cs_gpiox;
-    uint16_t cs_gpio_pin;
+    uint32_t cs_gpio_pin;
 } spi_user_data, *spi_user_data_t;
-static spi_user_data spi1 = {.spix = SPI1, .cs_gpiox = GPIOC, .cs_gpio_pin = LL_GPIO_PIN_13};
+static spi_user_data spi1 = {.spix = SPI1, .cs_gpiox = GPIOC, .cs_gpio_pin = (__IO uint32_t)LL_GPIO_PIN_13};
 
 void sfud_log_debug(const char *file, const long line, const char *format, ...);
 
@@ -65,57 +65,13 @@ static void retry_delay_100us(void)
             } else {
                 tcnt += SysTick->LOAD - tnow + told;
             }
+
             told = tnow;
             if (tcnt >= ticks) {
                 break;
             }
         }
     }
-}
-
-static int spi_transmit_receive(uint8_t data_in, uint8_t *data_out)
-{
-    int state = 0;
-    *data_out = 0;
-    uint32_t timeout_cnt;
-    static const uint32_t timeout_cnt_num = 10000;
-
-    // Wait until TXE flag is set to send data
-    timeout_cnt = 0;
-    while (!LL_SPI_IsActiveFlag_TXE(SPI1)) {
-        timeout_cnt++;
-        if (timeout_cnt > timeout_cnt_num) {
-            state = -1;
-            break;
-        }
-    }
-
-    LL_SPI_TransmitData8(SPI1, data_in);
-
-    // Check BSY flag
-    timeout_cnt = 0;
-    while (LL_SPI_IsActiveFlag_BSY(SPI1)) {
-        timeout_cnt++;
-        if (timeout_cnt > timeout_cnt_num) {
-            state = -1;
-            break;
-        }
-    }
-
-    // Check RXNE flag
-    timeout_cnt = 0;
-    while (!LL_SPI_IsActiveFlag_RXNE(SPI1)) {
-        timeout_cnt++;
-        if (timeout_cnt > timeout_cnt_num) {
-            state = -1;
-            break;
-        }
-    }
-
-    // Read 16-Bits in the data register
-    *data_out = LL_SPI_ReceiveData8(SPI1);
-
-    return state;
 }
 
 /**
@@ -150,17 +106,11 @@ static sfud_err spi_write_read(const sfud_spi *spi, const uint8_t *write_buf, si
             SFUD_RETRY_PROCESS(NULL, retry_times, result);
         }
         if (result != SFUD_SUCCESS) {
+            SFUD_DEBUG("SPI write data error, retry times: %d\r\n", retry_times);
             goto exit;
         }
         LL_SPI_TransmitData8(spi_dev->spix, send_data);
-
         retry_times = 1000;
-        while (LL_SPI_IsActiveFlag_BSY(spi_dev->spix)) {
-            SFUD_RETRY_PROCESS(NULL, retry_times, result);
-        }
-        if (result != SFUD_SUCCESS) {
-            goto exit;
-        }
 
         /* 接收数据 */
         retry_times = 1000;
@@ -168,6 +118,7 @@ static sfud_err spi_write_read(const sfud_spi *spi, const uint8_t *write_buf, si
             SFUD_RETRY_PROCESS(NULL, retry_times, result);
         }
         if (result != SFUD_SUCCESS) {
+            SFUD_DEBUG("SPI read data error, retry times: %d\r\n", retry_times);
             goto exit;
         }
         read_data = LL_SPI_ReceiveData8(spi_dev->spix);
@@ -179,7 +130,6 @@ static sfud_err spi_write_read(const sfud_spi *spi, const uint8_t *write_buf, si
 
 exit:
     LL_GPIO_SetOutputPin(spi_dev->cs_gpiox, spi_dev->cs_gpio_pin);
-
     return result;
 }
 

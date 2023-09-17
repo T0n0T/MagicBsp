@@ -10,12 +10,12 @@
  */
 
 #include "nor_flash.h"
-#include "mcu_flash.h"
+#include "stmflash.h"
 #include <string.h>
 #include "main.h"
 
 // APP_ADDR need to fit size of bootloader
-#define APP_ADDR (0x08000000 + 0x3000)
+#define APP_ADDR (0x08000000 + 0x2400)
 static char update_flag[]          = "update";
 uint8_t fw_buf[NOR_FLASH_BLK_SIZE] = {0};
 char check_buf[20]                 = {0};
@@ -27,25 +27,16 @@ static int update_fw(uint32_t sectornum_using)
     uint32_t addr           = 0;
     uint8_t *p_fw_buf       = fw_buf;
 
-    LL_Flash_Unlock();
+    stmflash_unlock();
     while (nor_sector_num < 1 + sectornum_using) {
         memset(fw_buf, 0, sizeof(fw_buf));
         nor_flash_read(nor_sector_num * NOR_FLASH_BLK_SIZE, sizeof(fw_buf), fw_buf);
         addr = APP_ADDR + NOR_FLASH_BLK_SIZE * (nor_sector_num - 1);
-        LL_Flash_PageErase(addr, NOR_FLASH_BLK_SIZE / FLASH_PAGE_SIZE);
-        while (addr < (APP_ADDR + NOR_FLASH_BLK_SIZE * nor_sector_num)) {
-            LL_FLASH_Program(ProgaraType_DATA32, addr, *(uint64_t *)p_fw_buf);
-            if (*(uint32_t *)addr != *(uint32_t *)p_fw_buf) {
-                result = ERROR;
-                break;
-            }
-            addr += 4;
-            p_fw_buf += 4;
-        }
-
+        stmflash_write_2bytes(addr, (uint32_t *)p_fw_buf, sizeof(fw_buf) / 4);
         nor_sector_num++;
+        printf("updating fw, loading ... %0.2f%%\r", (float)(nor_sector_num - 1) / sectornum_using * 100);
     }
-    LL_FLASH_Lock(FLASH);
+    stmflash_lock();
     return result;
 }
 
@@ -66,7 +57,6 @@ void check_update(void)
         return;
     }
     nor_flash_write(0, sizeof(check_buf), check_buf);
-    printf("==========================================\r\n");
 }
 
 void jump_to_app(void)

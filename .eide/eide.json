@@ -57,6 +57,12 @@
                   },
                   {
                     "path": "Modules/printf.c"
+                  },
+                  {
+                    "path": "Modules/stmflash.c"
+                  },
+                  {
+                    "path": "Modules/w25qxx.c"
                   }
                 ],
                 "folders": []
