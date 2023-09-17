@@ -31,6 +31,7 @@ static void MX_USART1_UART_Init(void);
 int main(void)
 {
     LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_AFIO);
+
     LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_PWR);
 
     LL_GPIO_InitTypeDef GPIO_InitStruct = {0};

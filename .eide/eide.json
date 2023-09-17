@@ -147,7 +147,9 @@
   },
   "targets": {
     "boot": {
-      "excludeList": [],
+      "excludeList": [
+        "<virtual_root>/Application/User/Service/mcu_flash.c"
+      ],
       "toolchain": "AC5",
       "compileConfig": {
         "cpuType": "Cortex-M3",
