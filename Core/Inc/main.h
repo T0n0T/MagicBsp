@@ -65,7 +65,8 @@ void check_update(void);
 #endif
 
 /* USER CODE BEGIN Private defines */
-
+#define RUNLED(state) \
+    (state ? LL_GPIO_SetOutputPin(GPIOB, LL_GPIO_PIN_2) : LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_2))
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

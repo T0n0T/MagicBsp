@@ -245,7 +245,7 @@
               "id": 1,
               "mem": {
                 "startAddr": "0x8000000",
-                "size": "0x40000"
+                "size": "0x2400"
               },
               "isChecked": true,
               "isStartup": true

@@ -457,11 +457,6 @@
           <GroupName>Application/User/Service</GroupName>
           <Files>
             <File>
-              <FileName>mcu_flash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>Modules/mcu_flash.c</FilePath>
-            </File>
-            <File>
               <FileName>nor_flash.c</FileName>
               <FileType>1</FileType>
               <FilePath>Modules/nor_flash.c</FilePath>

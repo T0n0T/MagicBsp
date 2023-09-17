@@ -29,12 +29,14 @@ static int update_fw(uint32_t sectornum_using)
 
     stmflash_unlock();
     while (nor_sector_num < 1 + sectornum_using) {
+        RUNLED(0);
         memset(fw_buf, 0, sizeof(fw_buf));
         nor_flash_read(nor_sector_num * NOR_FLASH_BLK_SIZE, sizeof(fw_buf), fw_buf);
         addr = APP_ADDR + NOR_FLASH_BLK_SIZE * (nor_sector_num - 1);
         stmflash_write_2bytes(addr, (uint32_t *)p_fw_buf, sizeof(fw_buf) / 4);
         nor_sector_num++;
         printf("updating fw, loading ... %0.2f%%\r", (float)(nor_sector_num - 1) / sectornum_using * 100);
+        RUNLED(1);
     }
     stmflash_lock();
     return result;
@@ -74,7 +76,7 @@ void jump_to_app(void)
     printf("Jump to application running ... \r\n");
     LL_mDelay(200);
 
-    __disable_irq();
+    // __disable_irq();
     LL_APB2_GRP1_DisableClock(LL_APB2_GRP1_PERIPH_AFIO);
     LL_APB2_GRP1_DisableClock(LL_APB1_GRP1_PERIPH_PWR);
 

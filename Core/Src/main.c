@@ -36,7 +36,7 @@ int main(void)
 
     LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
     GPIO_InitStruct.Pin                 = LL_GPIO_PIN_2;
-    GPIO_InitStruct.Mode                = LL_GPIO_MODE_ALTERNATE;
+    GPIO_InitStruct.Mode                = LL_GPIO_MODE_OUTPUT;
     GPIO_InitStruct.Speed               = LL_GPIO_SPEED_FREQ_HIGH;
     GPIO_InitStruct.OutputType          = LL_GPIO_OUTPUT_PUSHPULL;
     LL_GPIO_Init(GPIOB, &GPIO_InitStruct);
@@ -70,9 +70,9 @@ int main(void)
     printf("\r\n");
     do {
         printf("Hello, MagicBoot will work after %d seconds\r", second);
-        LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_2);
+        RUNLED(0);
         LL_mDelay(500);
-        LL_GPIO_SetOutputPin(GPIOB, LL_GPIO_PIN_2);
+        RUNLED(1);
         LL_mDelay(500);
     } while (second--);
     printf("\n");
@@ -84,31 +84,6 @@ int main(void)
     while (1) {
     }
 }
-
-// int main(void)
-// {
-//     LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_AFIO);
-//     LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_PWR);
-
-//     /* System interrupt init*/
-//     NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
-//     NVIC_SetPriority(SysTick_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 15, 0));
-
-//     /** NOJTAG: JTAG-DP Disabled and SW-DP Enabled
-//      */
-//     LL_GPIO_AF_Remap_SWJ_NOJTAG();
-
-//     SystemClock_Config();
-
-//     MX_GPIO_Init();
-//     MX_SPI1_Init();
-//     MX_USART1_UART_Init();
-
-//     while (1) {
-//         printf("Hello World!\r\n");
-//         LL_mDelay(1000);
-//     }
-// }
 
 /**
  * @brief System Clock Configuration
@@ -274,13 +249,6 @@ static void MX_GPIO_Init(void)
     LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOC);
     LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOD);
 
-    LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
-
-    GPIO_InitStruct.Pin        = LL_GPIO_PIN_2;
-    GPIO_InitStruct.Mode       = LL_GPIO_MODE_OUTPUT;
-    GPIO_InitStruct.Speed      = LL_GPIO_SPEED_FREQ_HIGH;
-    GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
-    LL_GPIO_Init(GPIOB, &GPIO_InitStruct);
     /* USER CODE BEGIN MX_GPIO_Init_2 */
     /* USER CODE END MX_GPIO_Init_2 */
 }
