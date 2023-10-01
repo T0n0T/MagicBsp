@@ -26,6 +26,7 @@
 extern "C" {
 #endif
 
+#include "stdio.h"
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f1xx_ll_rcc.h"
 #include "stm32f1xx_ll_bus.h"
@@ -47,7 +48,7 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
 void check_update(void);
-void check_update(void);
+void jump_to_app(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/

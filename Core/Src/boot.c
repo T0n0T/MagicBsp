@@ -49,7 +49,7 @@ void check_update(void)
         return;
     }
 
-    nor_flash_read(0, sizeof(check_buf), check_buf);
+    nor_flash_read(0, sizeof(check_buf), (uint8_t *)check_buf);
     if (strncmp(check_buf, update_flag, sizeof(update_flag)) == 0) {
         printf("application will be updated\r\n");
         update_fw((uint32_t)check_buf[10]);
@@ -58,7 +58,7 @@ void check_update(void)
         printf("application is up to date\r\n");
         return;
     }
-    nor_flash_write(0, sizeof(check_buf), check_buf);
+    nor_flash_write(0, sizeof(check_buf), (uint8_t *)check_buf);
 }
 
 void jump_to_app(void)
@@ -96,8 +96,8 @@ void jump_to_app(void)
     SysTick->VAL  = 0;
 
     for (int i = 0; i < 128; i++) {
-        NVIC_DisableIRQ(i);
-        NVIC_ClearPendingIRQ(i);
+        NVIC_DisableIRQ((IRQn_Type)i);
+        NVIC_ClearPendingIRQ((IRQn_Type)i);
     }
 
     __set_CONTROL(0);
