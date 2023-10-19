@@ -190,6 +190,12 @@
             "path": "rt-thread/components/drivers/misc/pin.c"
           },
           {
+            "path": "rt-thread/components/drivers/pm/lptimer.c"
+          },
+          {
+            "path": "rt-thread/components/drivers/pm/pm.c"
+          },
+          {
             "path": "rt-thread/components/drivers/rtc/rtc.c"
           },
           {
@@ -230,6 +236,12 @@
           },
           {
             "path": "libraries/HAL_Drivers/drv_gpio.c"
+          },
+          {
+            "path": "libraries/HAL_Drivers/drv_lptim.c"
+          },
+          {
+            "path": "libraries/HAL_Drivers/drv_pm.c"
           },
           {
             "path": "libraries/HAL_Drivers/drv_spi.c"

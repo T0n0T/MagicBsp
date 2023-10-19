@@ -6,11 +6,11 @@
 
 /* RT-Thread Kernel */
 
-#define RT_NAME_MAX 8
+#define RT_NAME_MAX   8
 #define RT_ALIGN_SIZE 8
 #define RT_THREAD_PRIORITY_32
 #define RT_THREAD_PRIORITY_MAX 32
-#define RT_TICK_PER_SECOND 1000
+#define RT_TICK_PER_SECOND     1000
 #define RT_USING_OVERFLOW_CHECK
 #define RT_USING_HOOK
 #define RT_HOOK_USING_FUNC_PTR
@@ -46,9 +46,9 @@
 
 #define RT_USING_DEVICE
 #define RT_USING_CONSOLE
-#define RT_CONSOLEBUF_SIZE 128
+#define RT_CONSOLEBUF_SIZE     128
 #define RT_CONSOLE_DEVICE_NAME "uart1"
-#define RT_VER_NUM 0x50001
+#define RT_VER_NUM             0x50001
 #define RT_USING_HW_ATOMIC
 #define RT_USING_CPU_FFS
 #define ARCH_ARM
@@ -60,13 +60,13 @@
 #define RT_USING_COMPONENTS_INIT
 #define RT_USING_USER_MAIN
 #define RT_MAIN_THREAD_STACK_SIZE 2048
-#define RT_MAIN_THREAD_PRIORITY 10
+#define RT_MAIN_THREAD_PRIORITY   10
 #define RT_USING_LEGACY
 #define RT_USING_MSH
 #define RT_USING_FINSH
 #define FINSH_USING_MSH
-#define FINSH_THREAD_NAME "tshell"
-#define FINSH_THREAD_PRIORITY 20
+#define FINSH_THREAD_NAME       "tshell"
+#define FINSH_THREAD_PRIORITY   20
 #define FINSH_THREAD_STACK_SIZE 4096
 #define FINSH_USING_HISTORY
 #define FINSH_HISTORY_LINES 5
@@ -75,6 +75,7 @@
 #define MSH_USING_BUILT_IN_COMMANDS
 #define FINSH_USING_DESCRIPTION
 #define FINSH_ARG_MAX 10
+#define RT_USING_PM
 
 /* DFS: device virtual file system */
 
@@ -83,7 +84,7 @@
 #define DFS_USING_WORKDIR
 #define DFS_FD_MAX 16
 #define RT_USING_DFS_V1
-#define DFS_FILESYSTEMS_MAX 4
+#define DFS_FILESYSTEMS_MAX      4
 #define DFS_FILESYSTEM_TYPES_MAX 4
 #define RT_USING_DFS_ELMFAT
 
@@ -94,9 +95,9 @@
 #define RT_DFS_ELM_USE_LFN_3
 #define RT_DFS_ELM_USE_LFN 3
 #define RT_DFS_ELM_LFN_UNICODE_0
-#define RT_DFS_ELM_LFN_UNICODE 0
-#define RT_DFS_ELM_MAX_LFN 255
-#define RT_DFS_ELM_DRIVES 2
+#define RT_DFS_ELM_LFN_UNICODE     0
+#define RT_DFS_ELM_MAX_LFN         255
+#define RT_DFS_ELM_DRIVES          2
 #define RT_DFS_ELM_MAX_SECTOR_SIZE 4096
 #define RT_DFS_ELM_REENTRANT
 #define RT_DFS_ELM_MUTEX_TIMEOUT 3000
@@ -114,7 +115,7 @@
 #define RT_UNAMED_PIPE_NUMBER 64
 #define RT_USING_SYSTEM_WORKQUEUE
 #define RT_SYSTEM_WORKQUEUE_STACKSIZE 2048
-#define RT_SYSTEM_WORKQUEUE_PRIORITY 23
+#define RT_SYSTEM_WORKQUEUE_PRIORITY  23
 #define RT_USING_SERIAL
 #define RT_USING_SERIAL_V1
 #define RT_SERIAL_USING_DMA
@@ -130,7 +131,6 @@
 
 /* Using USB */
 
-
 /* C/C++ and POSIX layer */
 
 /* ISO-ANSI C layer */
@@ -139,8 +139,8 @@
 
 #define RT_LIBC_USING_LIGHT_TZ_DST
 #define RT_LIBC_TZ_DEFAULT_HOUR 8
-#define RT_LIBC_TZ_DEFAULT_MIN 0
-#define RT_LIBC_TZ_DEFAULT_SEC 0
+#define RT_LIBC_TZ_DEFAULT_MIN  0
+#define RT_LIBC_TZ_DEFAULT_SEC  0
 
 /* POSIX (Portable Operating System Interface) layer */
 
@@ -151,9 +151,7 @@
 
 /* Interprocess Communication (IPC) */
 
-
 /* Socket is in the 'Network' category */
-
 
 /* Network */
 
@@ -176,21 +174,18 @@
 #define AT_CLIENT_NUM_MAX 1
 #define AT_USING_SOCKET
 #define AT_USING_CLI
-#define AT_CMD_MAX_LEN 128
+#define AT_CMD_MAX_LEN    128
 #define AT_SW_VERSION_NUM 0x10301
 
 /* Utilities */
-
 
 /* RT-Thread online packages */
 
 /* IoT - internet of things */
 
-
 /* Wi-Fi */
 
 /* Marvell WiFi */
-
 
 /* Wiced WiFi */
 
@@ -199,10 +194,10 @@
 #define PKG_NETUTILS_NTP
 #define NTP_USING_AUTO_SYNC
 #define NTP_AUTO_SYNC_FIRST_DELAY 30
-#define NTP_AUTO_SYNC_PERIOD 3600
-#define NETUTILS_NTP_HOSTNAME "cn.ntp.org.cn"
-#define NETUTILS_NTP_HOSTNAME2 "ntp.rt-thread.org"
-#define NETUTILS_NTP_HOSTNAME3 "edu.ntp.org.cn"
+#define NTP_AUTO_SYNC_PERIOD      3600
+#define NETUTILS_NTP_HOSTNAME     "cn.ntp.org.cn"
+#define NETUTILS_NTP_HOSTNAME2    "ntp.rt-thread.org"
+#define NETUTILS_NTP_HOSTNAME3    "edu.ntp.org.cn"
 #define PKG_USING_NETUTILS_LATEST_VERSION
 #define PKG_NETUTILS_VER_NUM 0x99999
 #define PKG_USING_AT_DEVICE
@@ -210,34 +205,28 @@
 #define AT_DEVICE_ESP8266_INIT_ASYN
 #define AT_DEVICE_ESP8266_SOCKET
 #define AT_DEVICE_ESP8266_SAMPLE
-#define ESP8266_SAMPLE_WIFI_SSID "APX"
+#define ESP8266_SAMPLE_WIFI_SSID     "APX"
 #define ESP8266_SAMPLE_WIFI_PASSWORD "12345678"
-#define ESP8266_SAMPLE_CLIENT_NAME "uart4"
+#define ESP8266_SAMPLE_CLIENT_NAME   "uart4"
 #define ESP8266_SAMPLE_RECV_BUFF_LEN 512
 #define PKG_USING_AT_DEVICE_LATEST_VERSION
 #define PKG_AT_DEVICE_VER_NUM 0x99999
 
 /* IoT Cloud */
 
-
 /* security packages */
-
 
 /* language packages */
 
 /* JSON: JavaScript Object Notation, a lightweight data-interchange format */
 
-
 /* XML: Extensible Markup Language */
-
 
 /* multimedia packages */
 
 /* LVGL: powerful and easy-to-use embedded GUI library */
 
-
 /* u8g2: a monochrome graphic library */
-
 
 /* tools packages */
 
@@ -252,12 +241,9 @@
 
 /* enhanced kernel services */
 
-
 /* acceleration: Assembly language or algorithmic acceleration packages */
 
-
 /* CMSIS: ARM Cortex-M Microcontroller Software Interface Standard */
-
 
 /* Micrium: Micrium software products porting for RT-Thread */
 
@@ -274,18 +260,13 @@
 
 /* sensors drivers */
 
-
 /* touch drivers */
-
 
 /* Kendryte SDK */
 
-
 /* AI packages */
 
-
 /* Signal Processing and Control Algorithm Packages */
-
 
 /* miscellaneous packages */
 
@@ -293,41 +274,29 @@
 
 /* samples: kernel and components samples */
 
-
 /* entertainment: terminal games and other interesting software packages */
-
 
 /* Arduino libraries */
 
-
 /* Projects and Demos */
-
 
 /* Sensors */
 
-
 /* Display */
-
 
 /* Timing */
 
-
 /* Data Processing */
-
 
 /* Data Storage */
 
 /* Communication */
 
-
 /* Device Control */
-
 
 /* Other */
 
-
 /* Signal IO */
-
 
 /* Uncategorized */
 
@@ -353,6 +322,5 @@
 #define BSP_USING_SPI1
 
 /* Board extended module Drivers */
-
 
 #endif
