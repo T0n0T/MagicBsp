@@ -10,6 +10,7 @@
  * 2021-02-12     lizhirui     add 64-bit support for lwp_brk
  * 2021-02-19     lizhirui     add riscv64 support for lwp_user_accessable and lwp_get_from_user
  * 2021-06-07     lizhirui     modify user space bound check
+ * 2022-12-25     wangxiaoyao  adapt to new mm
  */
 
 #include <rtthread.h>
@@ -29,6 +30,10 @@
 #include <mm_page.h>
 #include <mmu.h>
 #include <page.h>
+
+#ifdef RT_USING_MUSLLIBC
+#include "libc_musl.h"
+#endif
 
 #define DBG_TAG "LwP"
 #define DBG_LVL DBG_LOG
@@ -122,7 +127,7 @@ static void _user_do_page_fault(struct rt_varea *varea,
 
     if (lwp_objs->source)
     {
-        void *paddr = rt_hw_mmu_v2p(lwp_objs->source, msg->fault_vaddr);
+        char *paddr = rt_hw_mmu_v2p(lwp_objs->source, msg->fault_vaddr);
         if (paddr != ARCH_MAP_FAILED)
         {
             void *vaddr;
@@ -130,7 +135,7 @@ static void _user_do_page_fault(struct rt_varea *varea,
 
             if (!(varea->flag & MMF_TEXT))
             {
-                void *cp = rt_pages_alloc(0);
+                void *cp = rt_pages_alloc_ext(0, PAGE_ANY_AVAILABLE);
                 if (cp)
                 {
                     memcpy(cp, vaddr, ARCH_PAGE_SIZE);
@@ -220,9 +225,9 @@ int lwp_unmap_user(struct rt_lwp *lwp, void *va)
 static void _dup_varea(rt_varea_t varea, struct rt_lwp *src_lwp,
                        rt_aspace_t dst)
 {
-    void *vaddr = varea->start;
-    void *vend = vaddr + varea->size;
-    if (vaddr < (void *)USER_STACK_VSTART || vaddr >= (void *)USER_STACK_VEND)
+    char *vaddr = varea->start;
+    char *vend = vaddr + varea->size;
+    if (vaddr < (char *)USER_STACK_VSTART || vaddr >= (char *)USER_STACK_VEND)
     {
         while (vaddr != vend)
         {
@@ -430,7 +435,7 @@ void *lwp_map_user_phy(struct rt_lwp *lwp, void *map_va, void *map_pa,
                        size_t map_size, int cached)
 {
     int err;
-    void *va;
+    char *va;
     size_t offset = 0;
 
     if (!map_size)
@@ -458,7 +463,7 @@ void *lwp_map_user_phy(struct rt_lwp *lwp, void *map_va, void *map_pa,
     rt_size_t attr = cached ? MMU_MAP_U_RWCB : MMU_MAP_U_RW;
 
     err =
-        rt_aspace_map_phy(lwp->aspace, &hint, attr, MM_PA_TO_OFF(map_pa), &va);
+        rt_aspace_map_phy(lwp->aspace, &hint, attr, MM_PA_TO_OFF(map_pa), (void **)&va);
     if (err != RT_EOK)
     {
         va = RT_NULL;
@@ -504,8 +509,6 @@ rt_base_t lwp_brk(void *addr)
     rt_mm_unlock();
     return ret;
 }
-
-#define MAP_ANONYMOUS 0x20
 
 void *lwp_mmap2(void *addr, size_t length, int prot, int flags, int fd,
                 off_t pgoffset)
@@ -621,11 +624,10 @@ size_t lwp_put_to_user(void *dst, void *src, size_t size)
     return lwp_data_put(lwp, dst, src, size);
 }
 
-int lwp_user_accessable(void *addr, size_t size)
+int lwp_user_accessible_ext(struct rt_lwp *lwp, void *addr, size_t size)
 {
     void *addr_start = RT_NULL, *addr_end = RT_NULL, *next_page = RT_NULL;
     void *tmp_addr = RT_NULL;
-    struct rt_lwp *lwp = lwp_self();
 
     if (!lwp)
     {
@@ -668,7 +670,15 @@ int lwp_user_accessable(void *addr, size_t size)
         if (tmp_addr == ARCH_MAP_FAILED)
         {
             if ((rt_ubase_t)addr_start >= USER_STACK_VSTART && (rt_ubase_t)addr_start < USER_STACK_VEND)
-                tmp_addr = *(void **)addr_start;
+            {
+                struct rt_aspace_fault_msg msg = {
+                    .fault_op = MM_FAULT_OP_WRITE,
+                    .fault_type = MM_FAULT_TYPE_PAGE_FAULT,
+                    .fault_vaddr = addr_start,
+                };
+                if (!rt_aspace_fault_try_fix(lwp->aspace, &msg))
+                    return 0;
+            }
             else
                 return 0;
         }
@@ -677,6 +687,11 @@ int lwp_user_accessable(void *addr, size_t size)
         next_page = (void *)((char *)next_page + ARCH_PAGE_SIZE);
     } while (addr_start < addr_end);
     return 1;
+}
+
+int lwp_user_accessable(void *addr, size_t size)
+{
+    return lwp_user_accessible_ext(lwp_self(), addr, size);
 }
 
 /* src is in mmu_info space, dst is in current thread space */

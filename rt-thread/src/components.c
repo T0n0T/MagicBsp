@@ -22,10 +22,10 @@
 
 #ifdef RT_USING_USER_MAIN
 #ifndef RT_MAIN_THREAD_STACK_SIZE
-#define RT_MAIN_THREAD_STACK_SIZE 2048
+#define RT_MAIN_THREAD_STACK_SIZE     2048
 #endif /* RT_MAIN_THREAD_STACK_SIZE */
 #ifndef RT_MAIN_THREAD_PRIORITY
-#define RT_MAIN_THREAD_PRIORITY (RT_THREAD_PRIORITY_MAX / 3)
+#define RT_MAIN_THREAD_PRIORITY       (RT_THREAD_PRIORITY_MAX / 3)
 #endif /* RT_MAIN_THREAD_PRIORITY */
 #endif /* RT_USING_USER_MAIN */
 
@@ -84,10 +84,11 @@ INIT_EXPORT(rti_end, "6.end");
  */
 void rt_components_board_init(void)
 {
-#if RT_DEBUG_INIT
+#ifdef RT_DEBUGING_INIT
     int result;
     const struct rt_init_desc *desc;
-    for (desc = &__rt_init_desc_rti_board_start; desc < &__rt_init_desc_rti_board_end; desc++) {
+    for (desc = &__rt_init_desc_rti_board_start; desc < &__rt_init_desc_rti_board_end; desc ++)
+    {
         rt_kprintf("initialize %s", desc->fn_name);
         result = desc->fn();
         rt_kprintf(":%d done\n", result);
@@ -95,10 +96,11 @@ void rt_components_board_init(void)
 #else
     volatile const init_fn_t *fn_ptr;
 
-    for (fn_ptr = &__rt_init_rti_board_start; fn_ptr < &__rt_init_rti_board_end; fn_ptr++) {
+    for (fn_ptr = &__rt_init_rti_board_start; fn_ptr < &__rt_init_rti_board_end; fn_ptr++)
+    {
         (*fn_ptr)();
     }
-#endif /* RT_DEBUG_INIT */
+#endif /* RT_DEBUGING_INIT */
 }
 
 /**
@@ -106,12 +108,13 @@ void rt_components_board_init(void)
  */
 void rt_components_init(void)
 {
-#if RT_DEBUG_INIT
+#ifdef RT_DEBUGING_INIT
     int result;
     const struct rt_init_desc *desc;
 
     rt_kprintf("do components initialization.\n");
-    for (desc = &__rt_init_desc_rti_board_end; desc < &__rt_init_desc_rti_end; desc++) {
+    for (desc = &__rt_init_desc_rti_board_end; desc < &__rt_init_desc_rti_end; desc ++)
+    {
         rt_kprintf("initialize %s", desc->fn_name);
         result = desc->fn();
         rt_kprintf(":%d done\n", result);
@@ -119,10 +122,11 @@ void rt_components_init(void)
 #else
     volatile const init_fn_t *fn_ptr;
 
-    for (fn_ptr = &__rt_init_rti_board_end; fn_ptr < &__rt_init_rti_end; fn_ptr++) {
+    for (fn_ptr = &__rt_init_rti_board_end; fn_ptr < &__rt_init_rti_end; fn_ptr ++)
+    {
         (*fn_ptr)();
     }
-#endif /* RT_DEBUG_INIT */
+#endif /* RT_DEBUGING_INIT */
 }
 #endif /* RT_USING_COMPONENTS_INIT */
 
@@ -150,7 +154,7 @@ int __low_level_init(void)
     rtthread_startup();
     return 0;
 }
-#elif defined(__GNUC__)
+#elif defined(__GNUC__)l
 /* Add -eentry to arm-none-eabi-gcc argument */
 int entry(void)
 {
@@ -161,7 +165,8 @@ int entry(void)
 
 #ifndef RT_USING_HEAP
 /* if there is not enable heap, we should use static thread and stack. */
-rt_align(RT_ALIGN_SIZE) static rt_uint8_t main_thread_stack[RT_MAIN_THREAD_STACK_SIZE];
+rt_align(RT_ALIGN_SIZE)
+static rt_uint8_t main_thread_stack[RT_MAIN_THREAD_STACK_SIZE];
 struct rt_thread main_thread;
 #endif /* RT_USING_HEAP */
 
@@ -169,6 +174,8 @@ struct rt_thread main_thread;
  * @brief  The system main thread. In this thread will call the rt_components_init()
  *         for initialization of RT-Thread Components and call the user's programming
  *         entry main().
+ *
+ * @param  parameter is the arg of the thread.
  */
 void main_thread_entry(void *parameter)
 {
@@ -208,7 +215,7 @@ void rt_application_init(void)
 #else
     rt_err_t result;
 
-    tid    = &main_thread;
+    tid = &main_thread;
     result = rt_thread_init(tid, "main", main_thread_entry, RT_NULL,
                             main_thread_stack, sizeof(main_thread_stack), RT_MAIN_THREAD_PRIORITY, 20);
     RT_ASSERT(result == RT_EOK);
@@ -223,6 +230,8 @@ void rt_application_init(void)
 /**
  * @brief  This function will call all levels of initialization functions to complete
  *         the initialization of the system, and finally start the scheduler.
+ *
+ * @return Normally never returns. If 0 is returned, the scheduler failed.
  */
 int rtthread_startup(void)
 {

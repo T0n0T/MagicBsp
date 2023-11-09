@@ -13,10 +13,55 @@
         "name": "Applications",
         "files": [
           {
+            "path": "applications/file_rtt.c"
+          },
+          {
             "path": "applications/main.c"
           },
           {
+            "path": "applications/rand_rtt.c"
+          },
+          {
             "path": "applications/sm2_demo.c"
+          },
+          {
+            "path": "applications/tls_test.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "AT",
+        "files": [
+          {
+            "path": "rt-thread/components/net/at/src/at_utils.c"
+          },
+          {
+            "path": "rt-thread/components/net/at/src/at_cli.c"
+          },
+          {
+            "path": "rt-thread/components/net/at/at_socket/at_socket.c"
+          },
+          {
+            "path": "rt-thread/components/net/at/src/at_client.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "at_device",
+        "files": [
+          {
+            "path": "packages/at_device-latest/src/at_device.c"
+          },
+          {
+            "path": "packages/at_device-latest/class/esp8266/at_device_esp8266.c"
+          },
+          {
+            "path": "packages/at_device-latest/samples/at_sample_esp8266.c"
+          },
+          {
+            "path": "packages/at_device-latest/class/esp8266/at_socket_esp8266.c"
           }
         ],
         "folders": []
@@ -28,10 +73,10 @@
             "path": "CmBacktrace-v1.4.1/cm_backtrace.c"
           },
           {
-            "path": "CmBacktrace-v1.4.1/cmb_flash_log.c"
+            "path": "CmBacktrace-v1.4.1/cmb_port.c"
           },
           {
-            "path": "CmBacktrace-v1.4.1/cmb_port.c"
+            "path": "CmBacktrace-v1.4.1/cmb_flash_log.c"
           }
         ],
         "folders": []
@@ -49,9 +94,6 @@
             "path": "rt-thread/components/libc/compilers/common/cctype.c"
           },
           {
-            "path": "rt-thread/components/libc/compilers/common/cstdio.c"
-          },
-          {
             "path": "rt-thread/components/libc/compilers/common/cstdlib.c"
           },
           {
@@ -59,6 +101,9 @@
           },
           {
             "path": "rt-thread/components/libc/compilers/common/ctime.c"
+          },
+          {
+            "path": "rt-thread/components/libc/compilers/common/cunistd.c"
           },
           {
             "path": "rt-thread/components/libc/compilers/common/cwchar.c"
@@ -91,6 +136,9 @@
         "name": "DeviceDrivers",
         "files": [
           {
+            "path": "rt-thread/components/drivers/core/device.c"
+          },
+          {
             "path": "rt-thread/components/drivers/hwtimer/hwtimer.c"
           },
           {
@@ -118,6 +166,9 @@
             "path": "rt-thread/components/drivers/misc/pin.c"
           },
           {
+            "path": "rt-thread/components/drivers/rtc/rtc.c"
+          },
+          {
             "path": "rt-thread/components/drivers/serial/serial.c"
           },
           {
@@ -136,10 +187,13 @@
         "name": "Drivers",
         "files": [
           {
+            "path": "board/CubeMX_Config/Src/stm32f1xx_hal_msp.c"
+          },
+          {
             "path": "board/board.c"
           },
           {
-            "path": "board/CubeMX_Config/Src/stm32f1xx_hal_msp.c"
+            "path": "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f103xe.s"
           },
           {
             "path": "libraries/HAL_Drivers/drv_common.c"
@@ -155,9 +209,36 @@
           },
           {
             "path": "libraries/HAL_Drivers/drv_usart.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Filesystem",
+        "files": [
+          {
+            "path": "rt-thread/components/dfs/dfs_v1/filesystems/devfs/devfs.c"
           },
           {
-            "path": "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f103xe.s"
+            "path": "rt-thread/components/dfs/dfs_v1/filesystems/elmfat/dfs_elm.c"
+          },
+          {
+            "path": "rt-thread/components/dfs/dfs_v1/filesystems/elmfat/ff.c"
+          },
+          {
+            "path": "rt-thread/components/dfs/dfs_v1/filesystems/elmfat/ffunicode.c"
+          },
+          {
+            "path": "rt-thread/components/dfs/dfs_v1/src/dfs.c"
+          },
+          {
+            "path": "rt-thread/components/dfs/dfs_v1/src/dfs_file.c"
+          },
+          {
+            "path": "rt-thread/components/dfs/dfs_v1/src/dfs_fs.c"
+          },
+          {
+            "path": "rt-thread/components/dfs/dfs_v1/src/dfs_posix.c"
           }
         ],
         "folders": []
@@ -176,16 +257,16 @@
           },
           {
             "path": "rt-thread/components/finsh/cmd.c"
+          },
+          {
+            "path": "rt-thread/components/finsh/msh_file.c"
           }
         ],
         "folders": []
       },
       {
-        "name": "gmssl",
+        "name": "GmSSL",
         "files": [
-          {
-            "path": "applications/rand_rtt.c"
-          },
           {
             "path": "gmssl/src/aead.c"
           },
@@ -227,9 +308,6 @@
           },
           {
             "path": "gmssl/src/gcm.c"
-          },
-          {
-            "path": "gmssl/src/gf128_avx.c"
           },
           {
             "path": "gmssl/src/gf128.c"
@@ -313,19 +391,10 @@
             "path": "gmssl/src/sm3_rng.c"
           },
           {
-            "path": "gmssl/src/sm3_x8_avx2.c"
-          },
-          {
             "path": "gmssl/src/sm3.c"
           },
           {
-            "path": "gmssl/src/sm4_aesni_avx.c"
-          },
-          {
             "path": "gmssl/src/sm4_cbc_mac.c"
-          },
-          {
-            "path": "gmssl/src/sm4_cl.c"
           },
           {
             "path": "gmssl/src/sm4_common.c"
@@ -412,9 +481,6 @@
             "path": "rt-thread/src/components.c"
           },
           {
-            "path": "rt-thread/src/device.c"
-          },
-          {
             "path": "rt-thread/src/idle.c"
           },
           {
@@ -448,6 +514,21 @@
         "folders": []
       },
       {
+        "name": "ktime",
+        "files": [
+          {
+            "path": "rt-thread/components/ktime/src/cputimer.c"
+          },
+          {
+            "path": "rt-thread/components/ktime/src/hrtimer.c"
+          },
+          {
+            "path": "rt-thread/components/ktime/src/boottime.c"
+          }
+        ],
+        "folders": []
+      },
+      {
         "name": "Legacy",
         "files": [
           {
@@ -460,37 +541,31 @@
         "name": "Libraries",
         "files": [
           {
-            "path": "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Source/Templates/system_stm32f1xx.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c"
           },
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cec.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_spi.c"
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c"
           },
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_crc.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c"
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c"
           },
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c"
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c"
           },
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c"
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c"
@@ -499,16 +574,76 @@
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c"
           },
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c"
           },
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_usart.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_crc.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Source/Templates/system_stm32f1xx.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c"
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c"
           },
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_spi.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cec.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_usart.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "POSIX",
+        "files": [
+          {
+            "path": "rt-thread/components/libc/posix/delay/delay.c"
+          },
+          {
+            "path": "rt-thread/components/libc/posix/io/stdio/stdio.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "SAL",
+        "files": [
+          {
+            "path": "rt-thread/components/net/netdev/src/netdev.c"
+          },
+          {
+            "path": "rt-thread/components/net/netdev/src/netdev_ipaddr.c"
+          },
+          {
+            "path": "rt-thread/components/net/sal/dfs_net/dfs_net.c"
+          },
+          {
+            "path": "rt-thread/components/net/sal/impl/af_inet_at.c"
+          },
+          {
+            "path": "rt-thread/components/net/sal/socket/net_netdb.c"
+          },
+          {
+            "path": "rt-thread/components/net/sal/socket/net_sockets.c"
+          },
+          {
+            "path": "rt-thread/components/net/sal/src/sal_socket.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "xpt2046_touch",
+        "files": [
+          {
+            "path": "packages/xpt2046-latest/drv_xpt2046.c"
           }
         ],
         "folders": []
@@ -524,23 +659,8 @@
   "targets": {
     "rt-thread": {
       "excludeList": [
-        "<virtual_root>/gmssl/sm4_cl.c",
-        "<virtual_root>/gmssl/sm4_aesni_avx.c",
-        "<virtual_root>/gmssl/sm3_x8_avx2.c",
-        "<virtual_root>/gmssl/socket.c",
-        "<virtual_root>/gmssl/gf128_avx.c",
-        "<virtual_root>/gmssl/tlcp.c",
-        "<virtual_root>/gmssl/tls_ext.c",
-        "<virtual_root>/gmssl/tls_trace.c",
-        "<virtual_root>/gmssl/tls.c",
-        "<virtual_root>/gmssl/tls12.c",
-        "<virtual_root>/gmssl/tls13.c",
-        "<virtual_root>/gmssl/http_win.c",
-        "<virtual_root>/gmssl/http.c",
-        "<virtual_root>/gmssl/file.c",
-        "<virtual_root>/gmssl/x509_new.c",
-        "<virtual_root>/sm4",
-        "<virtual_root>/miracl"
+        "<virtual_root>/xpt2046_touch",
+        "<virtual_root>/GmSSL/file.c"
       ],
       "toolchain": "AC5",
       "compileConfig": {
@@ -673,37 +793,53 @@
         "name": "default",
         "incList": [
           "board",
+          "rt-thread/components/drivers/include",
+          "rt-thread/components/net/netdev/include",
+          "rt-thread/components/libc/posix/delay",
+          "rt-thread/components/libc/posix/io/eventfd",
           "libraries/HAL_Drivers/CMSIS/Include",
+          "rt-thread/components/net/sal/include/socket/sys_socket",
           "rt-thread/libcpu/arm/cortex-m3",
           "rt-thread/components/legacy",
+          "rt-thread/components/ktime",
           "rt-thread/include",
           "rt-thread/components/libc/posix/io/poll",
-          "rt-thread/components/drivers/include",
           "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Include",
           "board/CubeMX_Config/Inc",
+          "rt-thread/components/net/at/at_socket",
+          "rt-thread/components/net/sal/include",
+          "rt-thread/components/dfs/dfs_v1/filesystems/devfs",
+          "rt-thread/components/net/at/include",
           "rt-thread/components/libc/compilers/common/extension",
           "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Inc",
+          "rt-thread/components/net/sal/impl",
+          "rt-thread/components/legacy/dfs",
+          "packages/xpt2046-latest",
           "libraries/HAL_Drivers",
+          "rt-thread/components/net/sal/include/socket",
           "rt-thread/components/libc/posix/io/stdio",
           "rt-thread/components/drivers/spi",
           "rt-thread/components/libc/compilers/common/include",
+          "rt-thread/components/libc/posix/io/epoll",
           "applications",
           ".",
+          "rt-thread/components/ktime/inc",
           "rt-thread/components/libc/posix/ipc",
           "rt-thread/components/finsh",
+          "rt-thread/components/dfs/dfs_v1/filesystems/elmfat",
           "libraries/HAL_Drivers/config",
+          "rt-thread/components/dfs/dfs_v1/include",
+          "packages/at_device-latest/inc",
           "rt-thread/components/drivers/touch",
+          "rt-thread/components/net/sal/include/dfs_net",
           "CmBacktrace-v1.4.1",
+          "packages/at_device-latest/class/esp8266",
           "rt-thread/libcpu/arm/common",
           "rt-thread/components/libc/compilers/common/extension/fcntl/octal",
           "RTE/_rt-thread",
-          "miracl-bin",
-          "sm4",
           "gmssl/include"
         ],
-        "libList": [
-          "miracl-bin"
-        ],
+        "libList": [],
         "sourceDirList": [],
         "defineList": [
           "__STDC_LIMIT_MACROS",
@@ -712,8 +848,7 @@
           "USE_HAL_DRIVER",
           "RT_USING_LIBC",
           "__CLK_TCK=RT_TICK_PER_SECOND",
-          "__RTTHREAD__",
-          "USER_VECT_TAB_ADDRESS"
+          "__RTTHREAD__"
         ]
       }
     }
