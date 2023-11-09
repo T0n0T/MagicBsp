@@ -14,6 +14,9 @@
         "files": [
           {
             "path": "applications/main.c"
+          },
+          {
+            "path": "applications/sm2_demo.c"
           }
         ],
         "folders": []
@@ -178,6 +181,228 @@
         "folders": []
       },
       {
+        "name": "gmssl",
+        "files": [
+          {
+            "path": "applications/rand_rtt.c"
+          },
+          {
+            "path": "gmssl/src/aead.c"
+          },
+          {
+            "path": "gmssl/src/aes_modes.c"
+          },
+          {
+            "path": "gmssl/src/aes.c"
+          },
+          {
+            "path": "gmssl/src/asn1.c"
+          },
+          {
+            "path": "gmssl/src/base64.c"
+          },
+          {
+            "path": "gmssl/src/block_cipher.c"
+          },
+          {
+            "path": "gmssl/src/chacha20.c"
+          },
+          {
+            "path": "gmssl/src/cms.c"
+          },
+          {
+            "path": "gmssl/src/debug.c"
+          },
+          {
+            "path": "gmssl/src/des.c"
+          },
+          {
+            "path": "gmssl/src/digest.c"
+          },
+          {
+            "path": "gmssl/src/ec.c"
+          },
+          {
+            "path": "gmssl/src/file.c"
+          },
+          {
+            "path": "gmssl/src/gcm.c"
+          },
+          {
+            "path": "gmssl/src/gf128_avx.c"
+          },
+          {
+            "path": "gmssl/src/gf128.c"
+          },
+          {
+            "path": "gmssl/src/hash_drbg.c"
+          },
+          {
+            "path": "gmssl/src/hex.c"
+          },
+          {
+            "path": "gmssl/src/hkdf.c"
+          },
+          {
+            "path": "gmssl/src/hmac.c"
+          },
+          {
+            "path": "gmssl/src/http.c"
+          },
+          {
+            "path": "gmssl/src/md5.c"
+          },
+          {
+            "path": "gmssl/src/pbkdf2.c"
+          },
+          {
+            "path": "gmssl/src/pem.c"
+          },
+          {
+            "path": "gmssl/src/pkcs8.c"
+          },
+          {
+            "path": "gmssl/src/rc4.c"
+          },
+          {
+            "path": "gmssl/src/rsa.c"
+          },
+          {
+            "path": "gmssl/src/sha1.c"
+          },
+          {
+            "path": "gmssl/src/sha256.c"
+          },
+          {
+            "path": "gmssl/src/sha512.c"
+          },
+          {
+            "path": "gmssl/src/sm2_alg.c"
+          },
+          {
+            "path": "gmssl/src/sm2_blind.c"
+          },
+          {
+            "path": "gmssl/src/sm2_commit.c"
+          },
+          {
+            "path": "gmssl/src/sm2_elgamal.c"
+          },
+          {
+            "path": "gmssl/src/sm2_key_share.c"
+          },
+          {
+            "path": "gmssl/src/sm2_key.c"
+          },
+          {
+            "path": "gmssl/src/sm2_lib.c"
+          },
+          {
+            "path": "gmssl/src/sm2_recover.c"
+          },
+          {
+            "path": "gmssl/src/sm2_ring.c"
+          },
+          {
+            "path": "gmssl/src/sm3_hmac.c"
+          },
+          {
+            "path": "gmssl/src/sm3_kdf.c"
+          },
+          {
+            "path": "gmssl/src/sm3_rng.c"
+          },
+          {
+            "path": "gmssl/src/sm3_x8_avx2.c"
+          },
+          {
+            "path": "gmssl/src/sm3.c"
+          },
+          {
+            "path": "gmssl/src/sm4_aesni_avx.c"
+          },
+          {
+            "path": "gmssl/src/sm4_cbc_mac.c"
+          },
+          {
+            "path": "gmssl/src/sm4_cl.c"
+          },
+          {
+            "path": "gmssl/src/sm4_common.c"
+          },
+          {
+            "path": "gmssl/src/sm4_enc.c"
+          },
+          {
+            "path": "gmssl/src/sm4_modes.c"
+          },
+          {
+            "path": "gmssl/src/sm4_rng.c"
+          },
+          {
+            "path": "gmssl/src/sm4_setkey.c"
+          },
+          {
+            "path": "gmssl/src/sm9_alg.c"
+          },
+          {
+            "path": "gmssl/src/sm9_key.c"
+          },
+          {
+            "path": "gmssl/src/sm9_lib.c"
+          },
+          {
+            "path": "gmssl/src/socket.c"
+          },
+          {
+            "path": "gmssl/src/tlcp.c"
+          },
+          {
+            "path": "gmssl/src/tls_ext.c"
+          },
+          {
+            "path": "gmssl/src/tls_trace.c"
+          },
+          {
+            "path": "gmssl/src/tls.c"
+          },
+          {
+            "path": "gmssl/src/tls12.c"
+          },
+          {
+            "path": "gmssl/src/tls13.c"
+          },
+          {
+            "path": "gmssl/src/version.c"
+          },
+          {
+            "path": "gmssl/src/x509_alg.c"
+          },
+          {
+            "path": "gmssl/src/x509_cer.c"
+          },
+          {
+            "path": "gmssl/src/x509_crl.c"
+          },
+          {
+            "path": "gmssl/src/x509_ext.c"
+          },
+          {
+            "path": "gmssl/src/x509_new.c"
+          },
+          {
+            "path": "gmssl/src/x509_req.c"
+          },
+          {
+            "path": "gmssl/src/zuc_modes.c"
+          },
+          {
+            "path": "gmssl/src/zuc.c"
+          }
+        ],
+        "folders": []
+      },
+      {
         "name": "Kernel",
         "files": [
           {
@@ -299,7 +524,23 @@
   "targets": {
     "rt-thread": {
       "excludeList": [
-        "<virtual_root>/cm_backtrace"
+        "<virtual_root>/gmssl/sm4_cl.c",
+        "<virtual_root>/gmssl/sm4_aesni_avx.c",
+        "<virtual_root>/gmssl/sm3_x8_avx2.c",
+        "<virtual_root>/gmssl/socket.c",
+        "<virtual_root>/gmssl/gf128_avx.c",
+        "<virtual_root>/gmssl/tlcp.c",
+        "<virtual_root>/gmssl/tls_ext.c",
+        "<virtual_root>/gmssl/tls_trace.c",
+        "<virtual_root>/gmssl/tls.c",
+        "<virtual_root>/gmssl/tls12.c",
+        "<virtual_root>/gmssl/tls13.c",
+        "<virtual_root>/gmssl/http_win.c",
+        "<virtual_root>/gmssl/http.c",
+        "<virtual_root>/gmssl/file.c",
+        "<virtual_root>/gmssl/x509_new.c",
+        "<virtual_root>/sm4",
+        "<virtual_root>/miracl"
       ],
       "toolchain": "AC5",
       "compileConfig": {
@@ -395,8 +636,8 @@
               "tag": "IROM",
               "id": 1,
               "mem": {
-                "startAddr": "0x8003000",
-                "size": "0x3d000"
+                "startAddr": "0x8000000",
+                "size": "0x40000"
               },
               "isChecked": true,
               "isStartup": true
@@ -455,9 +696,14 @@
           "CmBacktrace-v1.4.1",
           "rt-thread/libcpu/arm/common",
           "rt-thread/components/libc/compilers/common/extension/fcntl/octal",
-          "RTE/_rt-thread"
+          "RTE/_rt-thread",
+          "miracl-bin",
+          "sm4",
+          "gmssl/include"
         ],
-        "libList": [],
+        "libList": [
+          "miracl-bin"
+        ],
         "sourceDirList": [],
         "defineList": [
           "__STDC_LIMIT_MACROS",
