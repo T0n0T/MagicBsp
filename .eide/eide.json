@@ -235,28 +235,37 @@
         "name": "Libraries",
         "files": [
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c"
+            "path": "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Source/Templates/system_stm32f1xx.c"
           },
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_spi.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cec.c"
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c"
           },
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_crc.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c"
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c"
           },
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c"
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c"
           },
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c"
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c"
@@ -265,25 +274,16 @@
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c"
           },
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_crc.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/CMSIS/Device/ST/STM32F1xx/Source/Templates/system_stm32f1xx.c"
-          },
-          {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c"
-          },
-          {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cec.c"
           },
           {
             "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_usart.c"
           },
           {
-            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c"
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c"
+          },
+          {
+            "path": "libraries/STM32F1xx_HAL/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_spi.c"
           }
         ],
         "folders": []
@@ -395,8 +395,8 @@
               "tag": "IROM",
               "id": 1,
               "mem": {
-                "startAddr": "0x8017000",
-                "size": "0x14800"
+                "startAddr": "0x8003000",
+                "size": "0x3d000"
               },
               "isChecked": true,
               "isStartup": true
@@ -425,7 +425,7 @@
         },
         "proType": 1,
         "speed": 8000,
-        "otherCmds": "ip 192.168.1.2"
+        "otherCmds": "ip 192.168.230.1"
       },
       "uploadConfigMap": {},
       "custom_dep": {
